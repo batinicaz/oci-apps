@@ -1,0 +1,22 @@
+name: Update Terraform Docs
+on:
+  push:
+    branches:
+      - "renovate/**"
+permissions:
+  contents: read
+jobs:
+  terraform-docs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+      - name: Run terraform-docs
+        uses: terraform-docs/gh-actions@v1
+        with:
+          output-method: inject
+          git-push: "true"
+          recursive: true
+          git-commit-message: "docs: update terraform docs following renovate patch"

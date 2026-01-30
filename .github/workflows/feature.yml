@@ -1,0 +1,26 @@
+name: Lint & Plan
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "**"
+      - "!main"
+permissions:
+  contents: read
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
+      - name: Run pre-commit
+        uses: batinicaz/gha/.github/actions/pre-commit@09617ad43f22783b403254c095e52251bc068b06 # ratchet:batinicaz/gha/.github/actions/pre-commit@v1.2.10
+  terraform:
+    uses: batinicaz/gha/.github/workflows/terraform-plan.yml@v1.2.10
+    permissions:
+      contents: read
+      id-token: write
+      pull-requests: write
+    with:
+      working_directory: "."
+    secrets:
+      INFISICAL_IDENTITY_ID: ${{ vars.INFISICAL_IDENTITY_ID }}
