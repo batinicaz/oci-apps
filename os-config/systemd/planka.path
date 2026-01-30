@@ -1,0 +1,11 @@
+[Unit]
+Description=Watch Planka for changes
+
+[Path]
+PathChanged=/opt/containers/planka/
+PathModified=/opt/secrets/planka.env
+PathModified=/opt/secrets/planka-postgres.env
+Unit=app-restart@planka.service
+
+[Install]
+WantedBy=multi-user.target

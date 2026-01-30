@@ -1,0 +1,6 @@
+[Unit]
+Description=Restart %i on secret change
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/systemctl restart %i.service

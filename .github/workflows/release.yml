@@ -8,11 +8,11 @@ permissions:
   contents: read
 jobs:
   deploy:
-    uses: batinicaz/gha/.github/workflows/terraform-apply.yml@v1.2.10
+    uses: batinicaz/gha/.github/workflows/terraform-apply.yml@4e51e7b056207a4e2b25fd43c38de121b51d350b # ratchet:batinicaz/gha/.github/workflows/terraform-apply.yml@v1.2.10
     permissions:
       contents: read
       id-token: write
     with:
-      working_directory: "."
+      working_directory: terraform
     secrets:
       INFISICAL_IDENTITY_ID: ${{ vars.INFISICAL_IDENTITY_ID }}

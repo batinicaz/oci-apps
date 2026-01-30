@@ -1,0 +1,16 @@
+[Unit]
+Description=Planka
+After=traefik.service infisical-agent.service autorestic-restore.service
+Wants=autorestic-restore.service
+ConditionPathExists=/opt/secrets/planka.env
+ConditionPathExists=/opt/secrets/planka-postgres.env
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/containers/planka
+ExecStart=/usr/bin/podman compose --env-file /opt/env/planka.env up -d
+ExecStop=/usr/bin/podman compose down
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

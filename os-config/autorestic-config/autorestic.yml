@@ -1,0 +1,28 @@
+version: 2
+
+backends:
+  oci:
+    type: rclone
+    path: oci-backup:${BUCKET_NAME}/backups/restic-repo
+
+global:
+  forget:
+    keep-daily: 7
+    keep-weekly: 4
+    keep-monthly: 3
+
+locations:
+  freshrss:
+    from: /opt/data/freshrss
+    to:
+      - oci
+    options:
+      backup:
+        exclude:
+          - "*.log"
+          - "*.tmp"
+
+  planka:
+    from: /opt/data/planka
+    to:
+      - oci

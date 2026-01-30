@@ -1,0 +1,22 @@
+<?php
+// Full-Text RSS custom config - overrides only
+// See: https://help.fivefilters.org/full-text-rss/configure.html
+
+// Version constant required by index.php
+define('_FF_FTR_VERSION', '3.9.13');
+
+if (!isset($options)) $options = new stdClass();
+
+// Require API key for access
+$options->key_required = true;
+
+// API key from Infisical
+{{- with secret "74834480-e1bb-4c53-81a1-ae3aaa9bd2de" "prod" "/fulltextrss" }}
+{{- range . }}
+$options->api_keys[1] = '{{ .Value }}';
+{{- end }}
+{{- end }}
+
+// Entries limit with API key
+$options->default_entries_with_key = 20;
+$options->max_entries_with_key = 100;

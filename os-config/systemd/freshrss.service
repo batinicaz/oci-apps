@@ -1,0 +1,16 @@
+[Unit]
+Description=FreshRSS
+After=traefik.service infisical-agent.service autorestic-restore.service ghcr-login.service
+Wants=autorestic-restore.service
+Requires=ghcr-login.service
+ConditionPathExists=/opt/secrets/freshrss.env
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/containers/freshrss
+ExecStart=/usr/bin/podman compose --env-file /opt/env/freshrss.env up -d
+ExecStop=/usr/bin/podman compose down
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

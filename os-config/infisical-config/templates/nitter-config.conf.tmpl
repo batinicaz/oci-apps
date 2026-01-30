@@ -1,0 +1,41 @@
+{{- $host := "" }}
+{{- $hmacKey := "" }}
+{{- with secret "74834480-e1bb-4c53-81a1-ae3aaa9bd2de" "prod" "/nitter" }}
+{{- range . }}
+{{- if eq .Key "HOST" }}{{- $host = .Value }}{{- end }}
+{{- if eq .Key "HMAC_KEY" }}{{- $hmacKey = .Value }}{{- end }}
+{{- end }}
+{{- end }}
+[Server]
+address = "0.0.0.0"
+port = 8080
+https = false
+httpMaxConnections = 100
+staticDir = "./public"
+title = "nitter"
+hostname = "{{ $host }}"
+
+[Cache]
+listMinutes = 240
+rssMinutes = 10
+redisHost = "valkey"
+redisPort = 6379
+redisMaxConnections = 30
+
+[Config]
+hmacKey = "{{ $hmacKey }}"
+base64Media = false
+enableRSS = true
+enableDebug = false
+proxy = ""
+proxyAuth = ""
+tokenCount = 10
+
+[Preferences]
+theme = "Nitter"
+replaceTwitter = "{{ $host }}"
+replaceYouTube = ""
+replaceReddit = ""
+proxyVideos = true
+hlsPlayback = false
+infiniteScroll = false

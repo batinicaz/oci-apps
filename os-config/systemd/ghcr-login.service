@@ -1,0 +1,13 @@
+[Unit]
+Description=Login to GHCR
+After=infisical-agent.service
+Requires=infisical-agent.service
+ConditionPathExists=/opt/secrets/ghcr-token
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/bash -c '/usr/bin/podman login ghcr.io -u batinicaz --password-stdin < /opt/secrets/ghcr-token'
+
+[Install]
+WantedBy=multi-user.target

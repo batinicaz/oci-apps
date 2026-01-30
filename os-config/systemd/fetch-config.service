@@ -1,0 +1,19 @@
+[Unit]
+Description=Fetch configuration from OCI bucket
+After=network-online.target first-boot.service tailscale-auth.service
+Wants=network-online.target
+Requires=first-boot.service
+Before=fetch-bootstrap-secrets.service
+ConditionPathExists=!/etc/fetch-config-complete
+
+[Service]
+Type=oneshot
+StandardOutput=journal+console
+StandardError=journal+console
+EnvironmentFile=/etc/bucket/config
+ExecStart=/opt/scripts/fetch-config.sh ${BUCKET_NAME} ${OCI_NAMESPACE}
+ExecStartPost=/usr/bin/touch /etc/fetch-config-complete
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

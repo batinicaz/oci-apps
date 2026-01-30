@@ -1,0 +1,10 @@
+[Unit]
+Description=Watch Redlib for changes
+
+[Path]
+PathChanged=/opt/containers/redlib/
+PathModified=/opt/secrets/redlib.env
+Unit=app-restart@redlib.service
+
+[Install]
+WantedBy=multi-user.target

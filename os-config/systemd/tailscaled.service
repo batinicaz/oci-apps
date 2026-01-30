@@ -1,0 +1,14 @@
+[Unit]
+Description=Tailscale Daemon
+After=network-online.target first-boot.service
+Wants=network-online.target
+
+[Service]
+StandardOutput=journal+console
+StandardError=journal+console
+ExecStart=/usr/local/bin/tailscaled --state=/var/lib/tailscale/tailscaled.state
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

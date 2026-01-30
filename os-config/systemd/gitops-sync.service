@@ -1,0 +1,9 @@
+[Unit]
+Description=GitOps sync
+After=network-online.target
+Wants=network-online.target
+ConditionPathExists=/opt/repo/oci-apps/.git
+
+[Service]
+Type=oneshot
+ExecStart=/opt/scripts/gitops-sync.sh

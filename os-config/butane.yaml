@@ -1,0 +1,156 @@
+variant: fcos
+version: 1.5.0
+
+storage:
+  directories:
+    - path: /opt/data
+      mode: 0755
+    - path: /opt/repo
+      mode: 0755
+    - path: /opt/env
+      mode: 0755
+    - path: /opt/scripts
+      mode: 0755
+    - path: /etc/oci-vault
+      mode: 0700
+    - path: /etc/rclone
+      mode: 0700
+    - path: /etc/bucket
+      mode: 0700
+    - path: /opt/secrets
+      mode: 0700
+  files:
+    - path: /etc/tmpfiles.d/oci-apps.conf
+      mode: 0644
+      contents:
+        inline: |
+          d /run/secrets 0755 root root -
+
+    - path: /etc/zincati/config.d/55-update-strategy.toml
+      mode: 0644
+      contents:
+        inline: |
+          [updates]
+          strategy = "periodic"
+
+          [[updates.periodic.window]]
+          days = [ "Sun" ]
+          start_time = "03:00"
+          length_minutes = 120
+
+    - path: /etc/oci-vault/config
+      mode: 0600
+      contents:
+        inline: |
+          VAULT_SECRET_ID_CLIENT_ID=${VAULT_SECRET_ID_CLIENT_ID}
+          VAULT_SECRET_ID_CLIENT_SECRET=${VAULT_SECRET_ID_CLIENT_SECRET}
+          VAULT_SECRET_ID_RESTIC_PASSWORD=${VAULT_SECRET_ID_RESTIC_PASSWORD}
+
+    - path: /etc/rclone/rclone.conf
+      mode: 0600
+      contents:
+        inline: |
+          [oci-backup]
+          type = oracleobjectstorage
+          provider = instance_principal_auth
+          namespace = ${OCI_NAMESPACE}
+          region = ${OCI_REGION}
+          no_check_bucket = true
+
+    - path: /etc/bucket/config
+      mode: 0600
+      contents:
+        inline: |
+          BUCKET_NAME=${BUCKET_NAME}
+          OCI_NAMESPACE=${OCI_NAMESPACE}
+
+    - path: /opt/scripts/first-boot.sh
+      mode: 0755
+      contents:
+        local: os-config/scripts/first-boot.sh
+
+    - path: /opt/scripts/fetch-config.sh
+      mode: 0755
+      contents:
+        local: os-config/scripts/fetch-config.sh
+
+    - path: /opt/scripts/fetch-bootstrap-secrets.sh
+      mode: 0755
+      contents:
+        local: os-config/scripts/fetch-bootstrap-secrets.sh
+
+    - path: /opt/scripts/gitops-sync.sh
+      mode: 0755
+      contents:
+        local: os-config/scripts/gitops-sync.sh
+
+    - path: /opt/env/freshrss.env
+      mode: 0644
+      contents:
+        inline: |
+          FRESHRSS_HOST=${FRESHRSS_HOST}
+          FULLTEXTRSS_HOST=${FULLTEXTRSS_HOST}
+
+    - path: /opt/env/planka.env
+      mode: 0644
+      contents:
+        inline: |
+          PLANKA_HOST=${PLANKA_HOST}
+
+    - path: /opt/env/nitter.env
+      mode: 0644
+      contents:
+        inline: |
+          NITTER_HOST=${NITTER_HOST}
+
+    - path: /opt/env/redlib.env
+      mode: 0644
+      contents:
+        inline: |
+          REDLIB_HOST=${REDLIB_HOST}
+
+systemd:
+  units:
+    - name: podman.socket
+      enabled: true
+
+    - name: first-boot.service
+      enabled: true
+      contents_local: os-config/systemd/first-boot.service
+
+    - name: tailscaled.service
+      enabled: true
+      contents_local: os-config/systemd/tailscaled.service
+
+    - name: tailscale-auth.service
+      enabled: true
+      contents: |
+        [Unit]
+        Description=Authenticate Tailscale (if not already authenticated)
+        After=network-online.target tailscaled.service
+        Wants=network-online.target
+        Requires=tailscaled.service
+
+        [Service]
+        Type=oneshot
+        StandardOutput=journal+console
+        StandardError=journal+console
+        ExecStart=/bin/bash -c '\
+          if /usr/local/bin/tailscale status --json 2>/dev/null | grep -q "\"BackendState\":\"Running\""; then \
+            echo "Tailscale already authenticated"; \
+          else \
+            echo "Authenticating Tailscale..."; \
+            /usr/local/bin/tailscale up --auth-key="${TAILSCALE_AUTH_KEY}" --ssh --accept-routes; \
+          fi'
+        RemainAfterExit=yes
+
+        [Install]
+        WantedBy=multi-user.target
+
+    - name: fetch-config.service
+      enabled: true
+      contents_local: os-config/systemd/fetch-config.service
+
+    - name: fetch-bootstrap-secrets.service
+      enabled: true
+      contents_local: os-config/systemd/fetch-bootstrap-secrets.service

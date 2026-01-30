@@ -1,0 +1,24 @@
+[Unit]
+Description=Autorestic Backup
+After=freshrss.service planka.service nitter.service redlib.service
+Wants=freshrss.service planka.service nitter.service redlib.service
+
+[Container]
+Image=docker.io/cupcakearmy/autorestic:1.8.3
+Exec=autorestic backup -a -v
+Network=host
+Volume=/etc/rclone/rclone.conf:/root/.config/rclone/rclone.conf:ro,Z
+Volume=/root/.config/autorestic/autorestic.yml:/root/.autorestic.yml:ro,Z
+Volume=/opt/data:/opt/data:z
+Volume=/opt/containers:/opt/containers:ro,Z
+Volume=/run/secrets/restic-password:/run/secrets/restic-password:ro,z
+Volume=/run/podman/podman.sock:/var/run/docker.sock:z
+Environment=AUTORESTIC_CONFIG=/root/.autorestic.yml
+Environment=RESTIC_PASSWORD_FILE=/run/secrets/restic-password
+EnvironmentFile=/etc/bucket/config
+
+[Service]
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target
