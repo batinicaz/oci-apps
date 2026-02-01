@@ -11,7 +11,7 @@ jobs:
   pre-commit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # ratchet:actions/checkout@v6.0.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - name: Run pre-commit
         uses: batinicaz/gha/.github/actions/pre-commit@4e51e7b056207a4e2b25fd43c38de121b51d350b # ratchet:batinicaz/gha/.github/actions/pre-commit@v1.2.10
   terraform:
