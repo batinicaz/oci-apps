@@ -1,0 +1,34 @@
+[Unit]
+Description=Autorestic Restore
+After=network-online.target fetch-bootstrap-secrets.service
+Wants=network-online.target
+Requires=fetch-bootstrap-secrets.service
+Before=freshrss.service planka.service nitter.service redlib.service
+
+[Container]
+Image=docker.io/cupcakearmy/autorestic:1.8.3
+Exec=sh -c '\
+  for loc in freshrss planka; do \
+    dir="/opt/data/$loc"; \
+    [ ! -d "$dir" ] || [ -z "$(ls -A "$dir" 2>/dev/null)" ] && autorestic restore -l "$loc" --to / --force; \
+  done; true'
+Network=host
+Volume=/etc/rclone/rclone.conf:/root/.config/rclone/rclone.conf:ro,Z
+Volume=/root/.config/autorestic/autorestic.yml:/root/.autorestic.yml:ro,Z
+Volume=/opt/data:/opt/data:z
+Volume=/run/secrets/restic-password:/run/secrets/restic-password:ro,z
+Environment=AUTORESTIC_CONFIG=/root/.autorestic.yml
+Environment=RESTIC_PASSWORD_FILE=/run/secrets/restic-password
+EnvironmentFile=/etc/bucket/config
+
+[Service]
+Type=oneshot
+ExecCondition=/bin/bash -c '\
+  for dir in /opt/data/freshrss /opt/data/planka; do \
+    [ ! -d "$dir" ] || [ -z "$(ls -A "$dir" 2>/dev/null)" ] && exit 0; \
+  done; \
+  exit 1'
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

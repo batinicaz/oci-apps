@@ -1,0 +1,37 @@
+services:
+  freshrss:
+    image: docker.io/freshrss/freshrss:1.28.1
+    restart: unless-stopped
+    volumes:
+      - /opt/data/freshrss/config:/var/www/FreshRSS/data:z
+    env_file:
+      - /opt/secrets/freshrss.env
+    environment:
+      TZ: Europe/London
+      CRON_MIN: 01,21,41
+      OIDC_ENABLED: 1
+      OIDC_X_FORWARDED_HEADERS: X-Forwarded-Host X-Forwarded-Port X-Forwarded-Proto
+      OIDC_REMOTE_USER_CLAIM: preferred_username
+      OIDC_SCOPES: openid email profile
+      FRESHRSS_INSTALL: |-
+        --api-enabled
+        --auth-type http_auth
+        --default-user ${USER}
+        --disable-update
+        --language en
+        --title FreshRSS
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.freshrss.rule=Host(`${FRESHRSS_HOST}`)"
+      - "traefik.http.services.freshrss.loadbalancer.server.port=80"
+
+  fulltextrss:
+    image: ghcr.io/batinicaz/fulltextrss:3.9.13
+    restart: unless-stopped
+    volumes:
+      - /opt/data/freshrss/fulltextrss-cache:/var/www/html/cache/rss:z
+      - /opt/secrets/fulltextrss-config.php:/var/www/html/config.php:ro,z
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.fulltextrss.rule=Host(`${FULLTEXTRSS_HOST}`)"
+      - "traefik.http.services.fulltextrss.loadbalancer.server.port=80"

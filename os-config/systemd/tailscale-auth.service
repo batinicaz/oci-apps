@@ -1,0 +1,22 @@
+[Unit]
+Description=Authenticate Tailscale (if not already authenticated)
+After=network-online.target tailscaled.service
+Wants=network-online.target
+Requires=tailscaled.service
+
+[Service]
+Type=oneshot
+StandardOutput=journal+console
+StandardError=journal+console
+EnvironmentFile=/etc/tailscale/auth
+ExecStart=/bin/bash -c '\
+  if /usr/local/bin/tailscale status --json 2>/dev/null | grep -q "\"BackendState\":\"Running\""; then \
+    echo "Tailscale already authenticated"; \
+  else \
+    echo "Authenticating Tailscale..."; \
+    /usr/local/bin/tailscale up --auth-key="${TAILSCALE_AUTH_KEY}" --ssh --accept-routes; \
+  fi'
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

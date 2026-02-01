@@ -1,0 +1,39 @@
+services:
+  planka:
+    image: ghcr.io/plankanban/planka:2.0.0-rc.4
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - /opt/data/planka/favicons:/app/public/favicons:z
+      - /opt/data/planka/avatars:/app/public/user-avatars:z
+      - /opt/data/planka/backgrounds:/app/public/background-images:z
+      - /opt/data/planka/attachments:/app/private/attachments:z
+    env_file:
+      - /opt/secrets/planka.env
+    environment:
+      - DEFAULT_LANGUAGE=en-GB
+      - TRUST_PROXY=true
+      - OIDC_NAME_ATTRIBUTE=given_name
+      - OIDC_IGNORE_ROLES=true
+      - OIDC_ENFORCED=true
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.planka.rule=Host(`${PLANKA_HOST}`)"
+      - "traefik.http.services.planka.loadbalancer.server.port=1337"
+
+  postgres:
+    image: public.ecr.aws/docker/library/postgres:17-alpine
+    restart: unless-stopped
+    volumes:
+      - /opt/data/planka/postgres:/var/lib/postgresql/data:z
+    env_file:
+      - /opt/secrets/planka-postgres.env
+    environment:
+      - POSTGRES_DB=planka
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d planka"]
+      interval: 10s
+      timeout: 5s
+      retries: 5

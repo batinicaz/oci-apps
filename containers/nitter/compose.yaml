@@ -1,0 +1,22 @@
+services:
+  nitter:
+    image: docker.io/zedeus/nitter:51b54852dcf617c6131376a469c537ab6b8326e3-arm64
+    restart: unless-stopped
+    depends_on:
+      - valkey
+    volumes:
+      - /opt/secrets/nitter.conf:/src/nitter.conf:ro,z
+      - /opt/secrets/nitter-sessions.jsonl:/src/sessions.jsonl:ro,z
+    environment:
+      - NITTER_CONF_FILE=/src/nitter.conf
+      - NITTER_SESSIONS_FILE=/src/sessions.jsonl
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nitter.rule=Host(`${NITTER_HOST}`)"
+      - "traefik.http.services.nitter.loadbalancer.server.port=8080"
+
+  valkey:
+    image: docker.io/valkey/valkey:9.0.1-alpine
+    restart: unless-stopped
+    volumes:
+      - /opt/data/nitter/valkey:/data:z

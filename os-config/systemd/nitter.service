@@ -1,0 +1,15 @@
+[Unit]
+Description=Nitter
+After=traefik.service infisical-agent.service
+ConditionPathExists=/opt/secrets/nitter.env
+ConditionPathExists=/opt/secrets/nitter-sessions.jsonl
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/containers/nitter
+ExecStart=/usr/bin/podman compose --env-file /opt/env/nitter.env up -d
+ExecStop=/usr/bin/podman compose down
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,21 @@
+[Unit]
+Description=Infisical Agent
+After=fetch-bootstrap-secrets.service
+Requires=fetch-bootstrap-secrets.service
+ConditionPathExists=/run/secrets/infisical-client-id
+ConditionPathExists=/run/secrets/infisical-client-secret
+
+[Container]
+Image=docker.io/infisical/cli:0.43.49
+Entrypoint=infisical
+Exec=agent --config /etc/infisical/agent-config.yaml
+Volume=/run/secrets/infisical-client-id:/run/secrets/client-id:ro,z
+Volume=/run/secrets/infisical-client-secret:/run/secrets/client-secret:ro,z
+Volume=/opt/secrets:/opt/secrets:z
+Volume=/root/.config/infisical:/etc/infisical:ro,Z
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

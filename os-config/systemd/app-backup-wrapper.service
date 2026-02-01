@@ -1,0 +1,18 @@
+[Unit]
+Description=App Backup Wrapper
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/containers
+
+ExecStartPre=/usr/bin/podman compose -f freshrss/compose.yaml stop
+ExecStartPre=/usr/bin/podman compose -f planka/compose.yaml stop
+
+ExecStart=/usr/bin/systemctl start autorestic-backup.service
+
+ExecStartPost=/usr/bin/podman compose -f freshrss/compose.yaml start
+ExecStartPost=/usr/bin/podman compose -f planka/compose.yaml start
+
+[Install]
+WantedBy=multi-user.target

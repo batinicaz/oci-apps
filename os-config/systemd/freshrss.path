@@ -1,0 +1,10 @@
+[Unit]
+Description=Watch FreshRSS for changes
+
+[Path]
+PathChanged=/opt/containers/freshrss/
+PathModified=/opt/secrets/freshrss.env
+Unit=app-restart@freshrss.service
+
+[Install]
+WantedBy=multi-user.target
