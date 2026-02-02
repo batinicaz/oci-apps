@@ -26,6 +26,12 @@ storage:
         inline: |
           d /run/secrets 0755 root root -
 
+    - path: /etc/locale.conf
+      mode: 0644
+      contents:
+        inline: |
+          LANG=C.UTF-8
+
     - path: /etc/zincati/config.d/55-update-strategy.toml
       mode: 0644
       contents:
@@ -83,6 +89,11 @@ storage:
       mode: 0755
       contents:
         local: os-config/scripts/gitops-sync.sh
+
+    - path: /opt/scripts/freshrss-cache-warm.sh
+      mode: 0755
+      contents:
+        local: os-config/scripts/freshrss-cache-warm.sh
 
     - path: /opt/env/freshrss.env
       mode: 0644
