@@ -135,7 +135,6 @@ No modules.
 | [oci_objectstorage_bucket.this](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/objectstorage_bucket) | resource |
 | [oci_objectstorage_object.bootstrap_config](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/objectstorage_object) | resource |
 | [oci_objectstorage_object.templated_config](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/objectstorage_object) | resource |
-| [oci_objectstorage_object_lifecycle_policy.delete_old_backups](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/objectstorage_object_lifecycle_policy) | resource |
 | [oci_vault_secret.bootstrap](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/vault_secret) | resource |
 | [tailscale_tailnet_key.this](https://registry.terraform.io/providers/tailscale/tailscale/latest/docs/resources/tailnet_key) | resource |
 | [tls_cert_request.this](https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/cert_request) | resource |
@@ -143,6 +142,7 @@ No modules.
 | [cloudflare_zone.selected](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/zone) | data source |
 | [ct_config.ignition](https://registry.terraform.io/providers/poseidon/ct/latest/docs/data-sources/config) | data source |
 | [oci_core_images.fcos](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/core_images) | data source |
+| [oci_core_subnet.public](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/core_subnet) | data source |
 | [oci_identity_compartment.terraform](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/identity_compartment) | data source |
 | [oci_objectstorage_namespace.terraform](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/objectstorage_namespace) | data source |
 | [terraform_remote_state.oci_core](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
