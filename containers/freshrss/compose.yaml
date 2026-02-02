@@ -17,6 +17,7 @@ services:
       - /var/log
       - /run
       - /etc
+      - /var/lib/php/sessions
       - /var/spool/cron
       - /var/www/FreshRSS/Docker
       - /var/www/FreshRSS/extensions
