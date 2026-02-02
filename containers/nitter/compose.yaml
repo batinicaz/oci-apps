@@ -1,4 +1,6 @@
 networks:
+  traefik:
+    external: true
   freshrss-feeds:
     external: true
   internal:
@@ -7,8 +9,11 @@ networks:
 services:
   nitter:
     container_name: nitter
-    image: docker.io/zedeus/nitter:51b54852dcf617c6131376a469c537ab6b8326e3-arm64
+    image: docker.io/zedeus/nitter:51b54852dcf617c6131376a469c537ab6b8326e3-arm64@sha256:cdafb122bc6412fb46880afdcf24b9f057a36db4fbea0d42ea7b8bef623905c3
     restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp
     depends_on:
       - valkey
     volumes:
@@ -18,17 +23,17 @@ services:
       - NITTER_CONF_FILE=/src/nitter.conf
       - NITTER_SESSIONS_FILE=/src/sessions.jsonl
     networks:
+      - traefik
       - freshrss-feeds
       - internal
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.nitter.rule=Host(`${NITTER_HOST}`)"
-      - "traefik.http.services.nitter.loadbalancer.server.port=8080"
 
   valkey:
     container_name: nitter-valkey
-    image: docker.io/valkey/valkey:9.0.1-alpine
+    image: docker.io/valkey/valkey:9.0.1-alpine@sha256:6fc73ad5e7556efbc8b3002f6c6a7b0fa0422d6d21ef24a4a3175b74b2972b39
     restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp
     networks:
       - internal
     volumes:

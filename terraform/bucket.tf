@@ -34,37 +34,3 @@ resource "oci_objectstorage_bucket" "this" {
   ]
 }
 
-resource "oci_objectstorage_object_lifecycle_policy" "delete_old_backups" {
-  namespace = oci_objectstorage_bucket.this.namespace
-  bucket    = oci_objectstorage_bucket.this.name
-
-  rules {
-    action      = "DELETE"
-    is_enabled  = true
-    name        = "delete-old-backups"
-    target      = "objects"
-    time_amount = 7
-    time_unit   = "DAYS"
-
-    object_name_filter {
-      inclusion_prefixes = ["backups/"]
-    }
-  }
-
-  rules {
-    action      = "DELETE"
-    is_enabled  = true
-    name        = "delete-old-versions"
-    target      = "previous-object-versions"
-    time_amount = 3
-    time_unit   = "DAYS"
-
-    object_name_filter {
-      inclusion_prefixes = ["backups/"]
-    }
-  }
-
-  depends_on = [
-    oci_identity_policy.storage_service
-  ]
-}

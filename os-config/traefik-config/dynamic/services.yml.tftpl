@@ -1,0 +1,39 @@
+http:
+  routers:
+    freshrss:
+      rule: "Host(`${FRESHRSS_HOST}`)"
+      service: freshrss
+    fulltextrss:
+      rule: "Host(`${FULLTEXTRSS_HOST}`)"
+      service: fulltextrss
+    planka:
+      rule: "Host(`${PLANKA_HOST}`)"
+      service: planka
+    nitter:
+      rule: "Host(`${NITTER_HOST}`)"
+      service: nitter
+    redlib:
+      rule: "Host(`${REDLIB_HOST}`)"
+      service: redlib
+
+  services:
+    freshrss:
+      loadBalancer:
+        servers:
+          - url: "http://freshrss:80"
+    fulltextrss:
+      loadBalancer:
+        servers:
+          - url: "http://fulltextrss:80"
+    planka:
+      loadBalancer:
+        servers:
+          - url: "http://planka:1337"
+    nitter:
+      loadBalancer:
+        servers:
+          - url: "http://nitter:8080"
+    redlib:
+      loadBalancer:
+        servers:
+          - url: "http://redlib:8080"
