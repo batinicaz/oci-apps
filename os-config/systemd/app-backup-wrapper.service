@@ -5,7 +5,9 @@ After=network-online.target
 [Service]
 Type=oneshot
 WorkingDirectory=/opt/containers
+EnvironmentFile=/opt/secrets/healthcheck-urls.env
 
+ExecStartPre=/usr/bin/curl -fsS -m 10 --retry 5 -o /dev/null ${HC_BACKUP_URL}/start
 ExecStartPre=/usr/bin/podman compose -f freshrss/compose.yaml stop
 ExecStartPre=/usr/bin/podman compose -f planka/compose.yaml stop
 
@@ -13,6 +15,9 @@ ExecStart=/usr/bin/systemctl start autorestic-backup.service
 
 ExecStartPost=/usr/bin/podman compose -f freshrss/compose.yaml start
 ExecStartPost=/usr/bin/podman compose -f planka/compose.yaml start
+ExecStartPost=/usr/bin/curl -fsS -m 10 --retry 5 -o /dev/null ${HC_BACKUP_URL}
+
+ExecStopPost=/bin/bash -c 'if [ "$$SERVICE_RESULT" != "success" ]; then curl -fsS -m 10 --retry 5 -o /dev/null ${HC_BACKUP_URL}/fail; fi'
 
 [Install]
 WantedBy=multi-user.target
