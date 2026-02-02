@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/batinicaz/oci-apps/compare/v1.2.0...v1.3.0) (2026-02-02)
+
+
+### Features
+
+* add hourly backups ([d96283c](https://github.com/batinicaz/oci-apps/commit/d96283cc19626dc596b7297a5789ff33111a9ee0))
+
+
+### Bug Fixes
+
+* backups causing inconsistent systemd state ([24a0cb6](https://github.com/batinicaz/oci-apps/commit/24a0cb69a2c1f958c9c12680bd5c5edcc01d6a79))
+* container names, freshrss connectivity to local feeds and timeout issues ([bf60aff](https://github.com/batinicaz/oci-apps/commit/bf60aff0507af943035cf51ba0a9a5c682b544a5))
+
 ## [1.2.0](https://github.com/batinicaz/oci-apps/compare/v1.1.6...v1.2.0) (2026-02-02)
 
 
