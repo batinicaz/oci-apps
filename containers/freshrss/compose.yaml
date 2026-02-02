@@ -1,4 +1,6 @@
 networks:
+  traefik:
+    external: true
   freshrss-feeds:
     external: true
   internal:
@@ -7,8 +9,17 @@ networks:
 services:
   freshrss:
     container_name: freshrss
-    image: docker.io/freshrss/freshrss:1.28.1
+    image: docker.io/freshrss/freshrss:1.28.1@sha256:b236fdcfe9388dacbaaf000e0121edbc019c60f3f41ab60b1a4335008869cd62
     restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /var/log
+      - /run
+      - /etc
+      - /var/spool/cron
+      - /var/www/FreshRSS/Docker
+      - /var/www/FreshRSS/extensions
     volumes:
       - /opt/data/freshrss/config:/var/www/FreshRSS/data:z
     env_file:
@@ -28,23 +39,22 @@ services:
         --language en
         --title FreshRSS
     networks:
+      - traefik
       - freshrss-feeds
       - internal
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.freshrss.rule=Host(`${FRESHRSS_HOST}`)"
-      - "traefik.http.services.freshrss.loadbalancer.server.port=80"
 
   fulltextrss:
     container_name: fulltextrss
-    image: ghcr.io/batinicaz/fulltextrss:3.9.13
+    image: ghcr.io/batinicaz/fulltextrss:3.9.13@sha256:2c51e2f26202fae080e979b1e15d214f950c109bf2f5ccb8da0b3cf3828f6c84
     restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /var/log
+      - /run
     volumes:
       - /opt/data/freshrss/fulltextrss-cache:/var/www/html/cache/rss:z
       - /opt/secrets/fulltextrss-config.php:/var/www/html/custom_config.php:ro,z
     networks:
+      - traefik
       - internal
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.fulltextrss.rule=Host(`${FULLTEXTRSS_HOST}`)"
-      - "traefik.http.services.fulltextrss.loadbalancer.server.port=80"

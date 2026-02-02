@@ -1,8 +1,15 @@
+networks:
+  traefik:
+    external: true
+
 services:
   redlib:
     container_name: redlib
-    image: quay.io/redlib/redlib:sha-ba98178
+    image: quay.io/redlib/redlib:sha-ba98178@sha256:c896483d2766f4a5a7ee020513e419a4a7e0159dcf666ea252ac77bb91aa5a3a
     restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp
     env_file:
       - /opt/secrets/redlib.env
     environment:
@@ -19,7 +26,5 @@ services:
       - REDLIB_DEFAULT_AUTOPLAY_VIDEOS=on
       - REDLIB_DEFAULT_HIDE_AWARDS=off
       - REDLIB_DEFAULT_DISABLE_VISIT_REDDIT_CONFIRMATION=off
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.redlib.rule=Host(`${REDLIB_HOST}`)"
-      - "traefik.http.services.redlib.loadbalancer.server.port=8080"
+    networks:
+      - traefik

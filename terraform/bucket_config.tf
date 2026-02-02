@@ -1,3 +1,7 @@
+data "oci_core_subnet" "public" {
+  subnet_id = data.terraform_remote_state.oci_core.outputs.core_vcn_subnets["public"]
+}
+
 locals {
   bootstrap_systemd_units = [
     "first-boot.service",
@@ -10,7 +14,6 @@ locals {
   config_directories = {
     quadlets         = "*.{container,network}"
     infisical-config = "**/*"
-    traefik-config   = "**/*"
   }
 
   bootstrap_config_files = merge(
@@ -33,6 +36,22 @@ locals {
       "${path.module}/../os-config/autorestic-config/autorestic.yml",
       {
         BUCKET_NAME = oci_objectstorage_bucket.this.name
+      }
+    )
+    "config/traefik-config/traefik.yml" = templatefile(
+      "${path.module}/../os-config/traefik-config/traefik.yml.tftpl",
+      {
+        LB_SUBNET_CIDR = data.oci_core_subnet.public.cidr_block
+      }
+    )
+    "config/traefik-config/dynamic/services.yml" = templatefile(
+      "${path.module}/../os-config/traefik-config/dynamic/services.yml.tftpl",
+      {
+        FRESHRSS_HOST    = local.services["freshrss"].fqdn
+        FULLTEXTRSS_HOST = local.services["fulltextrss"].fqdn
+        PLANKA_HOST      = local.services["planka"].fqdn
+        NITTER_HOST      = local.services["nitter"].fqdn
+        REDLIB_HOST      = local.services["redlib"].fqdn
       }
     )
   }

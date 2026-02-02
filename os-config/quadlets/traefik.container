@@ -1,15 +1,14 @@
 [Unit]
 Description=Traefik Reverse Proxy
-After=podman.socket fetch-config.service network-online.target
+After=fetch-config.service network-online.target traefik-network.service
 Wants=network-online.target
-Requires=fetch-config.service podman.socket
+Requires=fetch-config.service traefik-network.service
 
 [Container]
-Image=docker.io/traefik:v3.6.7
+Image=docker.io/traefik:v3.6.7@sha256:08e593279b2b9bb05485c2634d2827da71248a6763cb34cb5c59a43af9175936
 PublishPort=80:80
-Volume=/run/podman/podman.sock:/var/run/docker.sock:z
 Volume=/root/.config/traefik:/etc/traefik:ro,Z
-SecurityLabelType=container_runtime_t
+Network=traefik
 
 [Service]
 Restart=always

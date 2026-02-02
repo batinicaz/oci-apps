@@ -3,7 +3,7 @@ Description=Autorestic Prune
 After=autorestic-backup.service
 
 [Container]
-Image=docker.io/cupcakearmy/autorestic:1.8.3
+Image=docker.io/cupcakearmy/autorestic:1.8.3@sha256:27991929fe32085ae6a777640172f20e64f16275dc5141b4ee54c0fca629cd85
 Exec=autorestic forget -a -v --prune
 Network=host
 Volume=/etc/rclone/rclone.conf:/root/.config/rclone/rclone.conf:ro,Z

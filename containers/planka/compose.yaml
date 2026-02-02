@@ -1,8 +1,18 @@
+networks:
+  traefik:
+    external: true
+  default:
+
 services:
   planka:
     container_name: planka
-    image: ghcr.io/plankanban/planka:2.0.0-rc.4
+    image: ghcr.io/plankanban/planka:2.0.0-rc.4@sha256:9399afb3ea567cd8395164704c8e56b3e733ccbafb626eb2c60385e41e19950c
     restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /run
+      - /app/logs
     depends_on:
       postgres:
         condition: service_healthy
@@ -19,15 +29,18 @@ services:
       - OIDC_NAME_ATTRIBUTE=given_name
       - OIDC_IGNORE_ROLES=true
       - OIDC_ENFORCED=true
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.planka.rule=Host(`${PLANKA_HOST}`)"
-      - "traefik.http.services.planka.loadbalancer.server.port=1337"
+    networks:
+      - traefik
+      - default
 
   postgres:
     container_name: planka-postgres
-    image: public.ecr.aws/docker/library/postgres:18-alpine
+    image: public.ecr.aws/docker/library/postgres:18-alpine@sha256:70c585d0e816fc96a4a3a0c938170db6cbe2af35f28bbd6997c5291c3ec64239
     restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /run/postgresql
     volumes:
       - /opt/data/planka/postgres:/var/lib/postgresql:z
     env_file:
