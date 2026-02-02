@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/batinicaz/oci-apps/compare/v1.1.6...v1.2.0) (2026-02-02)
+
+
+### Features
+
+* add healthchecks config for services ([09e8f9e](https://github.com/batinicaz/oci-apps/commit/09e8f9eaeef0d0604780e5e625156f652f86b4e2))
+
+
+### Bug Fixes
+
+* ensure fulltextrss starts if the ghcr token has not been written yet ([6ea3775](https://github.com/batinicaz/oci-apps/commit/6ea37750e71ca8aef22523c1ed40e44a1f529382))
+* postgres 18 volume path ([fac6879](https://github.com/batinicaz/oci-apps/commit/fac6879ca5a31888fce662161652ef559754bec2))
+* put nitter and freshrss on the same network so freshrss can pull feeds locally from nitter ([3b0b2d9](https://github.com/batinicaz/oci-apps/commit/3b0b2d9f7265fc23cc39b8b2e72e039d28f16e48))
+
 ### [1.1.6](https://github.com/batinicaz/oci-apps/compare/v1.1.5...v1.1.6) (2026-02-02)
 
 
