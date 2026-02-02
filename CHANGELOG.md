@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.6](https://github.com/batinicaz/oci-apps/compare/v1.1.5...v1.1.6) (2026-02-02)
+
+
+### Bug Fixes
+
+* fulltext rss config.php getting overwritten ([bbd9a11](https://github.com/batinicaz/oci-apps/commit/bbd9a11fccaf3c0d7f96a6e9007898d61fda7263))
+
 ### [1.1.5](https://github.com/batinicaz/oci-apps/compare/v1.1.4...v1.1.5) (2026-02-02)
 
 ### [1.1.4](https://github.com/batinicaz/oci-apps/compare/v1.1.3...v1.1.4) (2026-02-02)
