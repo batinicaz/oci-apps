@@ -30,7 +30,7 @@ services:
     restart: unless-stopped
     volumes:
       - /opt/data/freshrss/fulltextrss-cache:/var/www/html/cache/rss:z
-      - /opt/secrets/fulltextrss-config.php:/var/www/html/config.php:ro,z
+      - /opt/secrets/fulltextrss-config.php:/var/www/html/custom_config.php:ro,z
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.fulltextrss.rule=Host(`${FULLTEXTRSS_HOST}`)"
