@@ -1,3 +1,7 @@
+networks:
+  freshrss-feeds:
+    external: true
+
 services:
   freshrss:
     image: docker.io/freshrss/freshrss:1.28.1
@@ -20,6 +24,9 @@ services:
         --disable-update
         --language en
         --title FreshRSS
+    networks:
+      - freshrss-feeds
+      - default
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.freshrss.rule=Host(`${FRESHRSS_HOST}`)"

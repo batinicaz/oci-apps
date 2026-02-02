@@ -1,3 +1,7 @@
+networks:
+  freshrss-feeds:
+    external: true
+
 services:
   nitter:
     image: docker.io/zedeus/nitter:51b54852dcf617c6131376a469c537ab6b8326e3-arm64
@@ -10,6 +14,9 @@ services:
     environment:
       - NITTER_CONF_FILE=/src/nitter.conf
       - NITTER_SESSIONS_FILE=/src/sessions.jsonl
+    networks:
+      - freshrss-feeds
+      - default
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.nitter.rule=Host(`${NITTER_HOST}`)"

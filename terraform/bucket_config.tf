@@ -8,7 +8,7 @@ locals {
   ]
 
   config_directories = {
-    quadlets         = "*.container"
+    quadlets         = "*.{container,network}"
     infisical-config = "**/*"
     traefik-config   = "**/*"
   }
