@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://github.com/batinicaz/oci-apps/compare/v1.4.0...v1.4.1) (2026-02-02)
+
+
+### Bug Fixes
+
+* enable state locking ([671169c](https://github.com/batinicaz/oci-apps/commit/671169cd6f3b956eb3a788829224c6d30babd06c))
+
 ## [1.4.0](https://github.com/batinicaz/oci-apps/compare/v1.3.0...v1.4.0) (2026-02-02)
 
 
