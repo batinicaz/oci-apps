@@ -1,5 +1,6 @@
 services:
   planka:
+    container_name: planka
     image: ghcr.io/plankanban/planka:2.0.0-rc.4
     restart: unless-stopped
     depends_on:
@@ -24,6 +25,7 @@ services:
       - "traefik.http.services.planka.loadbalancer.server.port=1337"
 
   postgres:
+    container_name: planka-postgres
     image: public.ecr.aws/docker/library/postgres:18-alpine
     restart: unless-stopped
     volumes:

@@ -1,5 +1,6 @@
 services:
   redlib:
+    container_name: redlib
     image: quay.io/redlib/redlib:sha-ba98178
     restart: unless-stopped
     env_file:

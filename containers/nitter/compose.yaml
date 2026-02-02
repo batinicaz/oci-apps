@@ -1,9 +1,12 @@
 networks:
   freshrss-feeds:
     external: true
+  internal:
+    name: nitter_default
 
 services:
   nitter:
+    container_name: nitter
     image: docker.io/zedeus/nitter:51b54852dcf617c6131376a469c537ab6b8326e3-arm64
     restart: unless-stopped
     depends_on:
@@ -16,14 +19,17 @@ services:
       - NITTER_SESSIONS_FILE=/src/sessions.jsonl
     networks:
       - freshrss-feeds
-      - default
+      - internal
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.nitter.rule=Host(`${NITTER_HOST}`)"
       - "traefik.http.services.nitter.loadbalancer.server.port=8080"
 
   valkey:
+    container_name: nitter-valkey
     image: docker.io/valkey/valkey:9.0.1-alpine
     restart: unless-stopped
+    networks:
+      - internal
     volumes:
       - /opt/data/nitter/valkey:/data:z

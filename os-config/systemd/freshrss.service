@@ -9,8 +9,10 @@ ConditionPathExists=/opt/secrets/freshrss.env
 Type=oneshot
 WorkingDirectory=/opt/containers/freshrss
 ExecStart=/usr/bin/podman compose --env-file /opt/env/freshrss.env up -d
+ExecStartPost=/opt/scripts/freshrss-cache-warm.sh
 ExecStop=/usr/bin/podman compose down
 RemainAfterExit=yes
+TimeoutStartSec=900
 
 [Install]
 WantedBy=multi-user.target
