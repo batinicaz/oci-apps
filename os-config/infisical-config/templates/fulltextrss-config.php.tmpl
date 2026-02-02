@@ -2,10 +2,13 @@
 // Full-Text RSS custom config - overrides only
 // See: https://help.fivefilters.org/full-text-rss/configure.html
 
-// Version constant required by index.php
-define('_FF_FTR_VERSION', '3.9.13');
-
 if (!isset($options)) $options = new stdClass();
+
+// Debug mode - admin only
+$options->debug = 'admin';
+
+// Default entries (without access key)
+$options->default_entries = 10;
 
 // Require API key for access
 $options->key_required = true;
