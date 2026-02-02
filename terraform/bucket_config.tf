@@ -49,7 +49,7 @@ resource "oci_objectstorage_object" "bootstrap_config" {
   namespace    = data.oci_objectstorage_namespace.terraform.namespace
   bucket       = oci_objectstorage_bucket.this.name
   object       = each.key
-  source       = each.value
+  content      = file(each.value)
   content_type = "text/plain"
 }
 
