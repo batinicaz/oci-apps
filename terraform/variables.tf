@@ -158,4 +158,9 @@ locals {
       fqdn = "${config.subdomain}.${data.cloudflare_zone.selected.name}"
     })
   }
+
+  service_hosts = {
+    for name, config in local.services :
+    "${upper(replace(name, "-", "_"))}_HOST" => config.fqdn
+  }
 }
