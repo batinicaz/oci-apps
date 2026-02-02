@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/batinicaz/oci-apps/compare/v1.3.0...v1.4.0) (2026-02-02)
+
+
+### Features
+
+* security improvements ([08bfe56](https://github.com/batinicaz/oci-apps/commit/08bfe56da67c10f99223e3c3d1cd4f7cda2b04ae))
+
+
+### Bug Fixes
+
+* copy cache warm script + set fallback locale ([fe5230e](https://github.com/batinicaz/oci-apps/commit/fe5230e2a398e7519e59503c8ac0318d2c6701b9))
+* missed path for php sessions ([b35370d](https://github.com/batinicaz/oci-apps/commit/b35370dab67126a5f824bc0767a5e8e66f84279b))
+
 ## [1.3.0](https://github.com/batinicaz/oci-apps/compare/v1.2.0...v1.3.0) (2026-02-02)
 
 
