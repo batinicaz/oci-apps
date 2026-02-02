@@ -73,6 +73,7 @@ systemctl enable --now \
   nitter.path \
   redlib.path \
   app-backup.timer \
+  app-prune.timer \
   gitops-sync.timer
 
 echo "Configuration fetch complete"

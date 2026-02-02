@@ -1,0 +1,15 @@
+[Unit]
+Description=Prune old backups
+After=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/opt/secrets/healthcheck-urls.env
+
+ExecStartPre=/usr/bin/curl -fsS -m 10 --retry 5 -o /dev/null ${HC_PRUNE_URL}/start
+ExecStart=/usr/bin/systemctl start autorestic-prune.service
+ExecStartPost=/usr/bin/curl -fsS -m 10 --retry 5 -o /dev/null ${HC_PRUNE_URL}
+ExecStopPost=/bin/bash -c 'if [ "$$SERVICE_RESULT" != "success" ]; then curl -fsS -m 10 --retry 5 -o /dev/null ${HC_PRUNE_URL}/fail; fi'
+
+[Install]
+WantedBy=multi-user.target

@@ -1,8 +1,8 @@
 [Unit]
 Description=FreshRSS
-After=traefik.service infisical-agent.service autorestic-restore.service ghcr-login.service
+After=traefik.service infisical-agent.service autorestic-restore.service ghcr-login.service freshrss-feeds-network.service
 Wants=autorestic-restore.service
-Requires=ghcr-login.service
+Requires=ghcr-login.service freshrss-feeds-network.service
 ConditionPathExists=/opt/secrets/freshrss.env
 
 [Service]

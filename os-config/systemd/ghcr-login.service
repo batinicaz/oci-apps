@@ -1,8 +1,7 @@
 [Unit]
 Description=Login to GHCR
-After=infisical-agent.service
+After=infisical-agent.service ghcr-token.path
 Requires=infisical-agent.service
-ConditionPathExists=/opt/secrets/ghcr-token
 
 [Service]
 Type=oneshot

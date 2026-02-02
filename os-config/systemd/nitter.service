@@ -1,6 +1,7 @@
 [Unit]
 Description=Nitter
-After=traefik.service infisical-agent.service
+After=traefik.service infisical-agent.service freshrss-feeds-network.service
+Requires=freshrss-feeds-network.service
 ConditionPathExists=/opt/secrets/nitter.env
 ConditionPathExists=/opt/secrets/nitter-sessions.jsonl
 

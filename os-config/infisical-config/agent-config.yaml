@@ -42,3 +42,7 @@ templates:
     destination-path: /opt/secrets/ghcr-token
     config:
       polling-interval: 5m
+  - source-path: /etc/infisical/templates/healthcheck-urls.env.tmpl
+    destination-path: /opt/secrets/healthcheck-urls.env
+    config:
+      polling-interval: 5m
