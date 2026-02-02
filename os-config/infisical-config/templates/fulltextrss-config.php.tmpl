@@ -23,3 +23,8 @@ $options->api_keys[1] = '{{ .Value }}';
 // Entries limit with API key
 $options->default_entries_with_key = 20;
 $options->max_entries_with_key = 100;
+
+// Enable caching to speed up responses
+$options->caching = true;
+$options->cache_time = 20; // 20 minutes cache (matches FreshRSS sync interval)
+$options->cache_dir = '/var/www/html/cache';

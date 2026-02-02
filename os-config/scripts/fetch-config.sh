@@ -65,6 +65,9 @@ mkdir -p "$(dirname "$REPO_DIR")"
 git clone --depth 1 --branch "$REPO_BRANCH" "$REPO_URL" "$REPO_DIR"
 ln -s "$REPO_DIR/containers" /opt/containers
 
+restorecon -R /etc/containers/systemd
+restorecon -R /etc/systemd/system
+
 systemctl daemon-reload
 
 systemctl enable --now \

@@ -1,0 +1,8 @@
+[Unit]
+Description=Warm FreshRSS fulltextrss cache
+After=freshrss.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/scripts/freshrss-cache-warm.sh
+TimeoutStartSec=600
