@@ -85,7 +85,7 @@ Deployments are triggered automatically:
 | <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | ~> 5.0 |
 | <a name="requirement_ct"></a> [ct](#requirement\_ct) | ~> 0.14 |
 | <a name="requirement_null"></a> [null](#requirement\_null) | ~> 3.0 |
-| <a name="requirement_oci"></a> [oci](#requirement\_oci) | ~> 7.0 |
+| <a name="requirement_oci"></a> [oci](#requirement\_oci) | ~> 8.0 |
 | <a name="requirement_tailscale"></a> [tailscale](#requirement\_tailscale) | ~> 0.25 |
 | <a name="requirement_tls"></a> [tls](#requirement\_tls) | ~> 4.0 |
 
@@ -96,7 +96,7 @@ Deployments are triggered automatically:
 | <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | 5.16.0 |
 | <a name="provider_ct"></a> [ct](#provider\_ct) | 0.14.0 |
 | <a name="provider_null"></a> [null](#provider\_null) | 3.2.4 |
-| <a name="provider_oci"></a> [oci](#provider\_oci) | 7.32.0 |
+| <a name="provider_oci"></a> [oci](#provider\_oci) | 8.0.0 |
 | <a name="provider_tailscale"></a> [tailscale](#provider\_tailscale) | 0.25.0 |
 | <a name="provider_terraform"></a> [terraform](#provider\_terraform) | n/a |
 | <a name="provider_tls"></a> [tls](#provider\_tls) | 4.2.1 |
