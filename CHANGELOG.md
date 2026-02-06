@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.11](https://github.com/batinicaz/oci-apps/compare/v1.4.10...v1.4.11) (2026-02-06)
+
+
+### Bug Fixes
+
+* renovate failure for private image lookup ([31ff8ec](https://github.com/batinicaz/oci-apps/commit/31ff8ecd1c4048b4275668960a82f8b8d3c49f0d))
+
 ### [1.4.10](https://github.com/batinicaz/oci-apps/compare/v1.4.9...v1.4.10) (2026-02-06)
 
 ### [1.4.9](https://github.com/batinicaz/oci-apps/compare/v1.4.8...v1.4.9) (2026-02-06)
