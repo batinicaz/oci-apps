@@ -3,6 +3,18 @@
   "extends": [
     "config:recommended"
   ],
+  "enabledManagers": ["docker-compose", "github-actions", "terraform", "custom.regex"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/\\.container$/"],
+      "matchStrings": [
+        "Image=(?<depName>[a-z0-9][a-z0-9.\\-\\/]+):(?<currentValue>[a-zA-Z0-9][a-zA-Z0-9.\\-]+)@(?<currentDigest>sha256:[a-f0-9]+)"
+      ],
+      "datasourceTemplate": "docker",
+      "autoReplaceStringTemplate": "Image={{depName}}{{#if newValue}}:{{newValue}}{{/if}}{{#if newDigest}}@{{newDigest}}{{/if}}"
+    }
+  ],
   "hostRules": [
     {
       "hostType": "docker",
