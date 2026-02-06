@@ -12,12 +12,21 @@ jobs:
       contents: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6.0.2
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # ratchet:hashicorp/setup-terraform@v3
+      - name: Update lock file
+        working-directory: terraform
+        run: |
+          terraform providers lock -platform=linux_amd64 -platform=darwin_arm64
+          git add .terraform.lock.hcl
       - name: Run terraform-docs
         uses: terraform-docs/gh-actions@6de6da0cefcc6b4b7a5cbea4d79d97060733093c # ratchet:terraform-docs/gh-actions@v1
+        env:
+          OUTPUT_FILE: ../README.md
         with:
           working-dir: terraform
           output-file: ../README.md
           output-method: inject
           git-push: "true"
-          git-commit-message: "docs: update terraform docs following renovate patch"
+          git-commit-message: "chore: update terraform docs and lock file"
