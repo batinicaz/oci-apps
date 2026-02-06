@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.12](https://github.com/batinicaz/oci-apps/compare/v1.4.11...v1.4.12) (2026-02-06)
+
+
+### Bug Fixes
+
+* use basic auth for ghcr ([d637906](https://github.com/batinicaz/oci-apps/commit/d6379068dd8dd3fceab409ede5aae802c75f5097))
+
 ### [1.4.11](https://github.com/batinicaz/oci-apps/compare/v1.4.10...v1.4.11) (2026-02-06)
 
 
