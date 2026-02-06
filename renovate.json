@@ -2,5 +2,12 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "hostRules": [
+    {
+      "hostType": "docker",
+      "matchHost": "ghcr.io",
+      "token": "{{ secrets.Private_GH_Package_RO }}"
+    }
   ]
 }
