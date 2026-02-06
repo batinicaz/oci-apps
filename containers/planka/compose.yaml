@@ -27,7 +27,6 @@ services:
       - DEFAULT_LANGUAGE=en-GB
       - TRUST_PROXY=true
       - OIDC_NAME_ATTRIBUTE=given_name
-      - OIDC_IGNORE_ROLES=true
       - OIDC_ENFORCED=true
     networks:
       - traefik
