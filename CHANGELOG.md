@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/batinicaz/oci-apps/compare/v1.4.12...v1.5.0) (2026-02-06)
+
+
+### Features
+
+* support oidc role config in planka ([f974f1b](https://github.com/batinicaz/oci-apps/commit/f974f1b09660b289537109584b109417a1d0ae5d))
+
+
+### Bug Fixes
+
+* renovate config for quadlets ([f8a9922](https://github.com/batinicaz/oci-apps/commit/f8a992255fd13deb040b48ed835ec92a86ba61fd))
+
 ### [1.4.12](https://github.com/batinicaz/oci-apps/compare/v1.4.11...v1.4.12) (2026-02-06)
 
 
