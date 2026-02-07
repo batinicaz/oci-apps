@@ -4,6 +4,9 @@ on:
   push:
     tags:
       - "v**"
+concurrency:
+  group: terraform
+  cancel-in-progress: false
 permissions:
   contents: read
 jobs:
