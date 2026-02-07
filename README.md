@@ -1,29 +1,39 @@
 # oci-apps
 
-Self-hosted applications running on Oracle Cloud Infrastructure using Fedora CoreOS.
+Self-hosted application stack running on Oracle Cloud Infrastructure. Fedora CoreOS instance provisioned via Terraform and Ignition, with Podman containers managed through systemd (Compose for app services, Quadlets for infrastructure). Secrets are delivered at runtime by Infisical Agent, and backups go to OCI Object Storage via Autorestic.
 
 ## Architecture
 
-- **OS**: Fedora CoreOS with Ignition provisioning
-- **Container Runtime**: Docker with Dockhand orchestration
-- **Secrets**: Infisical Agent with OCI Vault bootstrap (zero secrets on disk)
-- **Ingress**: Traefik reverse proxy behind OCI Load Balancer
-- **Backups**: Autorestic to OCI Object Storage
-- **Access**: Tailscale SSH only (no openssh-server)
+```mermaid
+flowchart LR
+    CF[Cloudflare] --> LB
+
+    subgraph OCI[OCI]
+        LB[Load Balancer] --> Traefik
+
+        subgraph Instance
+            Traefik --> Services
+            Infisical[Infisical Agent] -.->|secrets| Services
+            Services -->|data| Autorestic
+        end
+
+        Autorestic --> Bucket[Object Storage]
+    end
+
+    Infisical -.-> Infisical.com
+```
 
 ## Repository Structure
 
 ```
 oci-apps/
 ├── terraform/          # Infrastructure as Code
-├── os-config/          # Butane/Ignition configuration
-│   ├── butane.yaml     # Main OS config
-│   ├── scripts/        # First-boot and utility scripts
-│   └── systemd/        # Systemd unit files
-├── docker/             # Docker Compose stacks
-│   ├── infisical-agent/
-│   ├── dockhand/
-│   ├── traefik/
+├── os-config/          # Butane/Ignition + Quadlet container units
+│   ├── butane.yaml
+│   ├── scripts/
+│   ├── systemd/
+│   └── quadlets/       # Traefik, Infisical Agent, Autorestic
+├── containers/         # Podman Compose stacks
 │   ├── freshrss/
 │   ├── planka/
 │   ├── nitter/
@@ -31,50 +41,18 @@ oci-apps/
 └── .github/workflows/  # CI/CD pipelines
 ```
 
-## Services
-
-| Service | Description |
-|---------|-------------|
-| FreshRSS | RSS/Atom feed aggregator |
-| FullTextRSS | Full-text feed extraction |
-| Planka | Kanban board |
-| Nitter | Twitter frontend |
-| Redlib | Reddit frontend |
-
 ## Prerequisites
 
 - Terraform >= 1.10
 - Infisical CLI
 - butane CLI (`brew install butane`)
-- Access to OCI tenancy with oci-core infrastructure deployed
-
-## Local Development
-
-```bash
-make init              # Initialize Terraform
-make plan              # Run Terraform plan
-make apply             # Apply changes
-make fmt               # Format Terraform files
-make validate          # Validate configuration
-make ignition-validate # Validate Butane/Ignition config
-make ignition-serve    # Generate and serve Ignition for local VM testing
-```
-
-## Secrets Management
-
-Secrets flow through three stages:
-
-1. **Infisical** (source of truth) → GHA workflow fetches via OIDC
-2. **OCI Vault** (bootstrap only) → Terraform writes, instance reads via instance principal
-3. **Infisical Agent** (runtime) → Syncs secrets to Docker volumes
-
-No secrets are baked into images or persisted to disk.
+- Access to OCI tenancy with [oci-core](https://github.com/batinicaz/oci-core) infrastructure deployed
 
 ## Deployment
 
 Deployments are triggered automatically:
-- **Feature branches**: Run pre-commit + terraform plan (posts to PR)
-- **Tags (v*)**: Run terraform apply
+- **Feature branches** — pre-commit + `terraform plan` (posts to PR)
+- **Tags (`v*`)** — `terraform apply`
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
