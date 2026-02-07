@@ -13,6 +13,10 @@ Volume=/run/secrets/infisical-client-id:/run/secrets/client-id:ro,z
 Volume=/run/secrets/infisical-client-secret:/run/secrets/client-secret:ro,z
 Volume=/opt/secrets:/opt/secrets:z
 Volume=/root/.config/infisical:/etc/infisical:ro,Z
+ReadOnly=true
+Tmpfs=/tmp
+DropCapability=ALL
+PodmanArgs=--security-opt=no-new-privileges
 
 [Service]
 Restart=always

@@ -12,6 +12,10 @@ services:
     image: docker.io/zedeus/nitter:51b54852dcf617c6131376a469c537ab6b8326e3-arm64@sha256:8938fcd9ee2209b3bf1abcf6ed32b53003868dd1fcce0d76b5a0269029007c48
     restart: unless-stopped
     read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
     tmpfs:
       - /tmp
     depends_on:
@@ -32,6 +36,14 @@ services:
     image: docker.io/valkey/valkey:9.0.2-alpine@sha256:68677f85c863830af7836ff07c4a13b7f085ebeff62f4dedb71499ca27d229f2
     restart: unless-stopped
     read_only: true
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETUID
+      - SETGID
+    security_opt:
+      - no-new-privileges:true
     tmpfs:
       - /tmp
     networks:

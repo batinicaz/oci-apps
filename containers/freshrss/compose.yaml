@@ -12,6 +12,16 @@ services:
     image: docker.io/freshrss/freshrss:1.28.1@sha256:9100f649f5c946f589f54cdb9be7a65996528f48f691ef90eb262a0e06e5a522
     restart: unless-stopped
     read_only: true
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETUID
+      - SETGID
+      - NET_BIND_SERVICE
+      - FOWNER
+    security_opt:
+      - no-new-privileges:true
     tmpfs:
       - /tmp
       - /var/log
@@ -49,6 +59,16 @@ services:
     image: ghcr.io/batinicaz/fulltextrss:3.9.13@sha256:2c51e2f26202fae080e979b1e15d214f950c109bf2f5ccb8da0b3cf3828f6c84
     restart: unless-stopped
     read_only: true
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETUID
+      - SETGID
+      - NET_BIND_SERVICE
+      - FOWNER
+    security_opt:
+      - no-new-privileges:true
     tmpfs:
       - /tmp
       - /var/log
