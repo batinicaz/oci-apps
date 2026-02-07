@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.4](https://github.com/batinicaz/oci-apps/compare/v1.5.3...v1.5.4) (2026-02-07)
+
+
+### Bug Fixes
+
+* ensure tf workflow runs do not overlap causing lock failures ([273a3a1](https://github.com/batinicaz/oci-apps/commit/273a3a1e6ac1f0694a65821da501688e0026e017))
+
 ### [1.5.3](https://github.com/batinicaz/oci-apps/compare/v1.5.2...v1.5.3) (2026-02-07)
 
 ### [1.5.2](https://github.com/batinicaz/oci-apps/compare/v1.5.1...v1.5.2) (2026-02-07)
