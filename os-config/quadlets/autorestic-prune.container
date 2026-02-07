@@ -12,6 +12,8 @@ Volume=/run/secrets/restic-password:/run/secrets/restic-password:ro,z
 Environment=AUTORESTIC_CONFIG=/root/.autorestic.yml
 Environment=RESTIC_PASSWORD_FILE=/run/secrets/restic-password
 EnvironmentFile=/etc/bucket/config
+DropCapability=ALL
+PodmanArgs=--security-opt=no-new-privileges
 
 [Service]
 Type=oneshot

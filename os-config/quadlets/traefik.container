@@ -9,6 +9,11 @@ Image=docker.io/traefik:v3.6.7@sha256:a9890c898f379c1905ee5b28342f6b408dc863f08d
 PublishPort=80:80
 Volume=/root/.config/traefik:/etc/traefik:ro,Z
 Network=traefik
+ReadOnly=true
+Tmpfs=/tmp
+DropCapability=ALL
+AddCapability=NET_BIND_SERVICE
+PodmanArgs=--security-opt=no-new-privileges
 
 [Service]
 Restart=always

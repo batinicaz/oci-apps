@@ -8,6 +8,10 @@ services:
     image: quay.io/redlib/redlib:sha-ba98178@sha256:c896483d2766f4a5a7ee020513e419a4a7e0159dcf666ea252ac77bb91aa5a3a
     restart: unless-stopped
     read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
     tmpfs:
       - /tmp
     env_file:
