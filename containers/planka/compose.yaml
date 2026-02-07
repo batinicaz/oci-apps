@@ -32,6 +32,8 @@ services:
       - TRUST_PROXY=true
       - OIDC_NAME_ATTRIBUTE=given_name
       - OIDC_ENFORCED=true
+      - OIDC_CLAIMS_SOURCE=id_token
+      - OIDC_IGNORE_USERNAME=true
     networks:
       - traefik
       - default
