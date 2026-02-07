@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/batinicaz/oci-apps/compare/v1.5.4...v1.6.0) (2026-02-07)
+
+
+### Features
+
+* set container security opts and capabilities ([2b4cc93](https://github.com/batinicaz/oci-apps/commit/2b4cc9321d81987c689b74b620c41ecea5540a13))
+
 ### [1.5.4](https://github.com/batinicaz/oci-apps/compare/v1.5.3...v1.5.4) (2026-02-07)
 
 
