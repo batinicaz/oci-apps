@@ -17,6 +17,7 @@ services:
       - /tmp
       - /run
       - /app/logs
+      - /app/.tmp
     depends_on:
       postgres:
         condition: service_healthy

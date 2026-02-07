@@ -11,7 +11,9 @@ Exec=sh -c '\
   for loc in freshrss planka; do \
     dir="/opt/data/$loc"; \
     [ ! -d "$dir" ] || [ -z "$(ls -A "$dir" 2>/dev/null)" ] && autorestic restore -l "$loc" --to / --force; \
-  done; true'
+  done; \
+  chown -R 1000:1000 /opt/data/planka/favicons /opt/data/planka/avatars /opt/data/planka/backgrounds /opt/data/planka/attachments 2>/dev/null; \
+  true'
 Network=host
 Volume=/etc/rclone/rclone.conf:/root/.config/rclone/rclone.conf:ro,Z
 Volume=/root/.config/autorestic/autorestic.yml:/root/.autorestic.yml:ro,Z
