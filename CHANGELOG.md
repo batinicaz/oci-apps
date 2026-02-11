@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/batinicaz/oci-apps/compare/v1.6.3...v1.7.0) (2026-02-11)
+
+
+### Features
+
+* upgrade to planka v2 ([46c95ca](https://github.com/batinicaz/oci-apps/commit/46c95cab93a741763c9410d5dd7a2d9b138482ae))
+
 ### [1.6.3](https://github.com/batinicaz/oci-apps/compare/v1.6.2...v1.6.3) (2026-02-11)
 
 ### [1.6.2](https://github.com/batinicaz/oci-apps/compare/v1.6.1...v1.6.2) (2026-02-07)
