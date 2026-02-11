@@ -6,7 +6,7 @@ networks:
 services:
   planka:
     container_name: planka
-    image: ghcr.io/plankanban/planka:2.0.0-rc.4@sha256:9399afb3ea567cd8395164704c8e56b3e733ccbafb626eb2c60385e41e19950c
+    image: ghcr.io/plankanban/planka:2.0.0@sha256:f82726333b953bd0d11184fa95a4fe4b068bab0e43e49254cf2963ad91b7c21a
     restart: unless-stopped
     read_only: true
     cap_drop:
@@ -22,10 +22,7 @@ services:
       postgres:
         condition: service_healthy
     volumes:
-      - /opt/data/planka/favicons:/app/public/favicons:z
-      - /opt/data/planka/avatars:/app/public/user-avatars:z
-      - /opt/data/planka/backgrounds:/app/public/background-images:z
-      - /opt/data/planka/attachments:/app/private/attachments:z
+      - /opt/data/planka/data:/app/data:z
     env_file:
       - /opt/secrets/planka.env
     environment:
