@@ -74,7 +74,7 @@ Deployments are triggered automatically:
 | <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | 5.16.0 |
 | <a name="provider_ct"></a> [ct](#provider\_ct) | 0.14.0 |
 | <a name="provider_null"></a> [null](#provider\_null) | 3.2.4 |
-| <a name="provider_oci"></a> [oci](#provider\_oci) | 8.0.0 |
+| <a name="provider_oci"></a> [oci](#provider\_oci) | 8.1.0 |
 | <a name="provider_tailscale"></a> [tailscale](#provider\_tailscale) | 0.26.0 |
 | <a name="provider_terraform"></a> [terraform](#provider\_terraform) | n/a |
 | <a name="provider_tls"></a> [tls](#provider\_tls) | 4.2.1 |
