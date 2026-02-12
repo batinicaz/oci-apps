@@ -71,7 +71,7 @@ Deployments are triggered automatically:
 
 | Name | Version |
 |------|---------|
-| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | 5.16.0 |
+| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | 5.17.0 |
 | <a name="provider_ct"></a> [ct](#provider\_ct) | 0.14.0 |
 | <a name="provider_null"></a> [null](#provider\_null) | 3.2.4 |
 | <a name="provider_oci"></a> [oci](#provider\_oci) | 8.1.0 |
