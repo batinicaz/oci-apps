@@ -38,7 +38,7 @@ services:
 
   postgres:
     container_name: planka-postgres
-    image: public.ecr.aws/docker/library/postgres:18-alpine@sha256:70c585d0e816fc96a4a3a0c938170db6cbe2af35f28bbd6997c5291c3ec64239
+    image: public.ecr.aws/docker/library/postgres:18-alpine@sha256:f60fa8eb6f0cb2646423feb0db17275831760829875205e3d81012e0e5075adf
     restart: unless-stopped
     read_only: true
     cap_drop:
