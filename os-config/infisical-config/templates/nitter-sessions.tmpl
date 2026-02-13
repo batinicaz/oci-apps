@@ -1,4 +1,4 @@
-{{- with secret "74834480-e1bb-4c53-81a1-ae3aaa9bd2de" "prod" "/nitter-sessions" }}
+{{- with listSecrets "74834480-e1bb-4c53-81a1-ae3aaa9bd2de" "prod" "/nitter-sessions" }}
 {{- range . }}
 {{- .Value }}
 {{- end }}
