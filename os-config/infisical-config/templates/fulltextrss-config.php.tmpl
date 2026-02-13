@@ -14,7 +14,7 @@ $options->default_entries = 10;
 $options->key_required = true;
 
 // API key from Infisical
-{{- with secret "74834480-e1bb-4c53-81a1-ae3aaa9bd2de" "prod" "/fulltextrss" }}
+{{- with listSecrets "74834480-e1bb-4c53-81a1-ae3aaa9bd2de" "prod" "/fulltextrss" }}
 {{- range . }}
 $options->api_keys[1] = '{{ .Value }}';
 {{- end }}

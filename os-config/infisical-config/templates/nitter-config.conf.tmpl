@@ -1,10 +1,6 @@
-{{- $host := "" }}
-{{- $hmacKey := "" }}
-{{- with secret "74834480-e1bb-4c53-81a1-ae3aaa9bd2de" "prod" "/nitter" }}
-{{- range . }}
-{{- if eq .Key "HOST" }}{{- $host = .Value }}{{- end }}
-{{- if eq .Key "HMAC_KEY" }}{{- $hmacKey = .Value }}{{- end }}
-{{- end }}
+{{- $secrets := dict }}
+{{- range listSecrets "74834480-e1bb-4c53-81a1-ae3aaa9bd2de" "prod" "/nitter" }}
+{{- $_ := set $secrets .Key .Value }}
 {{- end }}
 [Server]
 address = "0.0.0.0"
@@ -13,7 +9,7 @@ https = false
 httpMaxConnections = 100
 staticDir = "./public"
 title = "nitter"
-hostname = "{{ $host }}"
+hostname = "{{ get $secrets "HOST" }}"
 
 [Cache]
 listMinutes = 240
@@ -23,7 +19,7 @@ redisPort = 6379
 redisMaxConnections = 30
 
 [Config]
-hmacKey = "{{ $hmacKey }}"
+hmacKey = "{{ get $secrets "HMAC_KEY" }}"
 base64Media = false
 enableRSS = true
 enableDebug = false
@@ -33,7 +29,7 @@ tokenCount = 10
 
 [Preferences]
 theme = "Nitter"
-replaceTwitter = "{{ $host }}"
+replaceTwitter = "{{ get $secrets "HOST" }}"
 replaceYouTube = ""
 replaceReddit = ""
 proxyVideos = true

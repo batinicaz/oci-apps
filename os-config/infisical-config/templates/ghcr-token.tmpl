@@ -1,5 +1,5 @@
-{{- with secret "74834480-e1bb-4c53-81a1-ae3aaa9bd2de" "prod" "/" }}
-{{- range . }}
-{{- if eq .Key "GHCR_Token" }}{{ .Value }}{{- end }}
+{{- $secrets := dict }}
+{{- range listSecrets "74834480-e1bb-4c53-81a1-ae3aaa9bd2de" "prod" "/" }}
+{{- $_ := set $secrets .Key .Value }}
 {{- end }}
-{{- end }}
+{{- get $secrets "GHCR_Token" }}
