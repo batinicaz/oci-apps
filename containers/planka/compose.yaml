@@ -6,7 +6,7 @@ networks:
 services:
   planka:
     container_name: planka
-    image: ghcr.io/plankanban/planka:2.0.0@sha256:f82726333b953bd0d11184fa95a4fe4b068bab0e43e49254cf2963ad91b7c21a
+    image: ghcr.io/plankanban/planka:2.0.1@sha256:0d28490e5a32c0e185431cfbdf7e861b0a62ebb58b94c69dd1fc0d7e7f261670
     restart: unless-stopped
     read_only: true
     cap_drop:
