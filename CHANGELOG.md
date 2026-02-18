@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/batinicaz/oci-apps/compare/v1.7.13...v1.8.0) (2026-02-18)
+
+
+### Features
+
+* enforce git as source of truth ([cc41e95](https://github.com/batinicaz/oci-apps/commit/cc41e9537945359b632e0be03a059ec056e4d3cf))
+
 ### [1.7.13](https://github.com/batinicaz/oci-apps/compare/v1.7.12...v1.7.13) (2026-02-18)
 
 ### [1.7.12](https://github.com/batinicaz/oci-apps/compare/v1.7.11...v1.7.12) (2026-02-17)
