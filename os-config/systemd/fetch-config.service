@@ -1,8 +1,8 @@
 [Unit]
 Description=Fetch configuration from OCI bucket
-After=network-online.target first-boot.service tailscale-auth.service opt-data.mount
+After=network-online.target first-boot.service tailscale-auth.service var-opt-data.mount
 Wants=network-online.target
-Requires=first-boot.service opt-data.mount
+Requires=first-boot.service var-opt-data.mount
 Before=fetch-bootstrap-secrets.service
 ConditionPathExists=!/etc/fetch-config-complete
 

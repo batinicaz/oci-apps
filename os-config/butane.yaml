@@ -6,7 +6,7 @@ storage:
     - device: /dev/sdb
       format: xfs
       label: apps-data
-      path: /opt/data
+      path: /var/opt/data
       wipe_filesystem: false
       with_mount_unit: true
   directories:

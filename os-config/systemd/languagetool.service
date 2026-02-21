@@ -1,7 +1,7 @@
 [Unit]
 Description=LanguageTool
-After=traefik.service ghcr-login.service opt-data.mount
-Requires=ghcr-login.service opt-data.mount
+After=traefik.service ghcr-login.service var-opt-data.mount
+Requires=ghcr-login.service var-opt-data.mount
 
 [Service]
 Type=oneshot
