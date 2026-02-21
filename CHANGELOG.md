@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.10.3](https://github.com/batinicaz/oci-apps/compare/v1.10.2...v1.10.3) (2026-02-21)
+
+
+### Bug Fixes
+
+* remove ghcr dependency as languagetool image is public ([51f39c3](https://github.com/batinicaz/oci-apps/commit/51f39c3f80cbacf116d756b0d9e4c11c2920dc36))
+
 ### [1.10.2](https://github.com/batinicaz/oci-apps/compare/v1.10.1...v1.10.2) (2026-02-21)
 
 
