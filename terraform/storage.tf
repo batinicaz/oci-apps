@@ -1,11 +1,11 @@
 resource "oci_core_volume" "data" {
+  // checkov:skip=CKV_OCI_2: App data backed up hourly via autorestic to object storage
   compartment_id      = data.terraform_remote_state.oci_core.outputs.terraform_identity_compartment_id
   availability_domain = var.availability_domain
   display_name        = "${var.name}-data"
   size_in_gbs         = 150
   vpus_per_gb         = 10
   kms_key_id          = oci_kms_key.this.id
-  backup_policy_id    = data.oci_core_volume_backup_policies.oracle.volume_backup_policies[0].id
 
   defined_tags = merge(local.default_tags, {
     "terraform.name" = "${var.name}-data"
