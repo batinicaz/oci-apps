@@ -1,5 +1,12 @@
 data "cloudflare_ip_ranges" "current" {}
 
+data "oci_core_volume_backup_policies" "oracle" {
+  filter {
+    name   = "display_name"
+    values = ["bronze"]
+  }
+}
+
 data "cloudflare_zone" "selected" {
   zone_id = var.zone_id
 }

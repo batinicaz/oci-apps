@@ -31,6 +31,7 @@ resource "null_resource" "regenerate_key" {
       file("${path.module}/../os-config/systemd/tailscaled.service"),
       file("${path.module}/../os-config/systemd/fetch-config.service"),
       file("${path.module}/../os-config/systemd/fetch-bootstrap-secrets.service"),
+      file("${path.module}/../os-config/scripts/languagetool-ngrams.sh"),
     ]))
     // Force key regeneration when bucket bootstrap config changes (fetched at boot)
     bootstrap_config_hash = local.bootstrap_config_hash

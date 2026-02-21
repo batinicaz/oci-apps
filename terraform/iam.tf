@@ -73,3 +73,21 @@ resource "oci_identity_policy" "storage_service" {
     "terraform.name" = "${var.name}-storage-service"
   })
 }
+
+resource "oci_identity_policy" "block_volume_service" {
+  compartment_id = data.terraform_remote_state.oci_core.outputs.terraform_identity_compartment_id
+  description    = "Allow block volume service to use encryption key"
+  name           = "${var.name}-blockvol-service"
+
+  statements = [
+    <<-POLICY
+      Allow service blockstorage
+      to use keys in compartment ${data.oci_identity_compartment.terraform.name}
+      where target.key.id='${oci_kms_key.this.id}'
+    POLICY
+  ]
+
+  defined_tags = merge(local.default_tags, {
+    "terraform.name" = "${var.name}-blockvol-service"
+  })
+}
