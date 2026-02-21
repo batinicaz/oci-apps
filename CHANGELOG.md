@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.9.2](https://github.com/batinicaz/oci-apps/compare/v1.9.1...v1.9.2) (2026-02-21)
+
+
+### Bug Fixes
+
+* checkov issues ([8d919e3](https://github.com/batinicaz/oci-apps/commit/8d919e3a597c7bb660fa6568d6ca4c13b3e9b0c9))
+* xfs device name limit caused invalid butane config ([2a92420](https://github.com/batinicaz/oci-apps/commit/2a924203ba99f3b0bdbf3a8f71f04161a2306acd))
+
 ### [1.9.1](https://github.com/batinicaz/oci-apps/compare/v1.9.0...v1.9.1) (2026-02-21)
 
 ## [1.9.0](https://github.com/batinicaz/oci-apps/compare/v1.8.5...v1.9.0) (2026-02-21)
