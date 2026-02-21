@@ -5,7 +5,7 @@ storage:
   filesystems:
     - device: /dev/sdb
       format: xfs
-      label: oci-apps-data
+      label: apps-data
       path: /opt/data
       wipe_filesystem: false
       with_mount_unit: true
