@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.10.2](https://github.com/batinicaz/oci-apps/compare/v1.10.1...v1.10.2) (2026-02-21)
+
+
+### Bug Fixes
+
+* boot deadlock ([857af2c](https://github.com/batinicaz/oci-apps/commit/857af2cdabe06a9a96c1a0bf8f62aa2831c1fc03))
+
 ### [1.10.1](https://github.com/batinicaz/oci-apps/compare/v1.10.0...v1.10.1) (2026-02-21)
 
 
