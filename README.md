@@ -98,6 +98,8 @@ No modules.
 | [oci_core_network_security_group_security_rule.instance_ingress_http](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_network_security_group_security_rule) | resource |
 | [oci_core_network_security_group_security_rule.lb_egress](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_network_security_group_security_rule) | resource |
 | [oci_core_network_security_group_security_rule.lb_ingress](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_network_security_group_security_rule) | resource |
+| [oci_core_volume.data](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_volume) | resource |
+| [oci_core_volume_attachment.data](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_volume_attachment) | resource |
 | [oci_identity_dynamic_group.this](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/identity_dynamic_group) | resource |
 | [oci_identity_policy.storage_access](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/identity_policy) | resource |
 | [oci_identity_policy.storage_service](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/identity_policy) | resource |
@@ -135,8 +137,8 @@ No modules.
 | <a name="input_cloudflare_custom_list"></a> [cloudflare\_custom\_list](#input\_cloudflare\_custom\_list) | The name of the custom list in CloudFlare containing trusted IP ranges | `string` | n/a | yes |
 | <a name="input_infisical_client_id"></a> [infisical\_client\_id](#input\_infisical\_client\_id) | Infisical Universal Auth client ID | `string` | n/a | yes |
 | <a name="input_infisical_client_secret"></a> [infisical\_client\_secret](#input\_infisical\_client\_secret) | Infisical Universal Auth client secret | `string` | n/a | yes |
-| <a name="input_instance_ocpus"></a> [instance\_ocpus](#input\_instance\_ocpus) | Number of OCPUs to allocate to the instance | `number` | `1` | no |
-| <a name="input_instance_ram"></a> [instance\_ram](#input\_instance\_ram) | RAM in GB to allocate to the instance | `number` | `6` | no |
+| <a name="input_instance_ocpus"></a> [instance\_ocpus](#input\_instance\_ocpus) | Number of OCPUs to allocate to the instance | `number` | `4` | no |
+| <a name="input_instance_ram"></a> [instance\_ram](#input\_instance\_ram) | RAM in GB to allocate to the instance | `number` | `24` | no |
 | <a name="input_instance_shape"></a> [instance\_shape](#input\_instance\_shape) | Instance shape (default is always free ARM) | `string` | `"VM.Standard.A1.Flex"` | no |
 | <a name="input_lb_bandwidth"></a> [lb\_bandwidth](#input\_lb\_bandwidth) | Load balancer bandwidth in Mbps (default is always free) | `number` | `10` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name prefix for all resources | `string` | `"oci-apps"` | no |
@@ -148,7 +150,7 @@ No modules.
 | <a name="input_private_key_pem"></a> [private\_key\_pem](#input\_private\_key\_pem) | Base64 encoded private key PEM for TLS certificate | `string` | n/a | yes |
 | <a name="input_remote_state_endpoint"></a> [remote\_state\_endpoint](#input\_remote\_state\_endpoint) | S3-compatible endpoint for remote state | `string` | n/a | yes |
 | <a name="input_restic_password"></a> [restic\_password](#input\_restic\_password) | Restic repository encryption password | `string` | n/a | yes |
-| <a name="input_services"></a> [services](#input\_services) | Service configuration map | <pre>map(object({<br/>    port      = number<br/>    subdomain = string<br/>    waf_block = optional(bool, false)<br/>  }))</pre> | <pre>{<br/>  "freshrss": {<br/>    "port": 80,<br/>    "subdomain": "rss"<br/>  },<br/>  "fulltextrss": {<br/>    "port": 3000,<br/>    "subdomain": "ftr"<br/>  },<br/>  "nitter": {<br/>    "port": 8080,<br/>    "subdomain": "nitter",<br/>    "waf_block": true<br/>  },<br/>  "planka": {<br/>    "port": 1337,<br/>    "subdomain": "planka"<br/>  },<br/>  "redlib": {<br/>    "port": 8081,<br/>    "subdomain": "redlib",<br/>    "waf_block": true<br/>  }<br/>}</pre> | no |
+| <a name="input_services"></a> [services](#input\_services) | Service configuration map | <pre>map(object({<br/>    port      = number<br/>    subdomain = string<br/>    waf_block = optional(bool, false)<br/>  }))</pre> | <pre>{<br/>  "freshrss": {<br/>    "port": 80,<br/>    "subdomain": "rss"<br/>  },<br/>  "fulltextrss": {<br/>    "port": 3000,<br/>    "subdomain": "ftr"<br/>  },<br/>  "languagetool": {<br/>    "port": 8010,<br/>    "subdomain": "lt",<br/>    "waf_block": true<br/>  },<br/>  "nitter": {<br/>    "port": 8080,<br/>    "subdomain": "nitter",<br/>    "waf_block": true<br/>  },<br/>  "planka": {<br/>    "port": 1337,<br/>    "subdomain": "planka"<br/>  },<br/>  "redlib": {<br/>    "port": 8081,<br/>    "subdomain": "redlib",<br/>    "waf_block": true<br/>  }<br/>}</pre> | no |
 | <a name="input_zone_id"></a> [zone\_id](#input\_zone\_id) | CloudFlare zone ID | `string` | n/a | yes |
 
 ## Outputs
