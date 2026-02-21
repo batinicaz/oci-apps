@@ -82,9 +82,7 @@ systemctl enable --now \
 
 # LanguageTool has no Infisical secrets, so unlike other services it won't be
 # triggered by a .path unit watching /opt/secrets/*.env. Start it directly.
-# --no-block is required: languagetool.service requires ghcr-login.service,
-# which waits on fetch-bootstrap-secrets.service, which waits on this script
-# to finish. Blocking here would deadlock the boot chain.
+# --no-block avoids blocking the boot chain while ExecStartPre downloads ngrams.
 systemctl enable --now --no-block languagetool.service
 
 echo "Configuration fetch complete"
