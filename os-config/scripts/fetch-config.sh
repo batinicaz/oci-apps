@@ -80,4 +80,8 @@ systemctl enable --now \
   app-prune.timer \
   gitops-sync.timer
 
+# Started separately with --no-block because ExecStartPre downloads ~8.5GB of
+# ngram data on first boot. Without --no-block this would block the timers above.
+systemctl enable --now languagetool.service --no-block
+
 echo "Configuration fetch complete"
