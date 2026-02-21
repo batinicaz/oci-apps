@@ -1,0 +1,25 @@
+networks:
+  traefik:
+    external: true
+
+services:
+  languagetool:
+    container_name: languagetool
+    image: ghcr.io/batinicaz/languagetool:1.1.2@sha256:478fe347aafc21796905f04dbe056f216441185eee5cb7e4dc3575e9be112ac5
+    restart: unless-stopped
+    read_only: true
+    user: "783:783"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp
+    volumes:
+      - /opt/data/languagetool/ngrams:/ngrams:ro,z
+    environment:
+      - LISTEN_PORT=8010
+      - JAVA_XMS=512m
+      - JAVA_XMX=2g
+    networks:
+      - traefik

@@ -1,0 +1,16 @@
+[Unit]
+Description=LanguageTool
+After=traefik.service ghcr-login.service opt-data.mount
+Requires=ghcr-login.service opt-data.mount
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/containers/languagetool
+ExecStartPre=/opt/scripts/languagetool-ngrams.sh
+ExecStart=/usr/bin/podman compose --env-file /opt/env/languagetool.env up -d
+ExecStop=/usr/bin/podman compose down
+RemainAfterExit=yes
+TimeoutStartSec=7200
+
+[Install]
+WantedBy=multi-user.target
