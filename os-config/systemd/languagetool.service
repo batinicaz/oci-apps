@@ -1,7 +1,7 @@
 [Unit]
 Description=LanguageTool
-After=traefik.service var-opt-data.mount
-Requires=var-opt-data.mount
+After=traefik-network.service var-opt-data.mount
+Requires=traefik-network.service var-opt-data.mount
 
 [Service]
 Type=oneshot
