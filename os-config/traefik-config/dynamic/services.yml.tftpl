@@ -15,6 +15,9 @@ http:
     redlib:
       rule: "Host(`${REDLIB_HOST}`)"
       service: redlib
+    languagetool:
+      rule: "Host(`${LANGUAGETOOL_HOST}`)"
+      service: languagetool
 
   services:
     freshrss:
@@ -37,3 +40,7 @@ http:
       loadBalancer:
         servers:
           - url: "http://redlib:8080"
+    languagetool:
+      loadBalancer:
+        servers:
+          - url: "http://languagetool:8010"

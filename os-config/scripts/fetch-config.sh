@@ -75,6 +75,7 @@ systemctl enable --now \
   planka.path \
   nitter.path \
   redlib.path \
+  languagetool.path \
   app-backup.timer \
   app-prune.timer \
   gitops-sync.timer

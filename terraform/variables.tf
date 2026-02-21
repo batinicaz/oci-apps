@@ -22,13 +22,13 @@ variable "cloudflare_custom_list" {
 
 variable "instance_ocpus" {
   type        = number
-  default     = 1
+  default     = 4
   description = "Number of OCPUs to allocate to the instance"
 }
 
 variable "instance_ram" {
   type        = number
-  default     = 6
+  default     = 24
   description = "RAM in GB to allocate to the instance"
 }
 
@@ -115,6 +115,11 @@ variable "services" {
     redlib = {
       port      = 8081
       subdomain = "redlib"
+      waf_block = true
+    }
+    languagetool = {
+      port      = 8010
+      subdomain = "lt"
       waf_block = true
     }
   }

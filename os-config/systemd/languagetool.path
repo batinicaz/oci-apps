@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch LanguageTool for changes
+
+[Path]
+PathChanged=/opt/containers/languagetool/
+Unit=app-restart@languagetool.service
+
+[Install]
+WantedBy=multi-user.target
