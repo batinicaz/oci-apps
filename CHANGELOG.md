@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.10.4](https://github.com/batinicaz/oci-apps/compare/v1.10.3...v1.10.4) (2026-02-21)
+
+
+### Bug Fixes
+
+* do not start lt before pod network created ([89f56b7](https://github.com/batinicaz/oci-apps/commit/89f56b78ebda169371a810fa612e516b4f4dc7ad))
+
 ### [1.10.3](https://github.com/batinicaz/oci-apps/compare/v1.10.2...v1.10.3) (2026-02-21)
 
 
