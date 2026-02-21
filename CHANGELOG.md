@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/batinicaz/oci-apps/compare/v1.9.2...v1.10.0) (2026-02-21)
+
+
+### Features
+
+* remove backup policy, not needed and would breach free tier ([ed3e863](https://github.com/batinicaz/oci-apps/commit/ed3e863e2106b76c3445e7a2624c002efd8e7b45))
+
+
+### Bug Fixes
+
+* do not use /opt symlink for app data mount ([04fbbfa](https://github.com/batinicaz/oci-apps/commit/04fbbfa2c5f345170508077cb4d7a4c8703493af))
+* ensure languagetool starts on boot ([6a20900](https://github.com/batinicaz/oci-apps/commit/6a209007037918c1f5757f0c25a413b389f2319a))
+* remove redundant chown ([b91dca9](https://github.com/batinicaz/oci-apps/commit/b91dca9606874084cb58e7e7da85493a16d5908a))
+* use languagetool image based on full JRE ([e72065f](https://github.com/batinicaz/oci-apps/commit/e72065f4e3f76e2296afab44bf969138f87a9890))
+
 ### [1.9.2](https://github.com/batinicaz/oci-apps/compare/v1.9.1...v1.9.2) (2026-02-21)
 
 
