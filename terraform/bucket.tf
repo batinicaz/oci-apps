@@ -16,14 +16,16 @@ resource "oci_kms_key" "this" {
 }
 
 resource "oci_objectstorage_bucket" "this" {
+  // checkov:skip=CKV_OCI_7: Events are not consumed; they add unnecessary API request overhead
+  // checkov:skip=CKV_OCI_8: Restic manages its own snapshot versioning; bucket versioning doubles write API calls
   access_type           = "NoPublicAccess"
   compartment_id        = data.terraform_remote_state.oci_core.outputs.terraform_identity_compartment_id
   kms_key_id            = oci_kms_key.this.id
   name                  = local.bucket_name
   namespace             = data.oci_objectstorage_namespace.terraform.namespace
-  object_events_enabled = true
+  object_events_enabled = false
   storage_tier          = "Standard"
-  versioning            = "Enabled"
+  versioning            = "Disabled"
 
   defined_tags = merge(local.default_tags, {
     "terraform.name" = local.bucket_name
