@@ -2,7 +2,7 @@
 Description=Hourly backup timer
 
 [Timer]
-OnCalendar=*-*-* *:00:00
+OnCalendar=*-*-* 00/6:00:00
 Persistent=true
 RandomizedDelaySec=300
 Unit=app-backup-wrapper.service
