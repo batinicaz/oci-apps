@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.10.26](https://github.com/batinicaz/oci-apps/compare/v1.10.25...v1.10.26) (2026-03-02)
+
+
+### Bug Fixes
+
+* reduce oci object storage requests to stay within free tier ([ebe9e16](https://github.com/batinicaz/oci-apps/commit/ebe9e16c0027767e4e94eb6dfca6235765e46216))
+
 ### [1.10.25](https://github.com/batinicaz/oci-apps/compare/v1.10.24...v1.10.25) (2026-03-01)
 
 ### [1.10.24](https://github.com/batinicaz/oci-apps/compare/v1.10.23...v1.10.24) (2026-03-01)
