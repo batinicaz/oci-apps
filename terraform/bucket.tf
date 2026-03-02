@@ -25,7 +25,7 @@ resource "oci_objectstorage_bucket" "this" {
   namespace             = data.oci_objectstorage_namespace.terraform.namespace
   object_events_enabled = false
   storage_tier          = "Standard"
-  versioning            = "Disabled"
+  versioning            = "Suspended"
 
   defined_tags = merge(local.default_tags, {
     "terraform.name" = local.bucket_name
