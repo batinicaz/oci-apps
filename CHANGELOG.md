@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.10.27](https://github.com/batinicaz/oci-apps/compare/v1.10.26...v1.10.27) (2026-03-02)
+
+
+### Bug Fixes
+
+* disabled --> suspended for versioning ([667b4cf](https://github.com/batinicaz/oci-apps/commit/667b4cfdddd9d1a5f6432da08af419034d6a195d))
+
 ### [1.10.26](https://github.com/batinicaz/oci-apps/compare/v1.10.25...v1.10.26) (2026-03-02)
 
 
