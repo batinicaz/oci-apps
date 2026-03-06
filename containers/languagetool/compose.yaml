@@ -5,7 +5,7 @@ networks:
 services:
   languagetool:
     container_name: languagetool
-    image: ghcr.io/batinicaz/languagetool:1.2.0@sha256:cd8ad765e60246ff6ffea4cf717b8a40ccf62b9c4afeef782da5d9dee9b3d209
+    image: ghcr.io/batinicaz/languagetool:1.2.1@sha256:d0844464673af19fe898c9c178530bbc832bc05ee207680495ede79e17411ce9
     restart: unless-stopped
     read_only: true
     user: "783:783"
