@@ -11,7 +11,7 @@ permissions:
   contents: read
 jobs:
   deploy:
-    uses: batinicaz/gha/.github/workflows/terraform-apply.yml@9c3c1068166c7e5df0905f27264680b1bfda64a1 # ratchet:batinicaz/gha/.github/workflows/terraform-apply.yml@v1.2.10
+    uses: batinicaz/gha/.github/workflows/terraform-apply.yml@4b734bf625f979b9a8bfd694ff95c5c3ab62d3f0 # ratchet:batinicaz/gha/.github/workflows/terraform-apply.yml@v1.2.10
     permissions:
       contents: read
       id-token: write
