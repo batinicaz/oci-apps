@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/batinicaz/oci-apps/compare/v1.10.54...v1.11.0) (2026-03-24)
+
+
+### Features
+
+* add monitoring alarms for object storage size and count ([7f59cfe](https://github.com/batinicaz/oci-apps/commit/7f59cfe80f161835b260656c907b42cfc15b6162))
+
 ### [1.10.54](https://github.com/batinicaz/oci-apps/compare/v1.10.53...v1.10.54) (2026-03-24)
 
 ### [1.10.53](https://github.com/batinicaz/oci-apps/compare/v1.10.52...v1.10.53) (2026-03-24)
