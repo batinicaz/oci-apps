@@ -113,6 +113,8 @@ No modules.
 | [oci_load_balancer_backend_set.traefik](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/load_balancer_backend_set) | resource |
 | [oci_load_balancer_certificate.this](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/load_balancer_certificate) | resource |
 | [oci_load_balancer_listener.https](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/load_balancer_listener) | resource |
+| [oci_monitoring_alarm.object_storage_count](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/monitoring_alarm) | resource |
+| [oci_monitoring_alarm.object_storage_size](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/monitoring_alarm) | resource |
 | [oci_objectstorage_bucket.this](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/objectstorage_bucket) | resource |
 | [oci_objectstorage_object.bootstrap_config](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/objectstorage_object) | resource |
 | [oci_objectstorage_object.templated_config](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/objectstorage_object) | resource |
