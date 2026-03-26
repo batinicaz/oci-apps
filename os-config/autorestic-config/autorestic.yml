@@ -27,3 +27,27 @@ locations:
     from: /opt/data/planka
     to:
       - oci
+
+  podly:
+    from: /opt/data/podly/instance
+    to:
+      - oci
+    options:
+      backup:
+        exclude:
+          - "logs/"
+          - "data/in/"
+          - "*.db-shm"
+          - "*.db-wal"
+      forget:
+        keep-daily: 7
+        keep-weekly: 2
+
+  audiobookshelf:
+    from: /opt/data/audiobookshelf
+    to:
+      - oci
+    options:
+      forget:
+        keep-daily: 7
+        keep-weekly: 2

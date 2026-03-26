@@ -1,0 +1,77 @@
+networks:
+  traefik:
+    external: true
+  podcasts:
+    external: true
+
+services:
+  podly:
+    container_name: podly
+    image: ghcr.io/podly-pure-podcasts/podly-pure-podcasts:2.3.0-lite-arm64@sha256:460b49d10411f62dbd4bd604ccde4273478822effce3275cd1dc4012488850c0
+    restart: unless-stopped
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp
+    volumes:
+      - /opt/data/podly/instance:/app/src/instance:z
+    env_file:
+      - /opt/secrets/podly.env
+    environment:
+      TZ: Europe/London
+      REQUIRE_AUTH: "true"
+    networks:
+      - traefik
+      - podcasts
+
+  audiobookshelf:
+    container_name: audiobookshelf
+    image: ghcr.io/advplyr/audiobookshelf:2.33.1@sha256:a4a5841bba093d81e5f4ad1eaedb4da3fda6dbb2528c552349da50ad1f7ae708
+    restart: unless-stopped
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /opt/data/podcasts:/podcasts:ro,z
+      - /opt/data/podly/instance/data/srv:/processed:ro,z
+      - /opt/data/audiobookshelf/config:/config:z
+      - /opt/data/audiobookshelf/metadata:/metadata:z
+    environment:
+      TZ: Europe/London
+      METADATA_PATH: /metadata
+    networks:
+      - traefik
+      - podcasts
+
+  get_iplayer:
+    container_name: get_iplayer
+    image: ghcr.io/thespad/get_iplayer:3.23@sha256:f7a2dd5b1ff203db0061e25a6d5aceef56619f8e786d79b4a1ab172819de628a
+    restart: unless-stopped
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - DAC_OVERRIDE
+      - SETUID
+      - SETGID
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 1935:1935
+    tmpfs:
+      - /tmp
+      - /run
+    volumes:
+      - /opt/data/get_iplayer/config:/config:z
+      - /opt/data/podcasts:/podcasts:z
+      - ./get_iplayer-init:/custom-cont-init.d:ro,z
+    environment:
+      TZ: Europe/London
+      PUID: 1000
+      PGID: 1000
+      INCLUDERADIO: "true"
+    networks:
+      - podcasts

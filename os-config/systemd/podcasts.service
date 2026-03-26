@@ -1,0 +1,17 @@
+[Unit]
+Description=Podcast Pipeline (get_iplayer -> Audiobookshelf -> Podly)
+After=traefik.service infisical-agent.service autorestic-restore.service ghcr-login.service podcasts-network.service
+Wants=autorestic-restore.service
+Requires=ghcr-login.service podcasts-network.service
+ConditionPathExists=/opt/secrets/podly.env
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/containers/podcasts
+ExecStart=/usr/bin/podman compose --env-file /opt/env/podly.env up -d
+ExecStop=/usr/bin/podman compose down
+RemainAfterExit=yes
+TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target

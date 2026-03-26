@@ -70,14 +70,18 @@ restorecon -R /etc/systemd/system
 
 systemctl daemon-reload
 
+systemctl enable ghcr-token.path
+
 systemctl enable --now \
   freshrss.path \
   planka.path \
   nitter.path \
   redlib.path \
   languagetool.path \
+  podcasts.path \
   app-backup.timer \
   app-prune.timer \
+  podcasts-cleanup.timer \
   gitops-sync.timer
 
 # LanguageTool has no Infisical secrets, so unlike other services it won't be

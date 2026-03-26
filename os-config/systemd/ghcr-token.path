@@ -3,6 +3,7 @@ Description=Watch for GHCR token file
 
 [Path]
 PathExists=/opt/secrets/ghcr-token
+Unit=ghcr-login.service
 
 [Install]
 WantedBy=multi-user.target
