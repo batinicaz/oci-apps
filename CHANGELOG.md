@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.12.3](https://github.com/batinicaz/oci-apps/compare/v1.12.2...v1.12.3) (2026-03-28)
+
+
+### Bug Fixes
+
+* move audibookshelf to non privileged port ([3a4bfd2](https://github.com/batinicaz/oci-apps/commit/3a4bfd215cfb8b6976972116eb01291ed6fbe596))
+
 ### [1.12.2](https://github.com/batinicaz/oci-apps/compare/v1.12.1...v1.12.2) (2026-03-28)
 
 ### [1.12.1](https://github.com/batinicaz/oci-apps/compare/v1.12.0...v1.12.1) (2026-03-28)
