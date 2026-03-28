@@ -131,6 +131,12 @@ storage:
         inline: |
           LANGUAGETOOL_HOST=${LANGUAGETOOL_HOST}
 
+    - path: /opt/env/podly.env
+      mode: 0644
+      contents:
+        inline: |
+          PODLY_HOST=${PODLY_HOST}
+
     - path: /opt/scripts/languagetool-ngrams.sh
       mode: 0755
       contents:

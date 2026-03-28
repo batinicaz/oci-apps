@@ -1,0 +1,9 @@
+[Unit]
+Description=Cleanup podcast pipeline ephemeral data
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c '\
+  find /opt/data/podcasts/bbc -name "*.mp3" -mtime +1 -delete 2>/dev/null || true; \
+  find /opt/data/podcasts/bbc -name "*.mp3.partial" -mtime +1 -delete 2>/dev/null || true; \
+  find /opt/data/podly/instance/data/in -type f -mtime +1 -delete 2>/dev/null || true'

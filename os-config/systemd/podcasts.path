@@ -1,0 +1,10 @@
+[Unit]
+Description=Watch podcasts stack for changes
+
+[Path]
+PathChanged=/opt/containers/podcasts/
+PathModified=/opt/secrets/podly.env
+Unit=app-restart@podcasts.service
+
+[Install]
+WantedBy=multi-user.target

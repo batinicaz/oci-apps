@@ -44,6 +44,7 @@ locals {
     "fulltextrss-config.php" = { path = "/fulltextrss", dest = "fulltextrss-config.php", custom = true }
     "ghcr-token"             = { path = "/", dest = "ghcr-token", custom = true }
     "healthcheck-urls.env"   = { path = "/healthchecks", dest = "healthcheck-urls.env" }
+    "podly.env"              = { path = "/podly", dest = "podly.env" }
   }
 
   infisical_agent_config = yamlencode({
@@ -93,7 +94,7 @@ locals {
       )
       "config/traefik-config/dynamic/services.yml" = templatefile(
         "${path.module}/../os-config/traefik-config/dynamic/services.yml.tftpl",
-        local.service_hosts
+        { services = local.services }
       )
       "config/infisical-config/agent-config.yaml" = local.infisical_agent_config
     },

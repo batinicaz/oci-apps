@@ -1,46 +1,15 @@
 http:
   routers:
-    freshrss:
-      rule: "Host(`${FRESHRSS_HOST}`)"
-      service: freshrss
-    fulltextrss:
-      rule: "Host(`${FULLTEXTRSS_HOST}`)"
-      service: fulltextrss
-    planka:
-      rule: "Host(`${PLANKA_HOST}`)"
-      service: planka
-    nitter:
-      rule: "Host(`${NITTER_HOST}`)"
-      service: nitter
-    redlib:
-      rule: "Host(`${REDLIB_HOST}`)"
-      service: redlib
-    languagetool:
-      rule: "Host(`${LANGUAGETOOL_HOST}`)"
-      service: languagetool
+%{ for name, config in services ~}
+    ${name}:
+      rule: "Host(`${config.fqdn}`)"
+      service: ${name}
+%{ endfor ~}
 
   services:
-    freshrss:
+%{ for name, config in services ~}
+    ${name}:
       loadBalancer:
         servers:
-          - url: "http://freshrss:80"
-    fulltextrss:
-      loadBalancer:
-        servers:
-          - url: "http://fulltextrss:80"
-    planka:
-      loadBalancer:
-        servers:
-          - url: "http://planka:1337"
-    nitter:
-      loadBalancer:
-        servers:
-          - url: "http://nitter:8080"
-    redlib:
-      loadBalancer:
-        servers:
-          - url: "http://redlib:8080"
-    languagetool:
-      loadBalancer:
-        servers:
-          - url: "http://languagetool:8010"
+          - url: "http://${name}:${config.port}"
+%{ endfor ~}

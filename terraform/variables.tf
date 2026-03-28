@@ -95,6 +95,10 @@ variable "services" {
     waf_block = optional(bool, false)
   }))
   default = {
+    audiobookshelf = {
+      port      = 80
+      subdomain = "abs"
+    }
     freshrss = {
       port      = 80
       subdomain = "rss"
@@ -103,23 +107,27 @@ variable "services" {
       port      = 3000
       subdomain = "ftr"
     }
-    planka = {
-      port      = 1337
-      subdomain = "planka"
+    languagetool = {
+      port      = 8010
+      subdomain = "lt"
+      waf_block = true
     }
     nitter = {
       port      = 8080
       subdomain = "nitter"
       waf_block = true
     }
+    planka = {
+      port      = 1337
+      subdomain = "planka"
+    }
+    podly = {
+      port      = 5001
+      subdomain = "podly"
+    }
     redlib = {
       port      = 8081
       subdomain = "redlib"
-      waf_block = true
-    }
-    languagetool = {
-      port      = 8010
-      subdomain = "lt"
       waf_block = true
     }
   }
