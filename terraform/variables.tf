@@ -96,7 +96,7 @@ variable "services" {
   }))
   default = {
     audiobookshelf = {
-      port      = 80
+      port      = 8000
       subdomain = "abs"
     }
     freshrss = {

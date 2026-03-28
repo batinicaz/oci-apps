@@ -41,6 +41,7 @@ services:
       - /opt/data/audiobookshelf/metadata:/metadata:z
     environment:
       TZ: Europe/London
+      PORT: "8000"
       METADATA_PATH: /metadata
     networks:
       - traefik
