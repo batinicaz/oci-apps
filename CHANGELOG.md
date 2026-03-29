@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.13.1](https://github.com/batinicaz/oci-apps/compare/v1.13.0...v1.13.1) (2026-03-29)
+
+
+### Bug Fixes
+
+* handle download of fedora core os directly with terraform ([ca13d6c](https://github.com/batinicaz/oci-apps/commit/ca13d6c644a97aca012b3705614ea7ff8001b9f7))
+
 ## [1.13.0](https://github.com/batinicaz/oci-apps/compare/v1.12.3...v1.13.0) (2026-03-29)
 
 
