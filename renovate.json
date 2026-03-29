@@ -4,6 +4,14 @@
     "config:recommended"
   ],
   "enabledManagers": ["docker-compose", "github-actions", "terraform", "custom.regex"],
+  "customDatasources": {
+    "fcos-stable-aarch64": {
+      "defaultRegistryUrlTemplate": "https://builds.coreos.fedoraproject.org/streams/stable.json",
+      "transformTemplates": [
+        "{\"releases\": [{\"version\": architectures.aarch64.artifacts.oraclecloud.release}]}"
+      ]
+    }
+  },
   "customManagers": [
     {
       "customType": "regex",
@@ -13,6 +21,20 @@
       ],
       "datasourceTemplate": "docker",
       "autoReplaceStringTemplate": "Image={{depName}}{{#if newValue}}:{{newValue}}{{/if}}{{#if newDigest}}@{{newDigest}}{{/if}}"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["^fcos-version\\.json$"],
+      "matchStrings": ["\"version\":\\s*\"(?<currentValue>[^\"]+)\""],
+      "depNameTemplate": "fedora-coreos-aarch64",
+      "datasourceTemplate": "custom.fcos-stable-aarch64",
+      "versioningTemplate": "loose"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchDepNames": ["fedora-coreos-aarch64"],
+      "automerge": true
     }
   ],
   "hostRules": [

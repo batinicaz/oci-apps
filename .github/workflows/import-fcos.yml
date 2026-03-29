@@ -1,0 +1,96 @@
+name: FCOS Image
+# https://docs.fedoraproject.org/en-US/fedora-coreos/provisioning-oraclecloud/
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths: ['fcos-version.json']
+  push:
+    branches: [main]
+    paths: ['fcos-version.json']
+concurrency:
+  group: fcos-import
+  cancel-in-progress: false
+permissions:
+  contents: read
+jobs:
+  automerge:
+    if: github.event_name == 'pull_request' && github.event.pull_request.user.id == 29139614
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3
+        id: app-token
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Approve PR
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: gh pr review --approve "${{ github.event.pull_request.number }}" --repo "${{ github.repository }}"
+
+      - name: Enable auto-merge
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: gh pr merge --auto --squash "${{ github.event.pull_request.number }}" --repo "${{ github.repository }}"
+
+  import:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Download and verify FCOS image
+        env:
+          STREAM_URL: https://builds.coreos.fedoraproject.org/streams/stable.json
+        run: |
+          ARTIFACT=$(curl -sfL "$STREAM_URL" | jq '.architectures.aarch64.artifacts.oraclecloud')
+          URL=$(echo "$ARTIFACT" | jq -r '.formats["qcow2.xz"].disk.location')
+          SHA256=$(echo "$ARTIFACT" | jq -r '.formats["qcow2.xz"].disk.sha256')
+          UNCOMPRESSED_SHA256=$(echo "$ARTIFACT" | jq -r '.formats["qcow2.xz"].disk["uncompressed-sha256"]')
+
+          curl -sfL -o fcos.qcow2.xz "$URL"
+          echo "$SHA256  fcos.qcow2.xz" | sha256sum -c -
+          xz -d fcos.qcow2.xz
+          echo "$UNCOMPRESSED_SHA256  fcos.qcow2" | sha256sum -c -
+
+      - name: Fetch common secrets from Infisical
+        uses: Infisical/secrets-action@8802effbe453d0576cd923567dcc2c97a1f54058 # ratchet:Infisical/secrets-action@v1.0.15
+        with:
+          domain: https://eu.infisical.com
+          method: oidc
+          oidc-audience: ${{ github.server_url }}/${{ github.repository_owner }}
+          env-slug: terraform-common
+          project-slug: terraform
+          identity-id: ${{ secrets.INFISICAL_IDENTITY_ID }}
+          export-type: env
+
+      - name: Fetch project secrets from Infisical
+        uses: Infisical/secrets-action@8802effbe453d0576cd923567dcc2c97a1f54058 # ratchet:Infisical/secrets-action@v1.0.15
+        with:
+          domain: https://eu.infisical.com
+          method: oidc
+          oidc-audience: ${{ github.server_url }}/${{ github.repository_owner }}
+          env-slug: terraform-oci-apps
+          project-slug: terraform
+          identity-id: ${{ secrets.INFISICAL_IDENTITY_ID }}
+          export-type: env
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@5e8dbf3c6d9deaf4193ca7a8fb23f2ac83bb6c85 # v4
+
+      - name: Terraform apply
+        working-directory: terraform
+        env:
+          TF_VAR_fcos_upload: "true"
+          TF_VAR_fcos_image_path: ${{ github.workspace }}/fcos.qcow2
+        run: |
+          terraform init
+          terraform apply -auto-approve
+
+      - name: Cleanup staging bucket
+        working-directory: terraform
+        run: terraform apply -auto-approve
