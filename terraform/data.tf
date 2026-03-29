@@ -29,6 +29,13 @@ data "oci_objectstorage_namespace" "terraform" {
   compartment_id = data.terraform_remote_state.oci_core.outputs.terraform_identity_compartment_id
 }
 
+data "oci_core_compute_global_image_capability_schemas" "fcos" {}
+
+data "oci_core_compute_global_image_capability_schemas_versions" "fcos" {
+  compute_global_image_capability_schema_id = data.oci_core_compute_global_image_capability_schemas.fcos.compute_global_image_capability_schemas[0].id
+  display_name                              = "1.2"
+}
+
 data "terraform_remote_state" "oci_core" {
   backend = "s3"
   config = {

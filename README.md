@@ -91,6 +91,8 @@ No modules.
 | [cloudflare_origin_ca_certificate.this](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/origin_ca_certificate) | resource |
 | [cloudflare_ruleset.zone_level_waf](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/ruleset) | resource |
 | [null_resource.regenerate_key](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
+| [oci_core_compute_image_capability_schema.fcos](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_compute_image_capability_schema) | resource |
+| [oci_core_image.fcos](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_image) | resource |
 | [oci_core_instance.this](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_instance) | resource |
 | [oci_core_network_security_group.instance](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_network_security_group) | resource |
 | [oci_core_network_security_group.lb](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_network_security_group) | resource |
@@ -98,6 +100,7 @@ No modules.
 | [oci_core_network_security_group_security_rule.instance_ingress_http](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_network_security_group_security_rule) | resource |
 | [oci_core_network_security_group_security_rule.lb_egress](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_network_security_group_security_rule) | resource |
 | [oci_core_network_security_group_security_rule.lb_ingress](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_network_security_group_security_rule) | resource |
+| [oci_core_shape_management.fcos](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_shape_management) | resource |
 | [oci_core_volume.data](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_volume) | resource |
 | [oci_core_volume_attachment.data](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_volume_attachment) | resource |
 | [oci_identity_dynamic_group.this](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/identity_dynamic_group) | resource |
@@ -115,15 +118,20 @@ No modules.
 | [oci_load_balancer_listener.https](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/load_balancer_listener) | resource |
 | [oci_monitoring_alarm.object_storage_count](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/monitoring_alarm) | resource |
 | [oci_monitoring_alarm.object_storage_size](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/monitoring_alarm) | resource |
+| [oci_objectstorage_bucket.fcos](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/objectstorage_bucket) | resource |
 | [oci_objectstorage_bucket.this](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/objectstorage_bucket) | resource |
 | [oci_objectstorage_object.bootstrap_config](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/objectstorage_object) | resource |
+| [oci_objectstorage_object.fcos](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/objectstorage_object) | resource |
 | [oci_objectstorage_object.templated_config](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/objectstorage_object) | resource |
 | [oci_vault_secret.bootstrap](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/vault_secret) | resource |
 | [tailscale_tailnet_key.this](https://registry.terraform.io/providers/tailscale/tailscale/latest/docs/resources/tailnet_key) | resource |
+| [terraform_data.fcos_version](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/resources/data) | resource |
 | [tls_cert_request.this](https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/cert_request) | resource |
 | [cloudflare_ip_ranges.current](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/ip_ranges) | data source |
 | [cloudflare_zone.selected](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/zone) | data source |
 | [ct_config.ignition](https://registry.terraform.io/providers/poseidon/ct/latest/docs/data-sources/config) | data source |
+| [oci_core_compute_global_image_capability_schemas.fcos](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/core_compute_global_image_capability_schemas) | data source |
+| [oci_core_compute_global_image_capability_schemas_versions.fcos](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/core_compute_global_image_capability_schemas_versions) | data source |
 | [oci_core_images.fcos](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/core_images) | data source |
 | [oci_core_subnet.public](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/core_subnet) | data source |
 | [oci_identity_compartment.terraform](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/identity_compartment) | data source |
@@ -138,6 +146,8 @@ No modules.
 | <a name="input_boot_volume_size"></a> [boot\_volume\_size](#input\_boot\_volume\_size) | Boot volume size in GB | `number` | `50` | no |
 | <a name="input_bucket_name"></a> [bucket\_name](#input\_bucket\_name) | Name for the bucket (defaults to {name}) | `string` | `""` | no |
 | <a name="input_cloudflare_custom_list"></a> [cloudflare\_custom\_list](#input\_cloudflare\_custom\_list) | The name of the custom list in CloudFlare containing trusted IP ranges | `string` | n/a | yes |
+| <a name="input_fcos_image_path"></a> [fcos\_image\_path](#input\_fcos\_image\_path) | Local path to decompressed FCOS qcow2 file (required when fcos\_upload=true) | `string` | `""` | no |
+| <a name="input_fcos_upload"></a> [fcos\_upload](#input\_fcos\_upload) | Create staging bucket and upload FCOS image for import | `bool` | `false` | no |
 | <a name="input_infisical_client_id"></a> [infisical\_client\_id](#input\_infisical\_client\_id) | Infisical Universal Auth client ID | `string` | n/a | yes |
 | <a name="input_infisical_client_secret"></a> [infisical\_client\_secret](#input\_infisical\_client\_secret) | Infisical Universal Auth client secret | `string` | n/a | yes |
 | <a name="input_instance_ocpus"></a> [instance\_ocpus](#input\_instance\_ocpus) | Number of OCPUs to allocate to the instance | `number` | `4` | no |
