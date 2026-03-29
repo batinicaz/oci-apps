@@ -135,7 +135,6 @@ No modules.
 | [http_http.fcos_meta](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 | [oci_core_compute_global_image_capability_schemas.fcos](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/core_compute_global_image_capability_schemas) | data source |
 | [oci_core_compute_global_image_capability_schemas_versions.fcos](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/core_compute_global_image_capability_schemas_versions) | data source |
-| [oci_core_images.fcos](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/core_images) | data source |
 | [oci_core_images.fcos_available](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/core_images) | data source |
 | [oci_core_subnet.public](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/core_subnet) | data source |
 | [oci_identity_compartment.terraform](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/identity_compartment) | data source |
