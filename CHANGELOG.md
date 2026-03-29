@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.13.0](https://github.com/batinicaz/oci-apps/compare/v1.12.3...v1.13.0) (2026-03-29)
+
+
+### Features
+
+* automate import of of core os image + manage version to import ([ff8f101](https://github.com/batinicaz/oci-apps/commit/ff8f101ab94ec0eb4d1b8bf180d546350a6fdec0))
+
 ### [1.12.3](https://github.com/batinicaz/oci-apps/compare/v1.12.2...v1.12.3) (2026-03-28)
 
 
