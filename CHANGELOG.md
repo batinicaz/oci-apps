@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.13.4](https://github.com/batinicaz/oci-apps/compare/v1.13.3...v1.13.4) (2026-03-29)
+
+
+### Bug Fixes
+
+* slow import + incorrect ordering ([ff55dd9](https://github.com/batinicaz/oci-apps/commit/ff55dd9f26360eab12b3423dbc0c45413b77ba4a))
+
 ### [1.13.3](https://github.com/batinicaz/oci-apps/compare/v1.13.2...v1.13.3) (2026-03-29)
 
 
