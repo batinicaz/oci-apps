@@ -157,18 +157,6 @@ variable "zone_id" {
   description = "CloudFlare zone ID"
 }
 
-variable "fcos_upload" {
-  type        = bool
-  default     = false
-  description = "Create staging bucket and upload FCOS image for import"
-}
-
-variable "fcos_image_path" {
-  type        = string
-  default     = ""
-  description = "Local path to decompressed FCOS qcow2 file (required when fcos_upload=true)"
-}
-
 locals {
   default_tags = {
     "terraform.managed" = "terraform"

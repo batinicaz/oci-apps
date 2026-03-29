@@ -1,13 +1,35 @@
 locals {
-  fcos = jsondecode(file("${path.module}/../fcos-version.json"))
+  fcos              = jsondecode(file("${path.module}/../fcos-version.json"))
+  fcos_build_url    = "https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/${local.fcos.version}/aarch64"
+  fcos_meta         = local.fcos_needs_import ? jsondecode(data.http.fcos_meta[0].response_body).images.oraclecloud : null
+  fcos_display_name = "Fedora CoreOS ${local.fcos.version}-oraclecloud aarch64"
+  fcos_needs_import = length(data.oci_core_images.fcos_available.images) == 0
+  fcos_object_name  = "fedora-coreos-${local.fcos.version}-oraclecloud.aarch64.qcow2"
+}
+
+data "oci_core_images" "fcos_available" {
+  compartment_id = data.terraform_remote_state.oci_core.outputs.terraform_identity_compartment_id
+  display_name   = local.fcos_display_name
+  sort_by        = "TIMECREATED"
+  sort_order     = "DESC"
+
+  filter {
+    name   = "state"
+    values = ["AVAILABLE"]
+  }
 }
 
 resource "terraform_data" "fcos_version" {
   input = local.fcos.version
 }
 
+data "http" "fcos_meta" {
+  count = local.fcos_needs_import ? 1 : 0
+  url   = "${local.fcos_build_url}/meta.json"
+}
+
 resource "oci_objectstorage_bucket" "fcos" {
-  count          = var.fcos_upload ? 1 : 0
+  count          = local.fcos_needs_import ? 1 : 0
   access_type    = "NoPublicAccess"
   compartment_id = data.terraform_remote_state.oci_core.outputs.terraform_identity_compartment_id
   name           = "${var.name}-fcos-${local.fcos.version}"
@@ -20,24 +42,45 @@ resource "oci_objectstorage_bucket" "fcos" {
   })
 }
 
-resource "oci_objectstorage_object" "fcos" {
-  count     = var.fcos_upload ? 1 : 0
-  namespace = data.oci_objectstorage_namespace.terraform.namespace
-  bucket    = oci_objectstorage_bucket.fcos[0].name
-  object    = "fedora-coreos-${local.fcos.version}-oraclecloud.aarch64.qcow2"
-  source    = var.fcos_image_path
+resource "terraform_data" "fcos_upload" {
+  count      = local.fcos_needs_import ? 1 : 0
+  depends_on = [oci_objectstorage_bucket.fcos]
+
+  input = {
+    namespace   = data.oci_objectstorage_namespace.terraform.namespace
+    bucket      = oci_objectstorage_bucket.fcos[0].name
+    object_name = local.fcos_object_name
+  }
+
+  provisioner "local-exec" {
+    command = "${path.module}/scripts/upload-fcos.sh"
+    environment = {
+      FCOS_VERSION             = local.fcos.version
+      FCOS_BUILD_URL           = local.fcos_build_url
+      FCOS_SHA256              = local.fcos_meta.sha256
+      FCOS_UNCOMPRESSED_SHA256 = local.fcos_meta["uncompressed-sha256"]
+      FCOS_OBJECT_NAME         = local.fcos_object_name
+      OCI_NAMESPACE            = data.oci_objectstorage_namespace.terraform.namespace
+      OCI_BUCKET               = oci_objectstorage_bucket.fcos[0].name
+    }
+  }
+
+  provisioner "local-exec" {
+    when    = destroy
+    command = "oci os object delete --namespace '${self.input.namespace}' --bucket-name '${self.input.bucket}' --name '${self.input.object_name}' --force 2>/dev/null || true"
+  }
 }
 
 resource "oci_core_image" "fcos" {
   compartment_id = data.terraform_remote_state.oci_core.outputs.terraform_identity_compartment_id
-  display_name   = "Fedora CoreOS ${local.fcos.version}-oraclecloud aarch64"
+  display_name   = local.fcos_display_name
   launch_mode    = "PARAVIRTUALIZED"
 
   image_source_details {
     source_type       = "objectStorageTuple"
     namespace_name    = data.oci_objectstorage_namespace.terraform.namespace
     bucket_name       = "${var.name}-fcos-${local.fcos.version}"
-    object_name       = "fedora-coreos-${local.fcos.version}-oraclecloud.aarch64.qcow2"
+    object_name       = local.fcos_object_name
     source_image_type = "QCOW2"
     operating_system  = "Fedora"
   }
