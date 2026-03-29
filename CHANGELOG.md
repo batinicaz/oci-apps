@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.13.3](https://github.com/batinicaz/oci-apps/compare/v1.13.2...v1.13.3) (2026-03-29)
+
+
+### Bug Fixes
+
+* oci cli authentication ([fc20100](https://github.com/batinicaz/oci-apps/commit/fc2010027499fa425be1594168f8d738df044fff))
+
 ### [1.13.2](https://github.com/batinicaz/oci-apps/compare/v1.13.1...v1.13.2) (2026-03-29)
 
 
