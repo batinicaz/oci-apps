@@ -72,6 +72,7 @@ resource "terraform_data" "fcos_upload" {
 }
 
 resource "oci_core_image" "fcos" {
+  depends_on     = [terraform_data.fcos_upload]
   compartment_id = data.terraform_remote_state.oci_core.outputs.terraform_identity_compartment_id
   display_name   = local.fcos_display_name
   launch_mode    = "PARAVIRTUALIZED"

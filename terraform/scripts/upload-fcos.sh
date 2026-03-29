@@ -29,6 +29,6 @@ oci os object put \
   --bucket-name "${OCI_BUCKET}" \
   --file "${LOCAL}" \
   --name "${FCOS_OBJECT_NAME}" \
-  --no-multipart
+  --force
 
 rm -f "${LOCAL}"
