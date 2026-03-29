@@ -4,23 +4,6 @@ data "cloudflare_zone" "selected" {
   zone_id = var.zone_id
 }
 
-data "oci_core_images" "fcos" {
-  compartment_id = data.terraform_remote_state.oci_core.outputs.terraform_identity_compartment_id
-  sort_by        = "TIMECREATED"
-  sort_order     = "DESC"
-
-  filter {
-    name   = "display_name"
-    values = ["Fedora CoreOS*"]
-    regex  = true
-  }
-
-  filter {
-    name   = "state"
-    values = ["AVAILABLE"]
-  }
-}
-
 data "oci_identity_compartment" "terraform" {
   id = data.terraform_remote_state.oci_core.outputs.terraform_identity_compartment_id
 }

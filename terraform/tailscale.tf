@@ -5,7 +5,7 @@ resource "null_resource" "regenerate_key" {
     boot_volume_size    = var.boot_volume_size
     bucket              = oci_objectstorage_bucket.this.name
     compartment_id      = data.terraform_remote_state.oci_core.outputs.terraform_identity_compartment_id
-    image_id            = data.oci_core_images.fcos.images[0].id
+    image_id            = oci_core_image.fcos.id
     instance_ocpus      = var.instance_ocpus
     instance_ram        = var.instance_ram
     shape               = var.instance_shape

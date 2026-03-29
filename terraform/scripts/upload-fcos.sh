@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+command -v oci >/dev/null || pip install -q oci-cli
+
 : "${FCOS_VERSION:?}"
 : "${FCOS_BUILD_URL:?}"
 : "${FCOS_SHA256:?}"

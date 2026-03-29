@@ -34,7 +34,7 @@ resource "oci_core_instance" "this" {
   }
 
   source_details {
-    source_id               = data.oci_core_images.fcos.images[0].id
+    source_id               = oci_core_image.fcos.id
     source_type             = "image"
     boot_volume_size_in_gbs = var.boot_volume_size
   }
