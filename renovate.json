@@ -1,9 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ],
-  "enabledManagers": ["docker-compose", "github-actions", "terraform", "custom.regex"],
+  "extends": ["github>batinicaz/gha:renovate-preset"],
+  "enabledManagers": ["docker-compose", "github-actions", "terraform", "custom.regex", "pre-commit"],
   "customDatasources": {
     "fcos-stable-aarch64": {
       "defaultRegistryUrlTemplate": "https://builds.coreos.fedoraproject.org/streams/stable.json",
@@ -24,7 +22,7 @@
     },
     {
       "customType": "regex",
-      "fileMatch": ["^fcos-version\\.json$"],
+      "managerFilePatterns": ["/^fcos-version\\.json$/"],
       "matchStrings": ["\"version\":\\s*\"(?<currentValue>[^\"]+)\""],
       "depNameTemplate": "fedora-coreos-aarch64",
       "datasourceTemplate": "custom.fcos-stable-aarch64",
