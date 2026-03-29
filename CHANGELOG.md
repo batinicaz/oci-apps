@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.13.2](https://github.com/batinicaz/oci-apps/compare/v1.13.1...v1.13.2) (2026-03-29)
+
+
+### Bug Fixes
+
+* install oci cli ([2165c43](https://github.com/batinicaz/oci-apps/commit/2165c433cfe783940f1bf49b24913acc67dabee7))
+* remove image data lookup and use created image id ([da15a3e](https://github.com/batinicaz/oci-apps/commit/da15a3ebcb7a89ea11f6400b1425269aef574d76))
+
 ### [1.13.1](https://github.com/batinicaz/oci-apps/compare/v1.13.0...v1.13.1) (2026-03-29)
 
 
