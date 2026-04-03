@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.13.10](https://github.com/batinicaz/oci-apps/compare/v1.13.9...v1.13.10) (2026-04-03)
+
+
+### Bug Fixes
+
+* chown on podcasts directory ([#142](https://github.com/batinicaz/oci-apps/issues/142)) ([1c4fb87](https://github.com/batinicaz/oci-apps/commit/1c4fb87c0bebff1ee1e441c2055123f0db4a8b6e))
+
 ### [1.13.9](https://github.com/batinicaz/oci-apps/compare/v1.13.8...v1.13.9) (2026-04-02)
 
 ### [1.13.8](https://github.com/batinicaz/oci-apps/compare/v1.13.7...v1.13.8) (2026-04-02)
