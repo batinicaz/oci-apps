@@ -35,8 +35,8 @@ services:
     security_opt:
       - no-new-privileges:true
     volumes:
-      - /opt/data/podcasts:/podcasts:ro,z
-      - /opt/data/podly/instance/data/srv:/processed:ro,z
+      - /opt/data/podcasts:/podly-source:ro,z
+      - /opt/data/audiobookshelf/podly-destination:/podly-destination:z
       - /opt/data/audiobookshelf/config:/config:z
       - /opt/data/audiobookshelf/metadata:/metadata:z
     environment:
