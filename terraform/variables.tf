@@ -104,7 +104,7 @@ variable "services" {
       subdomain = "rss"
     }
     fulltextrss = {
-      port      = 3000
+      port      = 80
       subdomain = "ftr"
     }
     languagetool = {
@@ -126,7 +126,7 @@ variable "services" {
       subdomain = "podly"
     }
     redlib = {
-      port      = 8081
+      port      = 8080
       subdomain = "redlib"
       waf_block = true
     }
