@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.13.14](https://github.com/batinicaz/oci-apps/compare/v1.13.13...v1.13.14) (2026-04-06)
+
+
+### Bug Fixes
+
+* templated port mismatch ([#146](https://github.com/batinicaz/oci-apps/issues/146)) ([13705d4](https://github.com/batinicaz/oci-apps/commit/13705d446b396b2ab4b70e5a5fd4c8d0b0bb24e2))
+
 ### [1.13.13](https://github.com/batinicaz/oci-apps/compare/v1.13.12...v1.13.13) (2026-04-05)
 
 ### [1.13.12](https://github.com/batinicaz/oci-apps/compare/v1.13.11...v1.13.12) (2026-04-05)
