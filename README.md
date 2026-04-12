@@ -58,7 +58,7 @@ Deployments are triggered automatically:
 ## Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.10 |
 | <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | ~> 5.0 |
 | <a name="requirement_ct"></a> [ct](#requirement\_ct) | ~> 0.14 |
@@ -71,7 +71,7 @@ Deployments are triggered automatically:
 ## Providers
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | 5.18.0 |
 | <a name="provider_ct"></a> [ct](#provider\_ct) | 0.14.0 |
 | <a name="provider_http"></a> [http](#provider\_http) | 3.5.0 |
@@ -88,7 +88,7 @@ No modules.
 ## Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [cloudflare_dns_record.services](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/dns_record) | resource |
 | [cloudflare_origin_ca_certificate.this](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/origin_ca_certificate) | resource |
 | [cloudflare_ruleset.zone_level_waf](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/ruleset) | resource |
@@ -144,7 +144,7 @@ No modules.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_availability_domain"></a> [availability\_domain](#input\_availability\_domain) | Availability domain where instance will be launched | `string` | n/a | yes |
 | <a name="input_boot_volume_size"></a> [boot\_volume\_size](#input\_boot\_volume\_size) | Boot volume size in GB | `number` | `50` | no |
 | <a name="input_bucket_name"></a> [bucket\_name](#input\_bucket\_name) | Name for the bucket (defaults to {name}) | `string` | `""` | no |
