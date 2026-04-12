@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.13.17](https://github.com/batinicaz/oci-apps/compare/v1.13.16...v1.13.17) (2026-04-12)
+
+
+### Bug Fixes
+
+* push tf doc updates using documentation bot so renovate auto merge works ([be808f8](https://github.com/batinicaz/oci-apps/commit/be808f81da52ff8b91ffd8ee2995259813c95451))
+
 ### [1.13.16](https://github.com/batinicaz/oci-apps/compare/v1.13.15...v1.13.16) (2026-04-12)
 
 ### [1.13.15](https://github.com/batinicaz/oci-apps/compare/v1.13.14...v1.13.15) (2026-04-07)
