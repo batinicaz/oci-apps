@@ -4,7 +4,7 @@ on:
     branches:
       - "renovate/**"
 permissions:
-  contents: read
+  contents: write
 jobs:
   terraform-docs:
     uses: batinicaz/gha/.github/workflows/terraform-docs.yml@v1
