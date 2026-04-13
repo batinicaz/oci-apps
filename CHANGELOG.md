@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.13.23](https://github.com/batinicaz/oci-apps/compare/v1.13.22...v1.13.23) (2026-04-13)
+
+
+### Bug Fixes
+
+* add ExecStopPost to compose services so container cleanup runs when ExecStart fails ([#160](https://github.com/batinicaz/oci-apps/issues/160)) ([7721b04](https://github.com/batinicaz/oci-apps/commit/7721b0472c6125fbd5567e60cb31a047fde81e80))
+
 ### [1.13.22](https://github.com/batinicaz/oci-apps/compare/v1.13.21...v1.13.22) (2026-04-13)
 
 ### [1.13.21](https://github.com/batinicaz/oci-apps/compare/v1.13.20...v1.13.21) (2026-04-12)
