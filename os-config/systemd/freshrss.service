@@ -4,6 +4,7 @@ After=traefik.service infisical-agent.service autorestic-restore.service ghcr-lo
 Wants=autorestic-restore.service
 Requires=ghcr-login.service freshrss-feeds-network.service
 ConditionPathExists=/opt/secrets/freshrss.env
+ConditionPathExists=/opt/secrets/ghcr-token
 
 [Service]
 Type=oneshot
