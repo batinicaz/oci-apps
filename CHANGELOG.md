@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.13.22](https://github.com/batinicaz/oci-apps/compare/v1.13.21...v1.13.22) (2026-04-13)
+
 ### [1.13.21](https://github.com/batinicaz/oci-apps/compare/v1.13.20...v1.13.21) (2026-04-12)
 
 
