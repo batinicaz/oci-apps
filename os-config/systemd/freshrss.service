@@ -11,6 +11,7 @@ WorkingDirectory=/opt/containers/freshrss
 ExecStart=/usr/bin/podman compose --env-file /opt/env/freshrss.env up -d
 ExecStartPost=/opt/scripts/freshrss-cache-warm.sh
 ExecStop=/usr/bin/podman compose down
+ExecStopPost=-/usr/bin/podman compose down --remove-orphans
 RemainAfterExit=yes
 TimeoutStartSec=900
 
