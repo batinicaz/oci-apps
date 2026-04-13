@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.13.24](https://github.com/batinicaz/oci-apps/compare/v1.13.23...v1.13.24) (2026-04-13)
+
+
+### Bug Fixes
+
+* ghcr login race condition ([#161](https://github.com/batinicaz/oci-apps/issues/161)) ([697b27a](https://github.com/batinicaz/oci-apps/commit/697b27ada036e44e9526ffaf2eb9ab0ff10285a8))
+
 ### [1.13.23](https://github.com/batinicaz/oci-apps/compare/v1.13.22...v1.13.23) (2026-04-13)
 
 
