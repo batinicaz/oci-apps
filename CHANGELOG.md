@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.13.25](https://github.com/batinicaz/oci-apps/compare/v1.13.24...v1.13.25) (2026-04-14)
+
+
+### Bug Fixes
+
+* replace PathExists with PathChanged for ghcr-token in freshrss.path to prevent restart loop ([#162](https://github.com/batinicaz/oci-apps/issues/162)) ([015746f](https://github.com/batinicaz/oci-apps/commit/015746f52bfcc4b9f7ca2605c04d81d81a57dcf3))
+
 ### [1.13.24](https://github.com/batinicaz/oci-apps/compare/v1.13.23...v1.13.24) (2026-04-13)
 
 
