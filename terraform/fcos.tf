@@ -67,7 +67,7 @@ resource "terraform_data" "fcos_upload" {
 
   provisioner "local-exec" {
     when    = destroy
-    command = "oci os object delete --namespace '${self.input.namespace}' --bucket-name '${self.input.bucket}' --name '${self.input.object_name}' --force 2>/dev/null || true"
+    command = ". ${path.module}/scripts/oci-cli-env.sh && oci os object delete --namespace '${self.input.namespace}' --bucket-name '${self.input.bucket}' --name '${self.input.object_name}' --force 2>/dev/null || true"
   }
 }
 
