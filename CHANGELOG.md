@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.13.29](https://github.com/batinicaz/oci-apps/compare/v1.13.28...v1.13.29) (2026-06-02)
+
+
+### Bug Fixes
+
+* fcos upload object cleanup failing ([#199](https://github.com/batinicaz/oci-apps/issues/199)) ([93ca151](https://github.com/batinicaz/oci-apps/commit/93ca151e0ec319f5a4440875981049bee745493e))
+
 ### [1.13.28](https://github.com/batinicaz/oci-apps/compare/v1.13.27...v1.13.28) (2026-06-02)
 
 ### [1.13.27](https://github.com/batinicaz/oci-apps/compare/v1.13.26...v1.13.27) (2026-06-02)
