@@ -72,7 +72,7 @@ Deployments are triggered automatically:
 
 | Name | Version |
 | ---- | ------- |
-| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | 5.18.0 |
+| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | 5.19.1 |
 | <a name="provider_ct"></a> [ct](#provider\_ct) | 0.14.0 |
 | <a name="provider_http"></a> [http](#provider\_http) | 3.5.0 |
 | <a name="provider_null"></a> [null](#provider\_null) | 3.2.4 |
