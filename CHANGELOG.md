@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.13.30](https://github.com/batinicaz/oci-apps/compare/v1.13.29...v1.13.30) (2026-06-02)
+
+
+### Bug Fixes
+
+* reduce backups to daily to decrease oci os object storage requests ([#200](https://github.com/batinicaz/oci-apps/issues/200)) ([87a04ee](https://github.com/batinicaz/oci-apps/commit/87a04ee01d8df2975d53bf9c22a14f995d2a923e))
+
 ### [1.13.29](https://github.com/batinicaz/oci-apps/compare/v1.13.28...v1.13.29) (2026-06-02)
 
 
