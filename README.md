@@ -65,7 +65,7 @@ Deployments are triggered automatically:
 | <a name="requirement_http"></a> [http](#requirement\_http) | ~> 3.0 |
 | <a name="requirement_null"></a> [null](#requirement\_null) | ~> 3.0 |
 | <a name="requirement_oci"></a> [oci](#requirement\_oci) | ~> 8.0 |
-| <a name="requirement_tailscale"></a> [tailscale](#requirement\_tailscale) | ~> 0.28 |
+| <a name="requirement_tailscale"></a> [tailscale](#requirement\_tailscale) | ~> 0.29 |
 | <a name="requirement_tls"></a> [tls](#requirement\_tls) | ~> 4.0 |
 
 ## Providers
@@ -77,7 +77,7 @@ Deployments are triggered automatically:
 | <a name="provider_http"></a> [http](#provider\_http) | 3.6.0 |
 | <a name="provider_null"></a> [null](#provider\_null) | 3.3.0 |
 | <a name="provider_oci"></a> [oci](#provider\_oci) | 8.14.0 |
-| <a name="provider_tailscale"></a> [tailscale](#provider\_tailscale) | 0.28.0 |
+| <a name="provider_tailscale"></a> [tailscale](#provider\_tailscale) | 0.29.0 |
 | <a name="provider_terraform"></a> [terraform](#provider\_terraform) | n/a |
 | <a name="provider_tls"></a> [tls](#provider\_tls) | 4.3.0 |
 
