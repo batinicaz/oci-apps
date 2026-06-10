@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.13.34](https://github.com/batinicaz/oci-apps/compare/v1.13.33...v1.13.34) (2026-06-10)
+
+
+### Bug Fixes
+
+* use uv to manage oci install + move podman-compose install to package manager ([#215](https://github.com/batinicaz/oci-apps/issues/215)) ([7f228b1](https://github.com/batinicaz/oci-apps/commit/7f228b16e9f8466cf497044c7398a4810b06d6da))
+
 ### [1.13.33](https://github.com/batinicaz/oci-apps/compare/v1.13.32...v1.13.33) (2026-06-10)
 
 ### [1.13.32](https://github.com/batinicaz/oci-apps/compare/v1.13.31...v1.13.32) (2026-06-05)
