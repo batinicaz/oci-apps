@@ -77,7 +77,7 @@ Deployments are triggered automatically:
 | <a name="provider_http"></a> [http](#provider\_http) | 3.6.0 |
 | <a name="provider_null"></a> [null](#provider\_null) | 3.3.0 |
 | <a name="provider_oci"></a> [oci](#provider\_oci) | 8.15.0 |
-| <a name="provider_tailscale"></a> [tailscale](#provider\_tailscale) | 0.29.1 |
+| <a name="provider_tailscale"></a> [tailscale](#provider\_tailscale) | 0.29.2 |
 | <a name="provider_terraform"></a> [terraform](#provider\_terraform) | n/a |
 | <a name="provider_tls"></a> [tls](#provider\_tls) | 4.3.0 |
 
