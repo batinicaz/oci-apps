@@ -8,11 +8,12 @@ cp /tmp/tailscale_*/tailscale /tmp/tailscale_*/tailscaled /usr/local/bin/
 rm -rf /tmp/tailscale.tgz /tmp/tailscale_*
 echo "Tailscale installed to /usr/local/bin/"
 
-echo "Installing python3-pip..."
-rpm-ostree install --apply-live python3-pip
+echo "Installing podman-compose and uv..."
+rpm-ostree install --apply-live podman-compose uv
 
-echo "Installing OCI CLI and podman-compose..."
-pip3 install --prefix=/usr/local oci-cli podman-compose
+echo "Installing oci-cli via uv..."
+uv python install 3.13
+UV_TOOL_BIN_DIR=/usr/local/bin uv tool install --python 3.13 oci-cli
 
 echo "Checking for OS updates..."
 rpm-ostree upgrade || [[ $? -eq 77 ]]
