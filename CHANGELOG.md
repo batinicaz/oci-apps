@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.14.0](https://github.com/batinicaz/oci-apps/compare/v1.13.49...v1.14.0) (2026-07-02)
+
+
+### Features
+
+* remove languagetool deployment ([#240](https://github.com/batinicaz/oci-apps/issues/240)) ([08e2d3c](https://github.com/batinicaz/oci-apps/commit/08e2d3c7d3d7d3bb481032a2e18edaf7c6c62e4a))
+
 ### [1.13.49](https://github.com/batinicaz/oci-apps/compare/v1.13.48...v1.13.49) (2026-06-30)
 
 ### [1.13.48](https://github.com/batinicaz/oci-apps/compare/v1.13.47...v1.13.48) (2026-06-27)
