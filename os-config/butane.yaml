@@ -125,22 +125,11 @@ storage:
         inline: |
           REDLIB_HOST=${REDLIB_HOST}
 
-    - path: /opt/env/languagetool.env
-      mode: 0644
-      contents:
-        inline: |
-          LANGUAGETOOL_HOST=${LANGUAGETOOL_HOST}
-
     - path: /opt/env/podly.env
       mode: 0644
       contents:
         inline: |
           PODLY_HOST=${PODLY_HOST}
-
-    - path: /opt/scripts/languagetool-ngrams.sh
-      mode: 0755
-      contents:
-        local: os-config/scripts/languagetool-ngrams.sh
 
 systemd:
   units:
@@ -187,4 +176,3 @@ systemd:
     - name: fetch-bootstrap-secrets.service
       enabled: true
       contents_local: os-config/systemd/fetch-bootstrap-secrets.service
-

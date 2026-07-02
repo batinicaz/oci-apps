@@ -77,16 +77,10 @@ systemctl enable --now \
   planka.path \
   nitter.path \
   redlib.path \
-  languagetool.path \
   podcasts.path \
   app-backup.timer \
   app-prune.timer \
   podcasts-cleanup.timer \
   gitops-sync.timer
-
-# LanguageTool has no Infisical secrets, so unlike other services it won't be
-# triggered by a .path unit watching /opt/secrets/*.env. Start it directly.
-# --no-block avoids blocking the boot chain while ExecStartPre downloads ngrams.
-systemctl enable --now --no-block languagetool.service
 
 echo "Configuration fetch complete"
