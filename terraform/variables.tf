@@ -107,11 +107,6 @@ variable "services" {
       port      = 80
       subdomain = "ftr"
     }
-    languagetool = {
-      port      = 8010
-      subdomain = "lt"
-      waf_block = true
-    }
     nitter = {
       port      = 8080
       subdomain = "nitter"
