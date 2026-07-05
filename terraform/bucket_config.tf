@@ -45,6 +45,7 @@ locals {
     "ghcr-token"             = { path = "/", dest = "ghcr-token", custom = true }
     "healthcheck-urls.env"   = { path = "/healthchecks", dest = "healthcheck-urls.env" }
     "podly.env"              = { path = "/podly", dest = "podly.env" }
+    "trek.env"               = { path = "/trek", dest = "trek.env" }
   }
 
   infisical_agent_config = yamlencode({

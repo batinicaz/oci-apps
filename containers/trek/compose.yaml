@@ -1,0 +1,45 @@
+networks:
+  traefik:
+    external: true
+
+services:
+  trek:
+    container_name: trek
+    image: mauriceboe/trek:3.2.0@sha256:e5588fcc6dad04c6b95c8a4690d3ea2415af292462fe0653560066974664ad6f
+    restart: unless-stopped
+    read_only: true
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETUID
+      - SETGID
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp:noexec,nosuid,size=128m
+    volumes:
+      - /opt/data/trek/data:/app/data:z
+      - /opt/data/trek/uploads:/app/uploads:z
+    env_file:
+      - /opt/secrets/trek.env
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      TZ: Europe/London
+      LOG_LEVEL: info
+      APP_URL: https://${TREK_HOST}
+      ALLOWED_ORIGINS: https://${TREK_HOST}
+      TRUST_PROXY: "1"
+      OIDC_ONLY: "true"
+      OIDC_DISPLAY_NAME: Microsoft
+      OIDC_SCOPE: openid email profile
+      ALLOW_INTERNAL_NETWORK: "false"
+    networks:
+      - traefik
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s

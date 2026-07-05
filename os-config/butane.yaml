@@ -131,6 +131,12 @@ storage:
         inline: |
           PODLY_HOST=${PODLY_HOST}
 
+    - path: /opt/env/trek.env
+      mode: 0644
+      contents:
+        inline: |
+          TREK_HOST=${TREK_HOST}
+
 systemd:
   units:
     - name: podman.socket

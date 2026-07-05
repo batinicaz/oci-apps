@@ -1,0 +1,10 @@
+[Unit]
+Description=Watch Trek for changes
+
+[Path]
+PathChanged=/opt/containers/trek/
+PathModified=/opt/secrets/trek.env
+Unit=app-restart@trek.service
+
+[Install]
+WantedBy=multi-user.target
