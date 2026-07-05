@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.15.1](https://github.com/batinicaz/oci-apps/compare/v1.15.0...v1.15.1) (2026-07-05)
+
+
+### Bug Fixes
+
+* use fully qualified image name for trek ([#243](https://github.com/batinicaz/oci-apps/issues/243)) ([fb4ea31](https://github.com/batinicaz/oci-apps/commit/fb4ea31ffa7a2fa3f85d48d5967099ca12e6c95b))
+
 ## [1.15.0](https://github.com/batinicaz/oci-apps/compare/v1.14.1...v1.15.0) (2026-07-05)
 
 
