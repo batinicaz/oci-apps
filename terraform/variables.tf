@@ -125,6 +125,10 @@ variable "services" {
       subdomain = "redlib"
       waf_block = true
     }
+    trek = {
+      port      = 3000
+      subdomain = "trek"
+    }
   }
   description = "Service configuration map"
 }

@@ -27,6 +27,11 @@ locations:
     to:
       - oci
 
+  trek:
+    from: /opt/data/trek
+    to:
+      - oci
+
   podly:
     from: /opt/data/podly/instance
     to:
