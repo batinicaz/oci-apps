@@ -5,7 +5,7 @@ Wants=network-online.target
 Requires=fetch-config.service traefik-network.service
 
 [Container]
-Image=docker.io/traefik:v3.7.4@sha256:fcdef599e6259359833dd2e1d49f9e964f66825d69bd3dd468f51102ce013d03
+Image=docker.io/traefik:v3.7.5@sha256:e4d98158c01ad752fc1071d4e9573788747230d902cdde00a772516e692d07c9
 PublishPort=80:80
 Volume=/root/.config/traefik:/etc/traefik:ro,Z
 Network=traefik
