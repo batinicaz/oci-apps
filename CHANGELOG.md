@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.15.9](https://github.com/batinicaz/oci-apps/compare/v1.15.8...v1.15.9) (2026-07-09)
+
+
+### Bug Fixes
+
+* ensure trek is auto started ([#251](https://github.com/batinicaz/oci-apps/issues/251)) ([3f2e454](https://github.com/batinicaz/oci-apps/commit/3f2e4543e16a0f7c794cf09fa247b84f5a564e6e))
+
 ### [1.15.8](https://github.com/batinicaz/oci-apps/compare/v1.15.7...v1.15.8) (2026-07-09)
 
 ### [1.15.7](https://github.com/batinicaz/oci-apps/compare/v1.15.6...v1.15.7) (2026-07-08)
