@@ -78,6 +78,7 @@ systemctl enable --now \
   nitter.path \
   redlib.path \
   podcasts.path \
+  trek.path \
   app-backup.timer \
   app-prune.timer \
   podcasts-cleanup.timer \
