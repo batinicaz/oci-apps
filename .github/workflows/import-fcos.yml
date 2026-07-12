@@ -40,7 +40,7 @@ jobs:
 
   import:
     if: github.event_name == 'push'
-    uses: batinicaz/gha/.github/workflows/terraform-apply.yml@v1
+    uses: batinicaz/gha/.github/workflows/terraform-apply.yml@836e78da181c617999d83875e58f6fe7ca008f53 # v1
     permissions:
       contents: read
       id-token: write
@@ -52,7 +52,7 @@ jobs:
   cleanup:
     if: github.event_name == 'push'
     needs: import
-    uses: batinicaz/gha/.github/workflows/terraform-apply.yml@v1
+    uses: batinicaz/gha/.github/workflows/terraform-apply.yml@836e78da181c617999d83875e58f6fe7ca008f53 # v1
     permissions:
       contents: read
       id-token: write

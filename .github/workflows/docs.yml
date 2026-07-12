@@ -7,7 +7,7 @@ permissions:
   contents: write
 jobs:
   terraform-docs:
-    uses: batinicaz/gha/.github/workflows/terraform-docs.yml@v1
+    uses: batinicaz/gha/.github/workflows/terraform-docs.yml@836e78da181c617999d83875e58f6fe7ca008f53 # v1
     with:
       working_directory: terraform
       output_file: ../README.md

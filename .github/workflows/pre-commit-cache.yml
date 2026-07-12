@@ -16,4 +16,4 @@ jobs:
           egress-policy: audit
 
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
-      - uses: batinicaz/gha/.github/actions/pre-commit@v1
+      - uses: batinicaz/gha/.github/actions/pre-commit@836e78da181c617999d83875e58f6fe7ca008f53 # v1
