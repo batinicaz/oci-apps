@@ -100,10 +100,13 @@ resource "oci_load_balancer_listener" "https" {
   port                     = 443
   protocol                 = "HTTP"
 
+  depends_on = [cloudflare_authenticated_origin_pulls_settings.this]
+
   ssl_configuration {
     certificate_name        = oci_load_balancer_certificate.this.certificate_name
     cipher_suite_name       = "oci-default-http2-tls-12-13-ssl-cipher-suite-v1"
     protocols               = ["TLSv1.2", "TLSv1.3"]
-    verify_peer_certificate = false
+    verify_peer_certificate = true
+    verify_depth            = 1
   }
 }

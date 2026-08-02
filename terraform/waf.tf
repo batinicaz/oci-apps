@@ -5,6 +5,11 @@ locals {
   }
 }
 
+resource "cloudflare_authenticated_origin_pulls_settings" "this" {
+  zone_id = var.zone_id
+  enabled = true
+}
+
 resource "cloudflare_ruleset" "zone_level_waf" {
   zone_id     = data.cloudflare_zone.selected.zone_id
   name        = "WAF for ${data.cloudflare_zone.selected.name}"

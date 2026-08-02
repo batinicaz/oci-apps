@@ -89,6 +89,7 @@ No modules.
 
 | Name | Type |
 | ---- | ---- |
+| [cloudflare_authenticated_origin_pulls_settings.this](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/authenticated_origin_pulls_settings) | resource |
 | [cloudflare_dns_record.services](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/dns_record) | resource |
 | [cloudflare_origin_ca_certificate.this](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/origin_ca_certificate) | resource |
 | [cloudflare_ruleset.zone_level_waf](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/ruleset) | resource |
@@ -132,6 +133,7 @@ No modules.
 | [cloudflare_ip_ranges.current](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/ip_ranges) | data source |
 | [cloudflare_zone.selected](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/zone) | data source |
 | [ct_config.ignition](https://registry.terraform.io/providers/poseidon/ct/latest/docs/data-sources/config) | data source |
+| [http_http.cloudflare_origin_pull_ca](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 | [http_http.fcos_meta](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 | [oci_core_compute_global_image_capability_schemas.fcos](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/core_compute_global_image_capability_schemas) | data source |
 | [oci_core_compute_global_image_capability_schemas_versions.fcos](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/core_compute_global_image_capability_schemas_versions) | data source |
@@ -140,6 +142,7 @@ No modules.
 | [oci_identity_compartment.terraform](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/identity_compartment) | data source |
 | [oci_objectstorage_namespace.terraform](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/objectstorage_namespace) | data source |
 | [terraform_remote_state.oci_core](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
+| [tls_certificate.cloudflare_origin_pull_ca](https://registry.terraform.io/providers/hashicorp/tls/latest/docs/data-sources/certificate) | data source |
 
 ## Inputs
 
