@@ -18,6 +18,16 @@ locals {
 resource "cloudflare_authenticated_origin_pulls_settings" "this" {
   zone_id = var.zone_id
   enabled = true
+
+  depends_on = [cloudflare_authenticated_origin_pulls_certificate.this]
+}
+
+resource "cloudflare_zone_setting" "tls_client_auth" {
+  zone_id    = var.zone_id
+  setting_id = "tls_client_auth"
+  value      = "on"
+
+  depends_on = [cloudflare_authenticated_origin_pulls_settings.this]
 }
 
 resource "cloudflare_ruleset" "zone_level_waf" {

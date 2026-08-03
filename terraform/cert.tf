@@ -1,31 +1,29 @@
-data "http" "cloudflare_origin_pull_ca" {
-  url = "https://developers.cloudflare.com/ssl/static/authenticated_origin_pull_ca.pem"
+resource "tls_private_key" "origin_pull" {
+  algorithm = "RSA"
+  rsa_bits  = 2048
+}
 
-  lifecycle {
-    postcondition {
-      condition     = self.status_code == 200
-      error_message = "Fetch of Cloudflare origin pull CA failed (status ${self.status_code})."
-    }
+resource "tls_self_signed_cert" "origin_pull" {
+  private_key_pem       = tls_private_key.origin_pull.private_key_pem
+  validity_period_hours = 365 * 24
+  early_renewal_hours   = 90 * 24
+
+  allowed_uses = [
+    "client_auth",
+    "digital_signature",
+    "key_encipherment",
+  ]
+
+  subject {
+    common_name  = "origin-pull.${data.cloudflare_zone.selected.name}"
+    organization = var.name
   }
 }
 
-data "tls_certificate" "cloudflare_origin_pull_ca" {
-  content = data.http.cloudflare_origin_pull_ca.response_body
-
-  lifecycle {
-    postcondition {
-      condition     = self.certificates[0].is_ca
-      error_message = "Fetched certificate is not a CA certificate — expected Cloudflare's origin pull root CA."
-    }
-    postcondition {
-      condition     = strcontains(self.certificates[0].subject, "CloudFlare")
-      error_message = "Fetched certificate subject does not mention CloudFlare (got: ${self.certificates[0].subject}) — refusing to trust an unexpected issuer."
-    }
-    postcondition {
-      condition     = timecmp(self.certificates[0].not_after, timestamp()) > 0
-      error_message = "Fetched Cloudflare origin pull CA has expired (not_after: ${self.certificates[0].not_after}) — Cloudflare may have rotated it; verify manually before proceeding."
-    }
-  }
+resource "cloudflare_authenticated_origin_pulls_certificate" "this" {
+  zone_id     = var.zone_id
+  certificate = tls_self_signed_cert.origin_pull.cert_pem
+  private_key = tls_private_key.origin_pull.private_key_pem
 }
 
 resource "tls_cert_request" "this" {
@@ -45,8 +43,8 @@ resource "cloudflare_origin_ca_certificate" "this" {
 }
 
 resource "oci_load_balancer_certificate" "this" {
-  ca_certificate     = trimspace(data.tls_certificate.cloudflare_origin_pull_ca.certificates[0].cert_pem)
-  certificate_name   = "${var.name}-aop-${cloudflare_origin_ca_certificate.this.id}"
+  ca_certificate     = tls_self_signed_cert.origin_pull.cert_pem
+  certificate_name   = "${var.name}-aop-${substr(sha256(tls_self_signed_cert.origin_pull.cert_pem), 0, 8)}-${cloudflare_origin_ca_certificate.this.id}"
   load_balancer_id   = oci_load_balancer.this.id
   private_key        = base64decode(var.private_key_pem)
   public_certificate = cloudflare_origin_ca_certificate.this.certificate
