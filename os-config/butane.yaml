@@ -140,7 +140,7 @@ storage:
 systemd:
   units:
     - name: podman.socket
-      enabled: true
+      enabled: false
 
     - name: first-boot.service
       enabled: true

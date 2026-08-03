@@ -90,14 +90,16 @@ variable "private_key_pem" {
 
 variable "services" {
   type = map(object({
-    port      = number
-    subdomain = string
-    waf_block = optional(bool, false)
+    port             = number
+    subdomain        = string
+    waf_block        = optional(bool, false)
+    rate_limit_paths = optional(set(string), [])
   }))
   default = {
     audiobookshelf = {
-      port      = 8000
-      subdomain = "abs"
+      port             = 8000
+      subdomain        = "abs"
+      rate_limit_paths = ["login"]
     }
     freshrss = {
       port      = 80
@@ -117,8 +119,9 @@ variable "services" {
       subdomain = "planka"
     }
     podly = {
-      port      = 5001
-      subdomain = "podly"
+      port             = 5001
+      subdomain        = "podly"
+      rate_limit_paths = ["login"]
     }
     redlib = {
       port      = 8080

@@ -12,10 +12,7 @@ LOCAL=$(git rev-parse HEAD)
 REMOTE=$(git rev-parse "origin/$BRANCH")
 
 if [ "$LOCAL" != "$REMOTE" ]; then
-  if ! git pull --ff-only origin "$BRANCH" 2>/dev/null; then
-    echo "Fast-forward failed, local has diverged from origin/$BRANCH. Resetting." >&2
-    git reset --hard "origin/$BRANCH"
-  fi
+  git pull --ff-only origin "$BRANCH"
 fi
 
 if [ -f "$HC_ENV" ]; then
