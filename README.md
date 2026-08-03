@@ -89,11 +89,13 @@ No modules.
 
 | Name | Type |
 | ---- | ---- |
+| [cloudflare_authenticated_origin_pulls_certificate.this](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/authenticated_origin_pulls_certificate) | resource |
 | [cloudflare_authenticated_origin_pulls_settings.this](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/authenticated_origin_pulls_settings) | resource |
 | [cloudflare_dns_record.services](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/dns_record) | resource |
 | [cloudflare_origin_ca_certificate.this](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/origin_ca_certificate) | resource |
 | [cloudflare_ruleset.zone_level_ratelimit](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/ruleset) | resource |
 | [cloudflare_ruleset.zone_level_waf](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/ruleset) | resource |
+| [cloudflare_zone_setting.tls_client_auth](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/zone_setting) | resource |
 | [null_resource.regenerate_key](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
 | [oci_core_compute_image_capability_schema.fcos](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_compute_image_capability_schema) | resource |
 | [oci_core_image.fcos](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_image) | resource |
@@ -131,10 +133,11 @@ No modules.
 | [terraform_data.fcos_upload](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/resources/data) | resource |
 | [terraform_data.fcos_version](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/resources/data) | resource |
 | [tls_cert_request.this](https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/cert_request) | resource |
+| [tls_private_key.origin_pull](https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/private_key) | resource |
+| [tls_self_signed_cert.origin_pull](https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/self_signed_cert) | resource |
 | [cloudflare_ip_ranges.current](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/ip_ranges) | data source |
 | [cloudflare_zone.selected](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/zone) | data source |
 | [ct_config.ignition](https://registry.terraform.io/providers/poseidon/ct/latest/docs/data-sources/config) | data source |
-| [http_http.cloudflare_origin_pull_ca](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 | [http_http.fcos_meta](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 | [oci_core_compute_global_image_capability_schemas.fcos](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/core_compute_global_image_capability_schemas) | data source |
 | [oci_core_compute_global_image_capability_schemas_versions.fcos](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/core_compute_global_image_capability_schemas_versions) | data source |
@@ -143,7 +146,6 @@ No modules.
 | [oci_identity_compartment.terraform](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/identity_compartment) | data source |
 | [oci_objectstorage_namespace.terraform](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/objectstorage_namespace) | data source |
 | [terraform_remote_state.oci_core](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
-| [tls_certificate.cloudflare_origin_pull_ca](https://registry.terraform.io/providers/hashicorp/tls/latest/docs/data-sources/certificate) | data source |
 
 ## Inputs
 

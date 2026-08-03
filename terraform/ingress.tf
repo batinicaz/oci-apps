@@ -100,7 +100,7 @@ resource "oci_load_balancer_listener" "https" {
   port                     = 443
   protocol                 = "HTTP"
 
-  depends_on = [cloudflare_authenticated_origin_pulls_settings.this]
+  depends_on = [cloudflare_zone_setting.tls_client_auth]
 
   ssl_configuration {
     certificate_name        = oci_load_balancer_certificate.this.certificate_name
