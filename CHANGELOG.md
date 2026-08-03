@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.16.0](https://github.com/batinicaz/oci-apps/compare/v1.15.41...v1.16.0) (2026-08-03)
+
+
+### Features
+
+* security hardening ([#286](https://github.com/batinicaz/oci-apps/issues/286)) ([8a71591](https://github.com/batinicaz/oci-apps/commit/8a715914a44b0c8048c94f1867112e67f9adbc65))
+
 ### [1.15.41](https://github.com/batinicaz/oci-apps/compare/v1.15.40...v1.15.41) (2026-08-03)
 
 ### [1.15.40](https://github.com/batinicaz/oci-apps/compare/v1.15.39...v1.15.40) (2026-08-03)
