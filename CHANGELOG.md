@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.16.1](https://github.com/batinicaz/oci-apps/compare/v1.16.0...v1.16.1) (2026-08-03)
+
+
+### Bug Fixes
+
+* preform mtls between cloudflare and oci lb ([#287](https://github.com/batinicaz/oci-apps/issues/287)) ([36fc72c](https://github.com/batinicaz/oci-apps/commit/36fc72c5ee2bc542e064ef62b83df13fbabceb90))
+
 ## [1.16.0](https://github.com/batinicaz/oci-apps/compare/v1.15.41...v1.16.0) (2026-08-03)
 
 
