@@ -22,14 +22,14 @@ variable "cloudflare_custom_list" {
 
 variable "instance_ocpus" {
   type        = number
-  default     = 4
-  description = "Number of OCPUs to allocate to the instance"
+  default     = 2
+  description = "Number of OCPUs to allocate to the instance (always free limit is 2 tenancy-wide)"
 }
 
 variable "instance_ram" {
   type        = number
-  default     = 24
-  description = "RAM in GB to allocate to the instance"
+  default     = 12
+  description = "RAM in GB to allocate to the instance (always free limit is 12 tenancy-wide)"
 }
 
 variable "instance_shape" {
