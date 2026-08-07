@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.16.7](https://github.com/batinicaz/oci-apps/compare/v1.16.6...v1.16.7) (2026-08-07)
+
+
+### Bug Fixes
+
+* reduce ram/cpu to stay within free tier ([#293](https://github.com/batinicaz/oci-apps/issues/293)) ([5316c49](https://github.com/batinicaz/oci-apps/commit/5316c496e3d6222adbd88a25ae09ca9acd10a827))
+
 ### [1.16.6](https://github.com/batinicaz/oci-apps/compare/v1.16.5...v1.16.6) (2026-08-06)
 
 ### [1.16.5](https://github.com/batinicaz/oci-apps/compare/v1.16.4...v1.16.5) (2026-08-05)
