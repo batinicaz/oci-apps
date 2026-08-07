@@ -157,8 +157,8 @@ No modules.
 | <a name="input_cloudflare_custom_list"></a> [cloudflare\_custom\_list](#input\_cloudflare\_custom\_list) | The name of the custom list in CloudFlare containing trusted IP ranges | `string` | n/a | yes |
 | <a name="input_infisical_client_id"></a> [infisical\_client\_id](#input\_infisical\_client\_id) | Infisical Universal Auth client ID | `string` | n/a | yes |
 | <a name="input_infisical_client_secret"></a> [infisical\_client\_secret](#input\_infisical\_client\_secret) | Infisical Universal Auth client secret | `string` | n/a | yes |
-| <a name="input_instance_ocpus"></a> [instance\_ocpus](#input\_instance\_ocpus) | Number of OCPUs to allocate to the instance | `number` | `4` | no |
-| <a name="input_instance_ram"></a> [instance\_ram](#input\_instance\_ram) | RAM in GB to allocate to the instance | `number` | `24` | no |
+| <a name="input_instance_ocpus"></a> [instance\_ocpus](#input\_instance\_ocpus) | Number of OCPUs to allocate to the instance (always free limit is 2 tenancy-wide) | `number` | `2` | no |
+| <a name="input_instance_ram"></a> [instance\_ram](#input\_instance\_ram) | RAM in GB to allocate to the instance (always free limit is 12 tenancy-wide) | `number` | `12` | no |
 | <a name="input_instance_shape"></a> [instance\_shape](#input\_instance\_shape) | Instance shape (default is always free ARM) | `string` | `"VM.Standard.A1.Flex"` | no |
 | <a name="input_lb_bandwidth"></a> [lb\_bandwidth](#input\_lb\_bandwidth) | Load balancer bandwidth in Mbps (default is always free) | `number` | `10` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name prefix for all resources | `string` | `"oci-apps"` | no |
