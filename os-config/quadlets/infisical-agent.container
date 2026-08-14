@@ -6,7 +6,7 @@ ConditionPathExists=/run/secrets/infisical-client-id
 ConditionPathExists=/run/secrets/infisical-client-secret
 
 [Container]
-Image=docker.io/infisical/cli:0.43.114@sha256:898cac2662546fda63ce3793164c3535db22652663497d0429ad55455b60d175
+Image=docker.io/infisical/cli:0.43.116@sha256:00a7164287e70cbf513445db1cb81476cc7937fce522aca3ce51a83d80fb10db
 Entrypoint=infisical
 Exec=agent --config /etc/infisical/agent-config.yaml
 Volume=/run/secrets/infisical-client-id:/run/secrets/client-id:ro,z
