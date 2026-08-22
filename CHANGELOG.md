@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.17.0](https://github.com/batinicaz/oci-apps/compare/v1.16.19...v1.17.0) (2026-08-22)
+
+
+### Features
+
+* deploy kaneo ([#306](https://github.com/batinicaz/oci-apps/issues/306)) ([abc2d0d](https://github.com/batinicaz/oci-apps/commit/abc2d0dffe1b3ccc8f5371364c1087527fb89400))
+
 ### [1.16.19](https://github.com/batinicaz/oci-apps/compare/v1.16.18...v1.16.19) (2026-08-22)
 
 ### [1.16.18](https://github.com/batinicaz/oci-apps/compare/v1.16.17...v1.16.18) (2026-08-22)
