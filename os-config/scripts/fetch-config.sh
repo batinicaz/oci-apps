@@ -75,6 +75,7 @@ systemctl enable ghcr-token.path
 systemctl enable --now \
   freshrss.path \
   planka.path \
+  kaneo.path \
   nitter.path \
   redlib.path \
   podcasts.path \

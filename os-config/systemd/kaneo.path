@@ -1,0 +1,11 @@
+[Unit]
+Description=Watch Kaneo for changes
+
+[Path]
+PathChanged=/opt/containers/kaneo/
+PathModified=/opt/secrets/kaneo.env
+PathModified=/opt/secrets/kaneo-postgres.env
+Unit=app-restart@kaneo.service
+
+[Install]
+WantedBy=multi-user.target
