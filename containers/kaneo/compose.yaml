@@ -1,0 +1,75 @@
+networks:
+  traefik:
+    external: true
+  default:
+
+services:
+  kaneo:
+    container_name: kaneo
+    image: ghcr.io/usekaneo/kaneo:2.21.0@sha256:d5e62007d94b3742f15c05461f313ed0dd532ffd8743d4cd244323079fb73331
+    restart: unless-stopped
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp
+    volumes:
+      - /usr/share/nginx/html
+      - /etc/nginx/conf.d
+      - /var/lib/nginx
+      - /var/cache/nginx
+      - /var/log/nginx
+      - /run
+      - /app/apps/api/data
+    depends_on:
+      postgres:
+        condition: service_healthy
+    env_file:
+      - /opt/secrets/kaneo.env
+    environment:
+      KANEO_CLIENT_URL: https://${KANEO_HOST}
+      CUSTOM_OAUTH_SCOPES: openid,profile,email
+      DISABLE_REGISTRATION: "true"
+      DISABLE_GUEST_ACCESS: "true"
+    networks:
+      - traefik
+      - default
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:5173/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+
+  postgres:
+    container_name: kaneo-postgres
+    image: public.ecr.aws/docker/library/postgres:18-alpine@sha256:cbe15165195f7f2d63885b4d990fdec7b602248533cb05bd992284a45a58fed3
+    restart: unless-stopped
+    read_only: true
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETUID
+      - SETGID
+      - FOWNER
+      - DAC_OVERRIDE
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp
+      - /run/postgresql
+    volumes:
+      - /opt/data/kaneo/postgres:/var/lib/postgresql:z
+    env_file:
+      - /opt/secrets/kaneo-postgres.env
+    environment:
+      POSTGRES_DB: kaneo
+      POSTGRES_USER: kaneo
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U kaneo -d kaneo"]
+      interval: 10s
+      timeout: 5s
+      retries: 5

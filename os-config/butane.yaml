@@ -113,6 +113,12 @@ storage:
         inline: |
           PLANKA_HOST=${PLANKA_HOST}
 
+    - path: /opt/env/kaneo.env
+      mode: 0644
+      contents:
+        inline: |
+          KANEO_HOST=${KANEO_HOST}
+
     - path: /opt/env/nitter.env
       mode: 0644
       contents:

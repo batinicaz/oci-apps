@@ -27,6 +27,11 @@ locations:
     to:
       - oci
 
+  kaneo:
+    from: /opt/data/kaneo
+    to:
+      - oci
+
   trek:
     from: /opt/data/trek
     to:
