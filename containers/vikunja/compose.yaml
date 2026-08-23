@@ -1,0 +1,78 @@
+networks:
+  traefik:
+    external: true
+  default:
+
+services:
+  vikunja:
+    container_name: vikunja
+    image: docker.io/vikunja/vikunja:2.5.0@sha256:22df4c1bc8843c28d383bc5f52b59e7b601bf5f6560b36b29c0a500833c77fa3
+    restart: unless-stopped
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp
+    volumes:
+      - /opt/data/vikunja/files:/files:z
+    depends_on:
+      postgres:
+        condition: service_healthy
+    env_file:
+      - /opt/secrets/vikunja.env
+    environment:
+      VIKUNJA_SERVICE_PUBLICURL: https://${VIKUNJA_HOST}
+      VIKUNJA_SERVICE_ENABLEREGISTRATION: "false"
+      VIKUNJA_SERVICE_TIMEZONE: Europe/London
+      VIKUNJA_SERVICE_IPEXTRACTIONMETHOD: xff
+      VIKUNJA_SERVICE_TRUSTEDPROXIES: 10.0.0.0/8
+      VIKUNJA_FILES_BASEPATH: /files
+      VIKUNJA_AUTH_OPENID_ENABLED: "true"
+      VIKUNJA_AUTH_OPENID_PROVIDERS_ENTRA_NAME: Entra ID
+      VIKUNJA_DATABASE_TYPE: postgres
+      VIKUNJA_DATABASE_HOST: vikunja-postgres
+      VIKUNJA_DATABASE_DATABASE: vikunja
+      VIKUNJA_DATABASE_USER: vikunja
+      VIKUNJA_DATABASE_SSLMODE: disable
+    networks:
+      - traefik
+      - default
+    healthcheck:
+      test: ["CMD", "/app/vikunja/vikunja", "healthcheck"]
+      interval: 60s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  postgres:
+    container_name: vikunja-postgres
+    image: public.ecr.aws/docker/library/postgres:18-alpine@sha256:cbe15165195f7f2d63885b4d990fdec7b602248533cb05bd992284a45a58fed3
+    restart: unless-stopped
+    read_only: true
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETUID
+      - SETGID
+      - FOWNER
+      - DAC_OVERRIDE
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp
+      - /run/postgresql
+    volumes:
+      - /opt/data/vikunja/postgres:/var/lib/postgresql:z
+    env_file:
+      - /opt/secrets/vikunja-postgres.env
+    environment:
+      POSTGRES_DB: vikunja
+      POSTGRES_USER: vikunja
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vikunja -d vikunja"]
+      interval: 10s
+      timeout: 5s
+      retries: 5

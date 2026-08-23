@@ -1,14 +1,14 @@
 [Unit]
-Description=Kaneo
+Description=Vikunja
 After=traefik.service infisical-agent.service autorestic-restore.service
 Wants=autorestic-restore.service
-ConditionPathExists=/opt/secrets/kaneo.env
-ConditionPathExists=/opt/secrets/kaneo-postgres.env
+ConditionPathExists=/opt/secrets/vikunja.env
+ConditionPathExists=/opt/secrets/vikunja-postgres.env
 
 [Service]
 Type=oneshot
-WorkingDirectory=/opt/containers/kaneo
-ExecStart=/usr/bin/podman compose --env-file /opt/env/kaneo.env up -d
+WorkingDirectory=/opt/containers/vikunja
+ExecStart=/usr/bin/podman compose --env-file /opt/env/vikunja.env up -d
 ExecStop=/usr/bin/podman compose down
 ExecStopPost=-/usr/bin/podman compose down --remove-orphans
 RemainAfterExit=yes

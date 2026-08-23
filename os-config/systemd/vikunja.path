@@ -1,0 +1,11 @@
+[Unit]
+Description=Watch Vikunja for changes
+
+[Path]
+PathChanged=/opt/containers/vikunja/
+PathModified=/opt/secrets/vikunja.env
+PathModified=/opt/secrets/vikunja-postgres.env
+Unit=app-restart@vikunja.service
+
+[Install]
+WantedBy=multi-user.target
