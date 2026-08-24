@@ -35,9 +35,9 @@ oci-apps/
 │   └── quadlets/       # Traefik, Infisical Agent, Autorestic
 ├── containers/         # Podman Compose stacks
 │   ├── freshrss/
-│   ├── planka/
 │   ├── nitter/
-│   └── redlib/
+│   ├── redlib/
+│   └── vikunja/
 └── .github/workflows/  # CI/CD pipelines
 ```
 
