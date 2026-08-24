@@ -8,7 +8,6 @@ EnvironmentFile=/opt/secrets/healthcheck-urls.env
 
 ExecStartPre=/usr/bin/curl -fsS -m 10 --retry 5 -o /dev/null ${HC_BACKUP_URL}/start
 ExecStartPre=/usr/bin/systemctl stop freshrss.service
-ExecStartPre=/usr/bin/systemctl stop
 ExecStartPre=/usr/bin/systemctl stop podcasts.service
 ExecStartPre=/usr/bin/systemctl stop trek.service
 ExecStartPre=/usr/bin/systemctl stop vikunja.service
@@ -16,7 +15,6 @@ ExecStartPre=/usr/bin/systemctl stop vikunja.service
 ExecStart=/usr/bin/systemctl start autorestic-backup.service
 
 ExecStartPost=/usr/bin/systemctl start freshrss.service
-ExecStartPost=/usr/bin/systemctl start
 ExecStartPost=/usr/bin/systemctl start podcasts.service
 ExecStartPost=/usr/bin/systemctl start trek.service
 ExecStartPost=/usr/bin/systemctl start vikunja.service
