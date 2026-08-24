@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.18.0](https://github.com/batinicaz/oci-apps/compare/v1.17.4...v1.18.0) (2026-08-24)
+
+
+### Features
+
+* replace kaneo with vikunja ([#311](https://github.com/batinicaz/oci-apps/issues/311)) ([2991db0](https://github.com/batinicaz/oci-apps/commit/2991db001328d3b927b2d09f9be14a2956ca8799))
+
 ### [1.17.4](https://github.com/batinicaz/oci-apps/compare/v1.17.3...v1.17.4) (2026-08-24)
 
 ### [1.17.3](https://github.com/batinicaz/oci-apps/compare/v1.17.2...v1.17.3) (2026-08-22)
