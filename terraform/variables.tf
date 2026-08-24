@@ -114,10 +114,6 @@ variable "services" {
       subdomain = "nitter"
       waf_block = true
     }
-    planka = {
-      port      = 1337
-      subdomain = "planka"
-    }
     podly = {
       port             = 5001
       subdomain        = "podly"
