@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.19.0](https://github.com/batinicaz/oci-apps/compare/v1.18.0...v1.19.0) (2026-08-24)
+
+
+### Features
+
+* remove planka ([#312](https://github.com/batinicaz/oci-apps/issues/312)) ([9686de8](https://github.com/batinicaz/oci-apps/commit/9686de8617fee29e17583adb5ebf39a205006a20))
+
 ## [1.18.0](https://github.com/batinicaz/oci-apps/compare/v1.17.4...v1.18.0) (2026-08-24)
 
 
