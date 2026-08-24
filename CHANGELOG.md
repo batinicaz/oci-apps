@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.19.1](https://github.com/batinicaz/oci-apps/compare/v1.19.0...v1.19.1) (2026-08-24)
+
+
+### Bug Fixes
+
+* volume size + startup issues ([#313](https://github.com/batinicaz/oci-apps/issues/313)) ([5246275](https://github.com/batinicaz/oci-apps/commit/52462756f137ba159b4510f0bd488b5108fa326e))
+
 ## [1.19.0](https://github.com/batinicaz/oci-apps/compare/v1.18.0...v1.19.0) (2026-08-24)
 
 
