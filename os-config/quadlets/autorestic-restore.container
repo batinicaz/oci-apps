@@ -3,12 +3,12 @@ Description=Autorestic Restore
 After=network-online.target fetch-bootstrap-secrets.service
 Wants=network-online.target
 Requires=fetch-bootstrap-secrets.service
-Before=freshrss.service planka.service nitter.service redlib.service kaneo.service
+Before=freshrss.service planka.service nitter.service redlib.service vikunja.service
 
 [Container]
 Image=docker.io/cupcakearmy/autorestic:1.8.3@sha256:0a826ea59ca452dadae50e618c0a14800450c920d22da0e35cb23e7a8be36d1f
 Exec=sh -c '\
-  for loc in freshrss planka kaneo; do \
+  for loc in freshrss planka vikunja; do \
     dir="/opt/data/$loc"; \
     [ ! -d "$dir" ] || [ -z "$(ls -A "$dir" 2>/dev/null)" ] && autorestic restore -l "$loc" --to / --force; \
   done; \
@@ -32,7 +32,7 @@ PodmanArgs=--security-opt=no-new-privileges
 [Service]
 Type=oneshot
 ExecCondition=/bin/bash -c '\
-  for dir in /opt/data/freshrss /opt/data/planka /opt/data/kaneo; do \
+  for dir in /opt/data/freshrss /opt/data/planka /opt/data/vikunja; do \
     [ ! -d "$dir" ] || [ -z "$(ls -A "$dir" 2>/dev/null)" ] && exit 0; \
   done; \
   exit 1'

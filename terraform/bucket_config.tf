@@ -37,8 +37,8 @@ locals {
     "freshrss.env"           = { path = "/freshrss", dest = "freshrss.env" }
     "planka.env"             = { path = "/planka", dest = "planka.env" }
     "planka-postgres.env"    = { path = "/planka/postgres", dest = "planka-postgres.env" }
-    "kaneo.env"              = { path = "/kaneo", dest = "kaneo.env" }
-    "kaneo-postgres.env"     = { path = "/kaneo/postgres", dest = "kaneo-postgres.env" }
+    "vikunja.env"            = { path = "/vikunja", dest = "vikunja.env" }
+    "vikunja-postgres.env"   = { path = "/vikunja/postgres", dest = "vikunja-postgres.env" }
     "nitter.env"             = { path = "/nitter", dest = "nitter.env" }
     "nitter-sessions"        = { path = "/nitter-sessions", dest = "nitter-sessions.jsonl", custom = true }
     "nitter-config.conf"     = { path = "/nitter", dest = "nitter.conf", custom = true }

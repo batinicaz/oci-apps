@@ -109,11 +109,6 @@ variable "services" {
       port      = 80
       subdomain = "ftr"
     }
-    kaneo = {
-      port             = 5173
-      subdomain        = "kaneo"
-      rate_limit_paths = ["sign-in"]
-    }
     nitter = {
       port      = 8080
       subdomain = "nitter"
@@ -136,6 +131,11 @@ variable "services" {
     trek = {
       port      = 3000
       subdomain = "trek"
+    }
+    vikunja = {
+      port             = 3456
+      subdomain        = "project"
+      rate_limit_paths = ["login"]
     }
   }
   description = "Service configuration map"

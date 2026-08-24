@@ -27,8 +27,8 @@ locations:
     to:
       - oci
 
-  kaneo:
-    from: /opt/data/kaneo
+  vikunja:
+    from: /opt/data/vikunja
     to:
       - oci
 
