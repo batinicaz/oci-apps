@@ -1,9 +1,9 @@
 resource "oci_core_volume" "data" {
-  // checkov:skip=CKV_OCI_2: App data backed up hourly via autorestic to object storage
+  // checkov:skip=CKV_OCI_2: App data backed up daily via autorestic to object storage
   compartment_id      = data.terraform_remote_state.oci_core.outputs.terraform_identity_compartment_id
   availability_domain = var.availability_domain
   display_name        = "${var.name}-data"
-  size_in_gbs         = 150
+  size_in_gbs         = 100
   vpus_per_gb         = 10
   kms_key_id          = oci_kms_key.this.id
 
