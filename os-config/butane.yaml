@@ -107,12 +107,6 @@ storage:
           FRESHRSS_HOST=${FRESHRSS_HOST}
           FULLTEXTRSS_HOST=${FULLTEXTRSS_HOST}
 
-    - path: /opt/env/planka.env
-      mode: 0644
-      contents:
-        inline: |
-          PLANKA_HOST=${PLANKA_HOST}
-
     - path: /opt/env/vikunja.env
       mode: 0644
       contents:

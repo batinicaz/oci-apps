@@ -16,7 +16,7 @@ services:
     tmpfs:
       - /tmp
     volumes:
-      - /opt/data/vikunja/files:/files:z
+      - /opt/data/vikunja/files:/files:z,U
     depends_on:
       postgres:
         condition: service_healthy
@@ -31,6 +31,7 @@ services:
       VIKUNJA_FILES_BASEPATH: /files
       VIKUNJA_AUTH_OPENID_ENABLED: "true"
       VIKUNJA_AUTH_OPENID_PROVIDERS_ENTRA_NAME: Entra ID
+      VIKUNJA_AUTH_LOCAL_ENABLED: "false"
       VIKUNJA_DATABASE_TYPE: postgres
       VIKUNJA_DATABASE_HOST: vikunja-postgres
       VIKUNJA_DATABASE_DATABASE: vikunja

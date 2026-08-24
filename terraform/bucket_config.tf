@@ -35,8 +35,6 @@ locals {
   # Simple templates (custom=false) are generated from templates/env.tmpl.tftpl
   infisical_templates = {
     "freshrss.env"           = { path = "/freshrss", dest = "freshrss.env" }
-    "planka.env"             = { path = "/planka", dest = "planka.env" }
-    "planka-postgres.env"    = { path = "/planka/postgres", dest = "planka-postgres.env" }
     "vikunja.env"            = { path = "/vikunja", dest = "vikunja.env" }
     "vikunja-postgres.env"   = { path = "/vikunja/postgres", dest = "vikunja-postgres.env" }
     "nitter.env"             = { path = "/nitter", dest = "nitter.env" }

@@ -22,11 +22,6 @@ locations:
           - "*.log"
           - "*.tmp"
 
-  planka:
-    from: /opt/data/planka
-    to:
-      - oci
-
   vikunja:
     from: /opt/data/vikunja
     to:
