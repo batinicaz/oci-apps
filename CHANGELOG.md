@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.20.0](https://github.com/batinicaz/oci-apps/compare/v1.19.22...v1.20.0) (2026-09-09)
+
+
+### Features
+
+* update freshrss to 1.30.0 ([#335](https://github.com/batinicaz/oci-apps/issues/335)) ([76b1c71](https://github.com/batinicaz/oci-apps/commit/76b1c71ab909d34e38b08c0234451b7f3037b1be))
+
 ### [1.19.22](https://github.com/batinicaz/oci-apps/compare/v1.19.21...v1.19.22) (2026-09-09)
 
 ### [1.19.21](https://github.com/batinicaz/oci-apps/compare/v1.19.20...v1.19.21) (2026-09-08)
