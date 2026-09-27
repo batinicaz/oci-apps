@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.21.0](https://github.com/batinicaz/oci-apps/compare/v1.20.13...v1.21.0) (2026-09-27)
+
+
+### Features
+
+* set trek session duration env vars ([#349](https://github.com/batinicaz/oci-apps/issues/349)) ([43819c9](https://github.com/batinicaz/oci-apps/commit/43819c99d30fc86ac760ed60a5032584690d2df5))
+
 ### [1.20.13](https://github.com/batinicaz/oci-apps/compare/v1.20.12...v1.20.13) (2026-09-27)
 
 ### [1.20.12](https://github.com/batinicaz/oci-apps/compare/v1.20.11...v1.20.12) (2026-09-27)
