@@ -31,6 +31,8 @@ services:
       APP_URL: https://${TREK_HOST}
       ALLOWED_ORIGINS: https://${TREK_HOST}
       TRUST_PROXY: "1"
+      SESSION_DURATION: 30d
+      SESSION_DURATION_REMEMBER: 90d
       OIDC_ONLY: "true"
       OIDC_DISPLAY_NAME: Microsoft
       OIDC_SCOPE: openid email profile
