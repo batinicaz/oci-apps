@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.23.0](https://github.com/batinicaz/oci-apps/compare/v1.22.2...v1.23.0) (2026-10-17)
+
+
+### Features
+
+* run fulltextrss from ci-built image as non-root ([#373](https://github.com/batinicaz/oci-apps/issues/373)) ([af79588](https://github.com/batinicaz/oci-apps/commit/af7958801da64c3fb76c1ffcd8e31d599179b0fb))
+
 ### [1.22.2](https://github.com/batinicaz/oci-apps/compare/v1.22.1...v1.22.2) (2026-10-17)
 
 
