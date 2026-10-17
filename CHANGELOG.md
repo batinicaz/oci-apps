@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.21.20](https://github.com/batinicaz/oci-apps/compare/v1.21.19...v1.21.20) (2026-10-17)
+
+
+### Bug Fixes
+
+* override nytimes user agent for fulltextrss ([#369](https://github.com/batinicaz/oci-apps/issues/369)) ([7e8d1a1](https://github.com/batinicaz/oci-apps/commit/7e8d1a1658816fbb350172edf3ce89e8b7ece385))
+
 ### [1.21.19](https://github.com/batinicaz/oci-apps/compare/v1.21.18...v1.21.19) (2026-10-16)
 
 ### [1.21.18](https://github.com/batinicaz/oci-apps/compare/v1.21.17...v1.21.18) (2026-10-16)
