@@ -74,6 +74,8 @@ services:
       - /opt/data/freshrss/fulltextrss-cache:/var/www/html/cache/rss-with-key:z,U
       - /opt/secrets/fulltextrss-config.php:/var/www/html/custom_config.php:ro,z
       - ./fulltextrss-nytimes.com.txt:/var/www/html/site_config/custom/nytimes.com.txt:ro,z
+      - ./fulltextrss-theregister.com.txt:/var/www/html/site_config/custom/theregister.com.txt:ro,z
+      - ./fulltextrss-theregister.com.txt:/var/www/html/site_config/custom/api.theregister.com.txt:ro,z
     networks:
       - traefik
       - internal
