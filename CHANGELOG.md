@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.22.2](https://github.com/batinicaz/oci-apps/compare/v1.22.1...v1.22.2) (2026-10-17)
+
+
+### Bug Fixes
+
+* deprecated inputs ([#372](https://github.com/batinicaz/oci-apps/issues/372)) ([fbdc7a2](https://github.com/batinicaz/oci-apps/commit/fbdc7a20c6c291e0498f0317bff5e173607db77b))
+
 ### [1.22.1](https://github.com/batinicaz/oci-apps/compare/v1.22.0...v1.22.1) (2026-10-17)
 
 
