@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.24.2](https://github.com/batinicaz/oci-apps/compare/v1.24.1...v1.24.2) (2026-10-17)
+
+
+### Bug Fixes
+
+* stop sqlite feed queries logging feed urls to the journal ([#382](https://github.com/batinicaz/oci-apps/issues/382)) ([3f1f1fc](https://github.com/batinicaz/oci-apps/commit/3f1f1fc62f6978c74c030e52ccde41e4cab99688))
+
 ### [1.24.1](https://github.com/batinicaz/oci-apps/compare/v1.24.0...v1.24.1) (2026-10-17)
 
 
