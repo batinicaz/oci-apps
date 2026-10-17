@@ -7,7 +7,7 @@ SQLITE_IMAGE="docker.io/alpine/sqlite:3.51.2"
 get_feeds() {
     find "$DATA_DIR" -maxdepth 2 -name 'db.sqlite' ! -path '*/_/*' -print0 2>/dev/null | \
     while IFS= read -r -d '' db; do
-        podman run --rm -v "${db}:/db.sqlite:ro,z" "$SQLITE_IMAGE" \
+        podman run --rm --log-driver none -v "${db}:/db.sqlite:ro,z" "$SQLITE_IMAGE" \
             /db.sqlite "SELECT url FROM feed WHERE url LIKE '%makefulltextfeed%'" 2>/dev/null || true
     done
 }
