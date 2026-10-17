@@ -38,7 +38,7 @@ services:
     environment:
       TZ: Europe/London
       CRON_MIN: 01,21,41
-      INTERNAL_HOST_ALLOWLIST: nitter:8080 fulltextrss:80
+      INTERNAL_HOST_ALLOWLIST: nitter:8080 fulltextrss:80 redlib:8080
       OIDC_ENABLED: 1
       OIDC_X_FORWARDED_HEADERS: X-Forwarded-Host X-Forwarded-Port X-Forwarded-Proto
       OIDC_REMOTE_USER_CLAIM: preferred_username
