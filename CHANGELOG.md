@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.24.0](https://github.com/batinicaz/oci-apps/compare/v1.23.6...v1.24.0) (2026-10-17)
+
+
+### Features
+
+* add healtcheck of fresh rss feeds ([#380](https://github.com/batinicaz/oci-apps/issues/380)) ([6b5610d](https://github.com/batinicaz/oci-apps/commit/6b5610df76f9b0d7f00cdf7670c94796d8e4f1bf))
+
 ### [1.23.6](https://github.com/batinicaz/oci-apps/compare/v1.23.5...v1.23.6) (2026-10-17)
 
 ### [1.23.5](https://github.com/batinicaz/oci-apps/compare/v1.23.4...v1.23.5) (2026-10-17)
