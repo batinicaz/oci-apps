@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.23.2](https://github.com/batinicaz/oci-apps/compare/v1.23.1...v1.23.2) (2026-10-17)
+
+
+### Bug Fixes
+
+* let freshrss entrypoint traverse user data dirs ([#375](https://github.com/batinicaz/oci-apps/issues/375)) ([4287009](https://github.com/batinicaz/oci-apps/commit/4287009f6ef5cce8eee8ddf439f3f2da69912734))
+
 ### [1.23.1](https://github.com/batinicaz/oci-apps/compare/v1.23.0...v1.23.1) (2026-10-17)
 
 
