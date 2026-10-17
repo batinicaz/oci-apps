@@ -111,6 +111,7 @@ No modules.
 | [oci_core_volume_attachment.data](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/core_volume_attachment) | resource |
 | [oci_identity_dynamic_group.this](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/identity_dynamic_group) | resource |
 | [oci_identity_policy.block_volume_service](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/identity_policy) | resource |
+| [oci_identity_policy.feed_health_metrics](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/identity_policy) | resource |
 | [oci_identity_policy.storage_access](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/identity_policy) | resource |
 | [oci_identity_policy.storage_service](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/identity_policy) | resource |
 | [oci_identity_policy.vault_read_secrets](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/identity_policy) | resource |
@@ -122,6 +123,7 @@ No modules.
 | [oci_load_balancer_backend_set.traefik](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/load_balancer_backend_set) | resource |
 | [oci_load_balancer_certificate.this](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/load_balancer_certificate) | resource |
 | [oci_load_balancer_listener.https](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/load_balancer_listener) | resource |
+| [oci_monitoring_alarm.feed_broken](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/monitoring_alarm) | resource |
 | [oci_monitoring_alarm.object_storage_count](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/monitoring_alarm) | resource |
 | [oci_monitoring_alarm.object_storage_size](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/monitoring_alarm) | resource |
 | [oci_objectstorage_bucket.fcos](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/objectstorage_bucket) | resource |

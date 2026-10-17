@@ -27,6 +27,24 @@ resource "oci_identity_policy" "vault_read_secrets" {
   })
 }
 
+resource "oci_identity_policy" "feed_health_metrics" {
+  compartment_id = data.terraform_remote_state.oci_core.outputs.terraform_identity_compartment_id
+  description    = "Allow ${var.name} to post FreshRSS feed health metrics"
+  name           = "${var.name}-feed-health-metrics"
+
+  statements = [
+    <<-POLICY
+      Allow dynamic-group ${oci_identity_dynamic_group.this.name} to use metrics in compartment id
+      ${data.terraform_remote_state.oci_core.outputs.terraform_identity_compartment_id}
+      where target.metrics.namespace='rss_feed_health'
+    POLICY
+  ]
+
+  defined_tags = merge(local.default_tags, {
+    "terraform.name" = "${var.name}-feed-health-metrics"
+  })
+}
+
 resource "oci_identity_policy" "storage_access" {
   compartment_id = data.terraform_remote_state.oci_core.outputs.terraform_identity_compartment_id
   name           = "${var.name}-storage-access"

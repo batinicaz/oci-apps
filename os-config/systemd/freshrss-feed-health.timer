@@ -1,0 +1,9 @@
+[Unit]
+Description=Report FreshRSS feed health hourly
+
+[Timer]
+OnCalendar=*:50
+Persistent=true
+
+[Install]
+WantedBy=timers.target

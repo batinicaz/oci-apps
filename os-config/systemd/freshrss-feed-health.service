@@ -1,0 +1,9 @@
+[Unit]
+Description=Report FreshRSS feed health to OCI Monitoring
+After=freshrss.service
+Requires=freshrss.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/scripts/freshrss-feed-health.sh
+TimeoutStartSec=1800

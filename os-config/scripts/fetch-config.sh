@@ -93,6 +93,7 @@ systemctl enable --now \
   podcasts.path \
   trek.path \
   podcasts-cleanup.timer \
+  freshrss-feed-health.timer \
   gitops-sync.timer
 
 echo "Configuration fetch complete"
