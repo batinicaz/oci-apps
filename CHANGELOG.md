@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.23.3](https://github.com/batinicaz/oci-apps/compare/v1.23.2...v1.23.3) (2026-10-17)
+
+
+### Bug Fixes
+
+* start apps once every secret they mount exists ([#376](https://github.com/batinicaz/oci-apps/issues/376)) ([7598131](https://github.com/batinicaz/oci-apps/commit/75981317fd7f2885fd7b3b0e06a406c91dc4e21b))
+
 ### [1.23.2](https://github.com/batinicaz/oci-apps/compare/v1.23.1...v1.23.2) (2026-10-17)
 
 
