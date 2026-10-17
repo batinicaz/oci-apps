@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.23.4](https://github.com/batinicaz/oci-apps/compare/v1.23.3...v1.23.4) (2026-10-17)
+
+
+### Bug Fixes
+
+* override theregister user agent for fulltextrss ([#377](https://github.com/batinicaz/oci-apps/issues/377)) ([9c3392b](https://github.com/batinicaz/oci-apps/commit/9c3392b7ab27dd3d49eeeaca9c01ba2cf3f7c13c))
+
 ### [1.23.3](https://github.com/batinicaz/oci-apps/compare/v1.23.2...v1.23.3) (2026-10-17)
 
 
