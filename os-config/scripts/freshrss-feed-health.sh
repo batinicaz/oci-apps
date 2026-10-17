@@ -32,7 +32,7 @@ is_broken() {
     fi
 }
 
-podman run --rm -v "$DB:/db.sqlite:ro,z" "$SQLITE_IMAGE" -separator $'\t' /db.sqlite \
+podman run --rm --log-driver none -v "$DB:/db.sqlite:ro,z" "$SQLITE_IMAGE" -separator $'\t' /db.sqlite \
     "SELECT id, name, url FROM feed WHERE ttl >= 0 ORDER BY id" |
 while IFS=$'\t' read -r id name url; do
     feed="$id $name"
