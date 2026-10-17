@@ -142,6 +142,21 @@ systemd:
     - name: podman.socket
       enabled: false
 
+    - name: var-opt-secrets.mount
+      enabled: true
+      contents: |
+        [Unit]
+        Description=Rendered secrets
+
+        [Mount]
+        What=tmpfs
+        Where=/var/opt/secrets
+        Type=tmpfs
+        Options=mode=0700,nosuid,nodev,noexec
+
+        [Install]
+        WantedBy=local-fs.target
+
     - name: first-boot.service
       enabled: true
       contents_local: os-config/systemd/first-boot.service
