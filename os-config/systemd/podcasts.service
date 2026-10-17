@@ -1,8 +1,8 @@
 [Unit]
 Description=Podcast Pipeline (get_iplayer -> Audiobookshelf -> Podly)
-After=traefik.service infisical-agent.service autorestic-restore.service ghcr-login.service podcasts-network.service
+After=traefik.service infisical-agent.service autorestic-restore.service podcasts-network.service
 Wants=autorestic-restore.service
-Requires=ghcr-login.service podcasts-network.service
+Requires=podcasts-network.service
 ConditionPathExists=/opt/secrets/podly.env
 
 [Service]

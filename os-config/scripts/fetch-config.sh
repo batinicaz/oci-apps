@@ -80,12 +80,12 @@ systemctl enable \
 systemctl enable --now \
   secret@freshrss.env.path \
   secret@fulltextrss-config.php.path \
+  secret@ghcr-token.path \
   secret@vikunja.env.path \
   secret@vikunja-postgres.env.path \
   secret@nitter.conf.path \
   secret@nitter-sessions.jsonl.path \
   secret@healthcheck-urls.env.path \
-  ghcr-token.path \
   freshrss.path \
   vikunja.path \
   nitter.path \
