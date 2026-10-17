@@ -8,4 +8,4 @@ RandomizedDelaySec=300
 Unit=app-backup-wrapper.service
 
 [Install]
-WantedBy=timers.target
+WantedBy=secret@healthcheck-urls.env.service

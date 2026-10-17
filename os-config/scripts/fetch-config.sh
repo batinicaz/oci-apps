@@ -73,24 +73,25 @@ systemctl daemon-reload
 systemctl enable \
   freshrss.service \
   vikunja.service \
-  nitter.service
+  nitter.service \
+  app-backup.timer \
+  app-prune.timer
 
 systemctl enable --now \
   secret@freshrss.env.path \
   secret@fulltextrss-config.php.path \
+  secret@ghcr-token.path \
   secret@vikunja.env.path \
   secret@vikunja-postgres.env.path \
   secret@nitter.conf.path \
   secret@nitter-sessions.jsonl.path \
-  ghcr-token.path \
+  secret@healthcheck-urls.env.path \
   freshrss.path \
   vikunja.path \
   nitter.path \
   redlib.path \
   podcasts.path \
   trek.path \
-  app-backup.timer \
-  app-prune.timer \
   podcasts-cleanup.timer \
   gitops-sync.timer
 

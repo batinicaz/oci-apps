@@ -4,6 +4,8 @@ Description=Watch FreshRSS for changes
 [Path]
 PathChanged=/opt/containers/freshrss/
 PathModified=/opt/secrets/freshrss.env
+PathModified=/opt/secrets/fulltextrss-config.php
+PathModified=/opt/secrets/ghcr-token
 Unit=app-restart@freshrss.service
 
 [Install]

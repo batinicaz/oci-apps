@@ -7,4 +7,4 @@ Persistent=true
 RandomizedDelaySec=1800
 
 [Install]
-WantedBy=timers.target
+WantedBy=secret@healthcheck-urls.env.service

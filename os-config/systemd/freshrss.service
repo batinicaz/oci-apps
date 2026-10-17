@@ -1,8 +1,8 @@
 [Unit]
 Description=FreshRSS
-After=traefik.service infisical-agent.service autorestic-restore.service ghcr-login.service freshrss-feeds-network.service
+After=traefik.service infisical-agent.service autorestic-restore.service freshrss-feeds-network.service
 Wants=autorestic-restore.service
-Requires=ghcr-login.service freshrss-feeds-network.service
+Requires=freshrss-feeds-network.service
 ConditionPathExists=/opt/secrets/freshrss.env
 ConditionPathExists=/opt/secrets/fulltextrss-config.php
 ConditionPathExists=/opt/secrets/ghcr-token
@@ -10,6 +10,7 @@ ConditionPathExists=/opt/secrets/ghcr-token
 [Service]
 Type=oneshot
 WorkingDirectory=/opt/containers/freshrss
+ExecStartPre=/bin/bash -c '/usr/bin/podman login ghcr.io -u batinicaz --password-stdin < /opt/secrets/ghcr-token'
 ExecStart=/usr/bin/podman compose --env-file /opt/env/freshrss.env up -d
 ExecStartPost=/opt/scripts/freshrss-cache-warm.sh
 ExecStop=/usr/bin/podman compose down
@@ -18,4 +19,4 @@ RemainAfterExit=yes
 TimeoutStartSec=900
 
 [Install]
-WantedBy=secret@freshrss.env.service secret@fulltextrss-config.php.service
+WantedBy=secret@freshrss.env.service secret@fulltextrss-config.php.service secret@ghcr-token.service
