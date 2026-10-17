@@ -1,11 +1,13 @@
 networks:
   traefik:
     external: true
+  freshrss-feeds:
+    external: true
 
 services:
   redlib:
     container_name: redlib
-    image: quay.io/redlib/redlib:sha-ba98178@sha256:c896483d2766f4a5a7ee020513e419a4a7e0159dcf666ea252ac77bb91aa5a3a
+    image: ghcr.io/batinicaz/redlib:latest@sha256:86d4f4f3a3c08f97a88416a81e0636446a6a4fc683ea43dcfc8c2fdd5021aa2b
     restart: unless-stopped
     read_only: true
     userns_mode: auto
@@ -31,5 +33,8 @@ services:
       - REDLIB_DEFAULT_AUTOPLAY_VIDEOS=on
       - REDLIB_DEFAULT_HIDE_AWARDS=off
       - REDLIB_DEFAULT_DISABLE_VISIT_REDDIT_CONFIRMATION=off
+      - REDLIB_ENABLE_RSS=on
+      - REDLIB_FULL_URL=https://${REDLIB_HOST}
     networks:
       - traefik
+      - freshrss-feeds
