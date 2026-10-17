@@ -57,25 +57,19 @@ services:
 
   fulltextrss:
     container_name: fulltextrss
-    image: ghcr.io/batinicaz/fulltextrss:3.9.13@sha256:2c51e2f26202fae080e979b1e15d214f950c109bf2f5ccb8da0b3cf3828f6c84
+    image: ghcr.io/batinicaz/fulltextrss:latest@sha256:aaef50066090021e8d06c3861b4212248d7bbd71eff844fa06ec7fd0d578f1d2
     restart: unless-stopped
     read_only: true
     cap_drop:
       - ALL
-    cap_add:
-      - CHOWN
-      - SETUID
-      - SETGID
-      - NET_BIND_SERVICE
-      - FOWNER
     security_opt:
       - no-new-privileges:true
+    sysctls:
+      net.ipv4.ip_unprivileged_port_start: 80
     tmpfs:
-      - /tmp
-      - /var/log
-      - /run
+      - /tmp:mode=1777
     volumes:
-      - /opt/data/freshrss/fulltextrss-cache:/var/www/html/cache/rss:z
+      - /opt/data/freshrss/fulltextrss-cache:/var/www/html/cache/rss-with-key:z,U
       - /opt/secrets/fulltextrss-config.php:/var/www/html/custom_config.php:ro,z
       - ./fulltextrss-nytimes.com.txt:/var/www/html/site_config/custom/nytimes.com.txt:ro,z
     networks:
