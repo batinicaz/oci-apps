@@ -22,6 +22,8 @@ services:
       - FOWNER
     security_opt:
       - no-new-privileges:true
+    group_add:
+      - "33"
     tmpfs:
       - /tmp
       - /var/log
