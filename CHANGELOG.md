@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.24.1](https://github.com/batinicaz/oci-apps/compare/v1.24.0...v1.24.1) (2026-10-17)
+
+
+### Bug Fixes
+
+* keep podman events out of the journal ([#381](https://github.com/batinicaz/oci-apps/issues/381)) ([f8efbaf](https://github.com/batinicaz/oci-apps/commit/f8efbaff49725f2bd95f3d844b8e8030128a0a71))
+
 ## [1.24.0](https://github.com/batinicaz/oci-apps/compare/v1.23.6...v1.24.0) (2026-10-17)
 
 
