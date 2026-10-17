@@ -37,6 +37,14 @@ storage:
         inline: |
           LANG=C.UTF-8
 
+    - path: /etc/containers/containers.conf.d/events.conf
+      mode: 0644
+      contents:
+        inline: |
+          [engine]
+          events_logger = "file"
+          events_logfile_max_size = "1MB"
+
     - path: /etc/zincati/config.d/55-update-strategy.toml
       mode: 0644
       contents:
