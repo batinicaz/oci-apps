@@ -28,6 +28,7 @@ resource "null_resource" "regenerate_key" {
       file("${path.module}/../os-config/scripts/fetch-bootstrap-secrets.sh"),
       file("${path.module}/../os-config/scripts/gitops-sync.sh"),
       file("${path.module}/../os-config/scripts/freshrss-feed-health.sh"),
+      file("${path.module}/../os-config/scripts/freshrss-cache-warm.sh"),
       file("${path.module}/../os-config/systemd/first-boot.service"),
       file("${path.module}/../os-config/systemd/tailscaled.service"),
       file("${path.module}/../os-config/systemd/fetch-config.service"),
