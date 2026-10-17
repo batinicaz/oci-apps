@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.23.1](https://github.com/batinicaz/oci-apps/compare/v1.23.0...v1.23.1) (2026-10-17)
+
+
+### Bug Fixes
+
+* start freshrss once ghcr login completes ([#374](https://github.com/batinicaz/oci-apps/issues/374)) ([5c80e72](https://github.com/batinicaz/oci-apps/commit/5c80e729b726cd9d53f57d048190dd443ecb4262))
+
 ## [1.23.0](https://github.com/batinicaz/oci-apps/compare/v1.22.2...v1.23.0) (2026-10-17)
 
 
