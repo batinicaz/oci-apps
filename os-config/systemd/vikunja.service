@@ -14,4 +14,4 @@ ExecStopPost=-/usr/bin/podman compose down --remove-orphans
 RemainAfterExit=yes
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=secret@vikunja.env.service secret@vikunja-postgres.env.service

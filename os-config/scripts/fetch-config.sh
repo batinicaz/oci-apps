@@ -70,7 +70,18 @@ restorecon -R /etc/systemd/system
 
 systemctl daemon-reload
 
+systemctl enable \
+  freshrss.service \
+  vikunja.service \
+  nitter.service
+
 systemctl enable --now \
+  secret@freshrss.env.path \
+  secret@fulltextrss-config.php.path \
+  secret@vikunja.env.path \
+  secret@vikunja-postgres.env.path \
+  secret@nitter.conf.path \
+  secret@nitter-sessions.jsonl.path \
   ghcr-token.path \
   freshrss.path \
   vikunja.path \
