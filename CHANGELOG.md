@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.22.1](https://github.com/batinicaz/oci-apps/compare/v1.22.0...v1.22.1) (2026-10-17)
+
+
+### Bug Fixes
+
+* stop fulltextrss printing php notices into feeds ([#371](https://github.com/batinicaz/oci-apps/issues/371)) ([13107a7](https://github.com/batinicaz/oci-apps/commit/13107a7e78479b092b63010d59a32abc3a2be1de))
+
 ## [1.22.0](https://github.com/batinicaz/oci-apps/compare/v1.21.20...v1.22.0) (2026-10-17)
 
 
