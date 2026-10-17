@@ -3,7 +3,7 @@ Description=Watch Nitter for changes
 
 [Path]
 PathChanged=/opt/containers/nitter/
-PathModified=/opt/secrets/nitter.env
+PathModified=/opt/secrets/nitter.conf
 PathModified=/opt/secrets/nitter-sessions.jsonl
 Unit=app-restart@nitter.service
 
