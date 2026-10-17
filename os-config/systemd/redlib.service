@@ -1,6 +1,7 @@
 [Unit]
 Description=Redlib
-After=traefik.service infisical-agent.service
+After=traefik.service infisical-agent.service freshrss-feeds-network.service
+Requires=freshrss-feeds-network.service
 ConditionPathExists=/opt/secrets/redlib.env
 
 [Service]
