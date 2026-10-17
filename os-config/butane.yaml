@@ -100,6 +100,11 @@ storage:
       contents:
         local: os-config/scripts/freshrss-cache-warm.sh
 
+    - path: /opt/scripts/freshrss-feed-health.sh
+      mode: 0755
+      contents:
+        local: os-config/scripts/freshrss-feed-health.sh
+
     - path: /opt/env/freshrss.env
       mode: 0644
       contents:
