@@ -70,9 +70,8 @@ restorecon -R /etc/systemd/system
 
 systemctl daemon-reload
 
-systemctl enable ghcr-token.path
-
 systemctl enable --now \
+  ghcr-token.path \
   freshrss.path \
   vikunja.path \
   nitter.path \
