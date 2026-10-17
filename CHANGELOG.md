@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.22.0](https://github.com/batinicaz/oci-apps/compare/v1.21.20...v1.22.0) (2026-10-17)
+
+
+### Features
+
+* run redlib from ci-built image with rss enabled ([#370](https://github.com/batinicaz/oci-apps/issues/370)) ([7438b55](https://github.com/batinicaz/oci-apps/commit/7438b5503c1b0f4aeb5602b3e82c19d9edd2ebba))
+
 ### [1.21.20](https://github.com/batinicaz/oci-apps/compare/v1.21.19...v1.21.20) (2026-10-17)
 
 
