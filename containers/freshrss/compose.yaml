@@ -59,7 +59,7 @@ services:
 
   fulltextrss:
     container_name: fulltextrss
-    image: ghcr.io/batinicaz/fulltextrss:latest@sha256:86193be23fa82f98c20d080494e6a208efb535f8cad5c51a71b147d560756ad0
+    image: ghcr.io/batinicaz/fulltextrss:latest@sha256:b4a0621196f07f63864f16d958d0165b709c6eb8d498f3b614bf220211717fa2
     restart: unless-stopped
     read_only: true
     cap_drop:
