@@ -7,7 +7,7 @@ networks:
 services:
   redlib:
     container_name: redlib
-    image: ghcr.io/batinicaz/redlib:latest@sha256:082614be94aeaf80dddead15f333744daa5f73aa3cc832532bd2fb37bd3ad46b
+    image: ghcr.io/batinicaz/redlib:latest@sha256:6e2960c853af3f7d9bb1560b3e51282add757a85c4cc723c0c77da6d9fd51388
     restart: unless-stopped
     read_only: true
     userns_mode: auto
