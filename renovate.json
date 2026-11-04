@@ -32,6 +32,7 @@
   "packageRules": [
     {
       "matchDepNames": ["fedora-coreos-aarch64"],
+      "changelogUrl": "https://builds.coreos.fedoraproject.org/?stream=stable",
       "automerge": true
     }
   ],
