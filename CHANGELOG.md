@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.24.60](https://github.com/batinicaz/oci-apps/compare/v1.24.59...v1.24.60) (2026-11-04)
+
+
+### Bug Fixes
+
+* missing changelog from coreos renovate prs ([#440](https://github.com/batinicaz/oci-apps/issues/440)) ([a897064](https://github.com/batinicaz/oci-apps/commit/a8970640889ee089dd5c07770b909879b2f6c068))
+
 ### [1.24.59](https://github.com/batinicaz/oci-apps/compare/v1.24.58...v1.24.59) (2026-11-04)
 
 ### [1.24.58](https://github.com/batinicaz/oci-apps/compare/v1.24.57...v1.24.58) (2026-11-04)
