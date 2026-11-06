@@ -49,7 +49,7 @@ services:
 
   postgres:
     container_name: vikunja-postgres
-    image: public.ecr.aws/docker/library/postgres:18-alpine@sha256:b1c1673a890fba8fae71d37210b4fd9a0b5cd0df8bb994a6bcc01d9cf8e1670c
+    image: public.ecr.aws/docker/library/postgres:18-alpine@sha256:c935aff069a7bbe5c286411a08e9678850d79be7848b190a0e4637b266478626
     restart: unless-stopped
     read_only: true
     cap_drop:
