@@ -7,7 +7,7 @@ networks:
 services:
   podly:
     container_name: podly
-    image: ghcr.io/podly-pure-podcasts/podly-pure-podcasts:2.10.1-lite-arm64@sha256:454a6ba1bf11812155412a7d083dc2e95822b78cf04764ea57151dc1ea4c2ac7
+    image: ghcr.io/podly-pure-podcasts/podly-pure-podcasts:2.10.2-lite-arm64@sha256:8bf248211e40386da5ac8dc3e14ee9bfc591cd58ca00c0f1d053cd7d182545fd
     restart: unless-stopped
     cap_drop:
       - ALL
