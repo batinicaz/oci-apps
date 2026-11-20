@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.25.0](https://github.com/batinicaz/oci-apps/compare/v1.24.106...v1.25.0) (2026-11-20)
+
+
+### Features
+
+* automate vikunja postgres major upgrades ([#492](https://github.com/batinicaz/oci-apps/issues/492)) ([096fbf4](https://github.com/batinicaz/oci-apps/commit/096fbf4bec0aa006a496725edea8dc6c7daca064))
+
 ### [1.24.106](https://github.com/batinicaz/oci-apps/compare/v1.24.105...v1.24.106) (2026-11-20)
 
 ### [1.24.105](https://github.com/batinicaz/oci-apps/compare/v1.24.104...v1.24.105) (2026-11-20)
