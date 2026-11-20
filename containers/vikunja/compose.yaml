@@ -65,15 +65,37 @@ services:
     tmpfs:
       - /tmp
       - /run/postgresql
+      - /var/lib/postgresql
     volumes:
-      - /opt/data/vikunja/postgres:/var/lib/postgresql:z
+      - /opt/data/vikunja/postgres:/srv/postgres:z
+      - ./postgres-restore.sql:/docker-entrypoint-initdb.d/restore.sql:ro,z
     env_file:
       - /opt/secrets/vikunja-postgres.env
     environment:
       POSTGRES_DB: vikunja
       POSTGRES_USER: vikunja
+    entrypoint: ["sh", "-c", "exec env PGDATA=/srv/postgres/$$PG_MAJOR/docker docker-entrypoint.sh postgres"]
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U vikunja -d vikunja"]
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U vikunja -d vikunja && psql -U vikunja -d vikunja -c 'select from migration limit 1'"]
       interval: 10s
       timeout: 5s
       retries: 5
+
+  postgres-cleanup:
+    container_name: vikunja-postgres-cleanup
+    image: public.ecr.aws/docker/library/postgres:18-alpine@sha256:c69207a837b37339d626d730b7fe0cdd5445733fa1a9f61a65c0297a525e761f
+    restart: "no"
+    read_only: true
+    network_mode: none
+    cap_drop:
+      - ALL
+    cap_add:
+      - DAC_OVERRIDE
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /opt/data/vikunja/postgres:/srv/postgres:z
+    depends_on:
+      postgres:
+        condition: service_healthy
+    entrypoint: ["sh", "-c", "exec find /srv/postgres -mindepth 1 -maxdepth 1 -type d ! -name \"$$PG_MAJOR\" -exec rm -rf {} +"]
