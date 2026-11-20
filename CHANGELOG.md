@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.25.1](https://github.com/batinicaz/oci-apps/compare/v1.25.0...v1.25.1) (2026-11-20)
+
+
+### Bug Fixes
+
+* rely on reusable workflow terraform concurrency ([#493](https://github.com/batinicaz/oci-apps/issues/493)) ([7a640b7](https://github.com/batinicaz/oci-apps/commit/7a640b754021006e1686d37e3caffb00a3dea1af))
+
 ## [1.25.0](https://github.com/batinicaz/oci-apps/compare/v1.24.106...v1.25.0) (2026-11-20)
 
 
